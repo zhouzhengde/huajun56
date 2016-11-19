@@ -1,0 +1,98 @@
+<div class="list-container col-md-12">
+    <div class="list-frame">
+        <div class="list-title">
+            <h3><i class="glyphicon glyphicon-th"></i>&nbsp;用户列表</h3>
+        </div>
+        <div class="input-area col-md-12">
+            <div class="form-group form-material col-md-3">
+                <div class="control-label">
+                    <label>会员：</label>
+                </div>
+                <div class="control-input">
+                    <input type="text" class="form-control" ng-model="pager.condition.cust_name"
+                           placeholder="会员信息">
+                </div>
+            </div>
+            <div class="form-group form-material col-md-3">
+                <div class="control-label">
+                    <label>员工：</label>
+                </div>
+                <div class="control-input">
+                    <input type="text" class="form-control" ng-model="pager.condition.userId"
+                           placeholder="员工信息">
+                </div>
+            </div>
+            <div class="form-group form-material col-md-3">
+                <button ng-click="reload(pager, 1);" class="btn btn-primary"><i class="glyphicon glyphicon-search"></i>&nbsp;查询
+                </button>
+            </div>
+        </div>
+        <div class="opt-panel col-md-12">
+            <button class="btn btn-default" ng-click="doAddUserDialog();"><i class="glyphicon glyphicon-plus"></i>&nbsp;添加
+            </button>
+            <button class="btn btn-default" ng-click="doBatchDel();"><i class="glyphicon glyphicon-trash"></i>&nbsp;删除
+            </button>
+            <button class="btn btn-default" ng-click="reload();"><i class="glyphicon glyphicon-refresh"></i>&nbsp;刷新
+            </button>
+        </div>
+        <div class="list-table">
+            <div class="tab">
+                <table>
+                    <thead>
+                    <tr>
+                        <th>
+                            <input type="checkbox" ng-checked="globalChecked" ng-click="doCheckAll();">
+                        </th>
+                        <th>序号</th>
+                        <th>会员号</th>
+                        <th>会员姓名</th>
+                        <th>会员手机号</th>
+                        <th>分类</th>
+                        <th>原因</th>
+                        <th>备注</th>
+                        <th>导购工号</th>
+                        <th>导购姓名</th>
+                        <th>门店名称</th>
+                        <th>登记时间</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr ng-if="pager.result.length == 0">
+                        <td colspan="12" class="none-result">
+                            没有相关数据！
+                        </td>
+                    </tr>
+                    <tr ng-if="pager.result.length > 0" ng-repeat="item in pager.result">
+                        <td width="3%">
+                            <input type="checkbox" ng-model="item.checked">
+                        </td>
+                        <td width="3%" ng-bind="$index + 1">
+                        </td>
+                        <td width="7%" ng-bind="item.cust_id">
+                        </td>
+                        <td width="7%" ng-bind="item.cust_name">
+                        </td>
+                        <td width="10%" ng-bind="item.cust_phone">
+                        </td>
+                        <td width="10%" ng-bind="item.category ">
+                        </td>
+                        <td width="10%" ng-bind="item.reason">
+                        </td>
+                        <td width="10%" ng-bind="item.remarks">
+                        </td>
+                        <td width="7%" ng-bind="item.userId">
+                        </td>
+                        <td width="7%" ng-bind="item.user_name">
+                        </td>
+                        <td width="13%" ng-bind="item.store_name">
+                        </td>
+                        <td width="13%" ng-bind="item.create_time | date:'yyyy-MM-dd HH:mm:ss'">
+                        </td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div pagination ng-pager="pager" ng-callback="reload(pager);"></div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,120 @@
+@import "layout-default.less";
+@import "layout-mobile.less";
+@import "theme-default.less";
+
+// max width & height value
+@max-width-height-1: 200;
+@max-width-height-2: 1000;
+// adjust width & height step value
+@step-w-h: 50;
+
+// margin & padding max value
+@max-margin-padding-1: 20;
+
+// max row number
+@max-row-num: 20;
+
+// per row height
+@per-row-height: 1rem;
+
+.ui-layout {
+  float: left;
+}
+
+.float-left {
+  float: left;
+}
+
+.float-right {
+  float: right;
+}
+
+.overflow-hidden {
+  overflow: hidden;
+}
+
+.overflow-auto {
+  overflow: auto;
+}
+
+/**--S margin padding height width **/
+.generate-width-height-set(@max-width-height-1);
+.generate-width-height-set(@n, @i : 1) when ( @i <= @n) {
+ .w@{i} {
+    width: (@i * 1px);
+  }
+   .h@{i} {
+    height: (@i * 1px);
+  }
+  .generate-width-height-set(@n, (@i + 1));
+}
+
+.generate-width-height-set2(@max-width-height-2);
+.generate-width-height-set2(@n, @i : @max-width-height-1) when ( @i <= @n) {
+   .w@{i} {
+    width: (@i * 1px);
+  }
+  .h@{i} {
+    height: (@i * 1px);
+  }
+  .generate-width-height-set2(@n, (@i + @step-w-h));
+}
+
+.generate-width-height-set3(100);
+.generate-width-height-set3(@n, @i : 1) when ( @i <= @n) {
+   .w@{i}p {
+    width: (@i) * 1%;
+  }
+  .h@{i}p {
+    height: (@i) * 1%;
+  }
+  .generate-width-height-set3(@n, (@i + 1));
+}
+
+.generate-margin-padding-set(@max-margin-padding-1);
+.generate-margin-padding-set(@n, @i : (-@n + 10)) when (@i <= @n) {
+   .pt@{i} {
+    padding-top: (@i * 1px);
+  }
+  .pr@{i} {
+    padding-right: (@i * 1px);
+  }
+  .pb@{i} {
+    padding-bottom: (@i * 1px);
+  }
+  .pl@{i} {
+    padding-left: (@i * 1px);
+  }
+  .pl@{i} {
+    padding: (@i * 1px);
+  }
+   .mt@{i} {
+    margin-top: (@i * 1px);
+  }
+   .mr@{i} {
+    margin-right: (@i * 1px);
+  }
+   .mb@{i} {
+    margin-bottom: (@i * 1px);
+  }
+   .ml@{i} {
+    margin-left: (@i * 1px);
+  }
+   .m@{i} {
+    margin: (@i * 1px);
+  }
+  .generate-margin-padding-set(@n, (@i + 1));
+}
+/**--S margin padding height width **/
+
+.generate-row-md(@max-row-num);
+.generate-row-md(@n, @i : 1) when (@i <= @n) {
+  .row-md-@{i} {
+    height: @i * (100 / @n) * 1%;
+  }
+  .row-rem-@{i} {
+    height: 1rem * @i;
+  }
+  .generate-row-md(@max-row-num, @i + 1);
+}
+

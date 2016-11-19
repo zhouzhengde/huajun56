@@ -22,11 +22,23 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <processorPath useClasspath="true" />
-        <module name="huajunwebsite" />
+        <module name="common" />
+        <module name="console" />
+        <module name="customer" />
+        <module name="order" />
+        <module name="portals" />
+        <module name="user" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
+      <module name="common" target="1.5" />
+      <module name="console" target="1.5" />
+      <module name="customer" target="1.5" />
       <module name="huajunwebsite" target="1.5" />
+      <module name="order" target="1.5" />
+      <module name="portals" target="1.5" />
+      <module name="user" target="1.5" />
+      <module name="webapp" target="1.5" />
     </bytecodeTargetLevel>
   </component>
 </project>

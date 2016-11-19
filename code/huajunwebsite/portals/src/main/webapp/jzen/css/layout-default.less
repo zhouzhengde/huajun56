@@ -1,0 +1,68 @@
+.layout-default(layout-default);
+.layout-default(@layout-name) {
+  // north height
+  @north-height: auto;
+  // middle height
+  @west-center-east-height: 88%;
+  // left or west width
+  @west-width: 0%;
+  // center width;
+  @center-width: 100%;
+  // east width
+  @east-width: 0px;
+  // south height
+  @south-height: auto;
+
+  /**--S ui-layout **/
+  /* @media only screen and (max-width: 1280px) and (min-width: 768px) {
+     body.layout-default {
+       width: 1280px;
+     }
+   }*/
+
+  /*@media only screen and (max-width: 768px) {
+
+    body.layout-default .ui-layout-north > div {
+      width: 100%;
+    }
+  }*/
+
+  .@{layout-name} .ui-layout-north:extend(.ui-layout) {
+    width: 100%;
+    height: @north-height;
+    /* position: absolute;
+     top: 0px;
+     left: 0px;
+     z-index: 1;*/
+  }
+
+  .@{layout-name} .ui-layout-west:extend(.ui-layout) {
+    width: @west-width;
+    height: @west-center-east-height;
+  }
+
+  .@{layout-name} .ui-layout-center:extend(.ui-layout) {
+    width: @center-width;
+    height: @west-center-east-height;
+
+    /* position: absolute;
+     padding-top: 60px;
+     top: 0px;
+     left: 0px;
+     z-index: 0;*/
+  }
+
+  .@{layout-name} .ui-layout-east:extend(.ui-layout) {
+    width: @east-width;
+    height: @west-center-east-height;
+  }
+
+  .@{layout-name} .ui-layout-south:extend(.ui-layout) {
+    width: 100%;
+    height: @south-height;
+    /* position: absolute;
+     top: @west-center-east-height;
+     left: 0px;
+     z-index: 1;*/
+  }
+}

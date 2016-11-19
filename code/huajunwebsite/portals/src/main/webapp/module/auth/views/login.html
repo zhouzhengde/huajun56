@@ -1,0 +1,23 @@
+<div class="container">
+    <div class="col-sm-7">
+        <p class="system-name">智慧员工后台管理系统</p>
+    </div>
+
+    <div class="col-sm-5 login-box" ng-keyup="doEnterKey($event);" >
+        <div class="login_text_1">登&nbsp;录</div>
+        <div class="form-group form_1">
+            <input ng-model="user.user_name" type="text" id="login_username" name="username" class="form-control form_2"
+                   placeholder="账&nbsp;号"
+                   required="" autofocus="">
+        </div>
+        <div class="form-group form_1">
+            <input ng-model="user.password" type="password" name="password" class="form-control form_2"
+                   placeholder="密&nbsp;码"
+                   required="">
+        </div>
+        <div class="w100p">
+            <button type="button" class="btn btn-primary w100p" ng-click="doLogin();" >登&nbsp;&nbsp;录</button>
+        </div>
+        <div class="login-message" ng-bind="message"></div>
+    </div>
+</div>

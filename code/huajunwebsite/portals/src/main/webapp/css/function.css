@@ -1,0 +1,350 @@
+/*
+ * Copyright (c) 2015. Bond(China), MOI
+ */
+h2 {
+    font-size: 2.0rem;
+}
+
+h3 {
+    font-size: 1.6rem;
+}
+
+h4 {
+    font-size: 1.2rem;
+}
+
+.none-result {
+    color: #ff3b30;
+}
+
+.float-none {
+    float: none !important;
+}
+
+.mirror-x {
+    transform: matrix(-1, 0, 0, 1, 0, 0);
+}
+
+.mirror-y {
+    transform: matrix(0, -1, 0, 0, 1, 0);
+}
+
+.modal-header > h3 {
+    margin: 5px;
+}
+
+.btn.btn-default {
+    border: 1px solid #bdc3c7;
+    background: #ffffff;
+    color: #333333;
+}
+
+.align-center {
+    margin: 0px auto;
+}
+
+.text-align-center {
+    text-align: center;
+}
+
+.header {
+    padding-top: 0px;
+    padding-right: 0px;
+    background: -webkit-linear-gradient(left, #620a00, #dc3606, #620a00);
+}
+
+.header .logo {
+    background: url("../images/logo.png") no-repeat 0px;
+    height: 60px;
+}
+
+.header .navbar-collapse .navbar-nav > li > ul.dropdown-menu {
+    margin-top: 0px;
+}
+
+.footer {
+    border-top: 1px solid rgba(151, 163, 179, 0.37);
+    padding-top: 1.1rem;
+    padding-bottom: 1.1rem;
+    color: #666;
+}
+
+.layout-mobile .footer {
+    padding: 0.7rem 0px;
+}
+
+.content {
+    background: rgba(226, 239, 255, 0.45); /*#E7EFF3;*/
+    float: left;
+    width: 100%;
+    overflow-y: auto;
+}
+
+/*--S menu --*/
+.menu {
+    overflow: auto;
+    overflow-x: hidden;
+}
+
+.menu > .logo-title > h1 {
+    font-weight: 300;
+    margin: 110px;
+    padding: 25px 0px;
+    font-size: 26px;
+    color: #ffffff;
+    border-bottom: 1px solid #757171;
+}
+
+/*.menu ul, .menu li, .menu li > p {
+    margin: 0px;
+    padding: 0px;
+}*/
+
+.menu ul, .menu li, .menu li > p > span > a {
+    text-decoration: none;
+}
+
+.menu .menu-bar .menu-item {
+    color: #a3a3a3;
+    list-style: none;
+    cursor: pointer;
+}
+
+.menu .menu-bar .menu-item span.text {
+    font-size: 15px;
+}
+
+.menu .menu-bar .menu-item {
+    width: 100%;
+    border-top: 1px solid #757171;
+}
+
+.menu .menu-bar .menu-item:first-child {
+    border-top: none;
+}
+
+.menu .menu-bar .menu-item .menu-arrow {
+    float: right;
+}
+
+.menu .menu-bar .menu-item-title + .menu-bar {
+    display: none;
+    background: rgba(32, 32, 32, 0.3) none repeat scroll !important;
+    background: rgb(0, 0, 0);
+    filter: alpha(opacity=20);
+}
+
+.menu .menu-bar .menu-item-title + .menu-bar .menu-item {
+    border: none;
+}
+
+.menu .menu-bar .menu-item-title + .menu-bar .menu-item-title {
+    /* padding-left: 35%;*/
+}
+
+.menu .menu-bar .menu-item-title {
+    padding: 12px 10px 12px 25%;
+}
+
+.menu .menu-bar .menu-item-title > .menu-arrow:before {
+    content: "\e114";
+}
+
+.menu .menu-bar .menu-item-title.active > .menu-arrow:before {
+    content: "\e113";
+}
+
+.menu .menu-bar .menu-item.leaf > .menu-item-title {
+    padding-left: 0px;
+    text-align: center;
+}
+
+.menu .menu-bar .menu-item.leaf > .active {
+    padding-right: 0px;
+    background: rgba(155, 155, 155, 0.2) none repeat scroll !important;
+    background: rgb(0, 0, 0);
+    filter: alpha(opacity=20);
+}
+
+.menu .menu-bar .menu-item.leaf > .active span.text {
+    color: #f3f3f3;
+}
+
+.menu .menu-bar .menu-item.leaf > .active > .menu-leaf {
+    float: right;
+    margin: 4px -8px 0px 3px;
+    font-size: 20px;
+    color: #E7EFF3;
+}
+
+.menu .menu-bar .menu-item-title.active > .menu-leaf:before {
+    content: "\e251";
+}
+
+.menu .menu-bar .menu-item-title:hover {
+    color: #d3d3d3;
+    background: rgba(0, 0, 0, 0.2) none repeat scroll !important;
+    background: rgb(0, 0, 0);
+    filter: alpha(opacity=20);
+}
+
+.menu .menu-bar .menu-item-title > span > a {
+    color: #a3a3a3;
+}
+
+/*--E menu --*/
+
+.hot-top {
+    padding: 10px 0px;
+    background: #FFFFFF;
+}
+
+.box {
+    background: #FFFFFF;
+    padding: 0px 10px;
+}
+
+.box > div {
+    height: 300px;
+    border: 1px solid #f9f2f4;
+    box-shadow: 0px 0px 1px 2px #e3e3e3;
+}
+
+/*-- S 功能待开发 */
+.develop {
+    margin: 0px auto;
+    padding-top: 15%;
+    text-align: center;
+}
+
+.develop-tips {
+    font-size: 20px;
+}
+
+.develop-icon {
+    line-height: 60px;
+    font-size: 72px;
+    color: #db3606;
+    margin-bottom: 0px;
+}
+
+/*-- E 功能待开发 */
+
+/*--S add page style */
+.add-container {
+    float: left;
+    height: 100%;
+}
+
+.add-container > .input-area {
+    float: left;
+}
+
+.add-container > .input-area .control-label {
+    float: left;
+    text-align: right;
+    width: 25%;
+}
+
+.add-container > .input-area .control-input {
+    float: left;
+    text-align: left;
+    width: 60%;
+}
+
+.add-container > .input-area .form-group.form-material {
+    margin: 10px 0px 10px 0px;
+}
+
+/*--S add page style */
+
+/*--S login.html --*/
+.login-page .header {
+    background: #FFFFFF;
+}
+
+.login-page .header .logo {
+    background: url("../images/logo_1.png") no-repeat 0px;
+}
+
+.login-page .content {
+    background: -webkit-linear-gradient(left, #620a00, #dc3606, #620a00);;
+}
+
+.login-page .content .container {
+    margin-top: 100px;
+    padding: 50px 20px;
+}
+
+.login-page .system-name {
+    text-align: center;
+    padding-top: 25%;
+    color: #FFFFFF;
+    font: 32px bold frutigernext_medium, frutigernext, "Microsoft YaHei", Arial;
+}
+
+.login_text_1 {
+    font-size: 26px;
+    color: #757575;
+    padding: 0px 0px 10px 0px
+}
+
+div.login-box {
+    border: none;
+    background: #FFFFFF;
+    padding: 40px 20px;
+}
+
+.login-message {
+    padding: 20px 0px 0px;
+    color: #dc3606;
+}
+
+/*--E login.html --*/
+
+/*--S modal-dialog --*/
+.modal-dialog {
+    padding-top: 42px;
+}
+
+/*--E modal-dialog --*/
+
+/*--S media adjust --*/
+@media (max-width: 767px) {
+
+    .header .navbar-collapse {
+        background-color: rgba(44, 44, 44, 0.9);
+        padding-bottom: 5px;
+    }
+
+    .header .navbar-collapse .navbar-nav > li {
+        margin: 0px;
+    }
+
+    .header .navbar-collapse .navbar-nav > li > a {
+        color: #d3d3d3;
+    }
+
+    .header .navbar-collapse .navbar-nav > li > a:hover, .header .navbar-collapse .navbar-nav > li > a:focus {
+        color: #FFFFFF;
+        background-color: rgba(0, 0, 0, 0.5);
+        border-top: 3px solid rgba(0, 0, 0, 0.2);
+    }
+
+    .login-page .system-name {
+        padding-top: 0px;
+        margin-top: -20px;
+        padding-bottom: 10px;
+        font-size: 24px;
+    }
+
+    .login-page .content .container {
+        margin-top: 0px;
+    }
+
+    .modal-dialog {
+        padding-top: 60px;
+    }
+}
+
+/*--E media adjust --*
