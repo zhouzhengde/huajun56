@@ -31,6 +31,8 @@ require.config({
         "bootstrap": 'bootstrap/js/bootstrap.min',
         "bootstrap-table": 'jquery/bootstrap-table/bootstrap-table',
         "jquery-bootstrap": 'jquery/jquery.bootstrap.min',
+        "jquery-webticker": 'jquery/jquery.webticker.min',
+        "jquery-plugins": 'jquery/jquery.plugins',
         "ui-bootstrap": 'angular/uibootstrap/ui-bootstrap-tpls',
         "flatui": 'flatui/js/flat-ui.min',
         'jquery': 'jquery/jquery-2.1.4',
@@ -58,17 +60,28 @@ require.config({
             'deps': [
                 'bootstrap',
                 'css!../lib/bootstrap/css/bootstrap',
+                'css!../lib/fontawesome/css/font-awesome',
                 'css!../lib/flatui/css/flat-ui',
-                /* 'text!../lib/flatui/css/flat-ui.css.map',*/
                 'css!../../../css/common',
                 'css!../../../css/function',
-                'style',
                 'jquery',
                 'device',
-                'jquery-bootstrap'
+                'jquery-bootstrap',
+                'jquery-webticker',
+                'jquery-plugins'
             ]
         },
         'bootstrap': {
+            'deps': [
+                'jquery'
+            ]
+        },
+        'jquery-webticker': {
+            'deps': [
+                'jquery'
+            ]
+        },
+        'jquery-plugins': {
             'deps': [
                 'jquery'
             ]

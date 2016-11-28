@@ -2,32 +2,44 @@ define(function () {
 
     return [
         {
-            "name": "知识库",
-            "href": "#/knowledge",
+            "name": "首页",
+            "href": "#/index",
             "disabled": false,
             "active": false
         },
         {
-            "name": "门店管理",
-            "href": "#/store",
+            "name": "合作案例",
+            "href": "#/inquiry",
             "disabled": false,
             "active": false
         },
         {
-            "name": "员工管理",
-            "href": "#/user",
+            "name": "公司介绍",
+            "href": "#/inquiry",
             "disabled": false,
             "active": false
         },
         {
-            "name": "会员管理",
-            "href": "#/member",
+            "name": "服务范围",
+            "href": "#/serice",
             "disabled": false,
             "active": false
         },
         {
-            "name": "会员需求管理",
-            "href": "#/requirement",
+            "name": "特色业务",
+            "href": "#/serice",
+            "disabled": false,
+            "active": false
+        },
+        {
+            "name": "在线询价",
+            "href": "#/inquiry",
+            "disabled": false,
+            "active": false
+        },
+        {
+            "name": "行业新闻",
+            "href": "#/serice",
             "disabled": false,
             "active": false
         }

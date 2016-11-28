@@ -25,7 +25,7 @@ define([
 
     var listMenu = {};
 
-    var md = ng.module('app', ['ngRoute', 'angular-ui', "ui.bootstrap", 'auth', 'knowledge'])
+    var md = ng.module('app', ['ngRoute', 'angular-ui', "ui.bootstrap", 'auth', 'index'])
         .controller('HeaderCtrl', ['$scope', "AuthResource", "$location", "$rootScope", function ($scope, $authResource, $location, $rootScope) {
 
             $scope.menuList = menuList;
@@ -84,7 +84,7 @@ define([
             };
 
             //是否已经登入
-            $authResource.islogin({}, function (data) {
+           /* $authResource.islogin({}, function (data) {
                 $rootScope.userInfo = {};
                 if (data.status == 500) {
                     $.messager.alert("错误", data.message);
@@ -96,7 +96,7 @@ define([
                     // 设置登入用户信息
                     $rootScope.userInfo = data.result.userInfo;
                 }
-            });
+            });*/
 
         }]).controller('FooterCtrl', ['$scope', function ($scope) {
             /*页脚*/
@@ -125,83 +125,6 @@ define([
                 last: 0,
                 result: []
             };
-        }).factory('$knowledgeTypeSet', function ($rootScope) {
-            return [
-                {
-                    code: "1",
-                    name: "茂业百货简介"
-                },
-                {
-                    code: "2",
-                    name: "员工管理"
-                },
-                {
-                    code: "3",
-                    name: "顾客服务"
-                },
-                {
-                    code: "4",
-                    name: "业务知识"
-                }
-            ];
-        }).config(['$routeProvider', function ($routeProvider) {
-
-        }]).filter("gender", function () {
-            return function (inputValue, otherParams) {
-                return inputValue == 1 ? '女' : '男';
-            }
-        }).filter("employerType", function () {
-            return function (inputValue, otherParams) {
-                switch (inputValue) {
-                    case "10":
-                        return " 内部员工";
-                    case "20":
-                        return "外部员工"
-                    default:
-                        return "未知";
-                }
-            }
-        }).filter("roleType", function () {
-            return function (inputValue, otherParams) {
-                switch (inputValue) {
-                    case "admin":
-                        return " 管理员";
-                    case "manager":
-                        return "店长";
-                    case "lmanager":
-                        return "门店管理员";
-                    case "zmanager":
-                        return "店长助理";
-                    case "sales":
-                        return " 员工";
-                    default:
-                        return "未知";
-                }
-            }
-        }).filter("levelType", function () {
-            return function (inputValue, otherParams) {
-                switch (inputValue) {
-                    case "1":
-                        return " 高级";
-                    case "2":
-                        return "中级";
-                    case "3":
-                        return "一般";
-                    default:
-                        return "未知";
-                }
-            }
-        }).filter("validType", function () {
-            return function (inputValue, otherParams) {
-                switch (inputValue) {
-                    case "1":
-                        return " 可用";
-                    case "0":
-                        return "不可用";
-                    default:
-                        return "未知";
-                }
-            }
         });
     return md;
 });

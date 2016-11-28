@@ -27,7 +27,6 @@
         <module name="customer" />
         <module name="order" />
         <module name="portals" />
-        <module name="user" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>

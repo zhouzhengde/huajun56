@@ -1,0 +1,13 @@
+com/huajun/website/user/entity/User.class
+com/huajun/website/user/api/RegisterUserService.class
+com/huajun/website/user/api/PagingUserService.class
+com/huajun/website/user/entity/Role.class
+com/huajun/website/user/entity/RoleMenu.class
+com/huajun/website/user/impl/UserServiceImpl.class
+com/huajun/website/user/dao/UserMapper.class
+com/huajun/website/user/impl/RegisterUserServiceImpl.class
+com/huajun/website/user/entity/Resource.class
+com/huajun/website/user/entity/RoleMenuKey.class
+com/huajun/website/user/entity/Permission.class
+com/huajun/website/user/dao/RoleMapper.class
+com/huajun/website/user/api/UserService.class

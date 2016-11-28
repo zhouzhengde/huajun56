@@ -203,7 +203,7 @@
   margin: 0;
 
   > li {
-    margin : 0px 10px;
+    margin : 0px 5px;
   }
   > li:first-child{
     /*margin-left: 0px;*/
@@ -213,7 +213,7 @@
   }
   > li > a {
     font-size: floor((@component-font-size-base * 1.067)); // ~16px
-    padding: ((@navbar-height-base - 23px) / 2) 21px;
+    padding: ((@navbar-height-base - 23px) / 2) 15px;
     line-height: 23px;
     font-weight: 300;
   }
@@ -481,7 +481,7 @@
 
   .navbar-nav {
     > li > a {
-      color: #FFFFFF;//darken(@navbar-default-link-color, 20%);
+      color: darken(@navbar-default-link-color, 20%);
       background-color: transparent;// #FFFFFF;
       border-top: 3px solid transparent;
 

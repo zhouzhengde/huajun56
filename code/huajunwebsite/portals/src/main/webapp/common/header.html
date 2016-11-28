@@ -1,31 +1,61 @@
-<!--<script src="jzen/scripts/lib/bootstrap/js/bootstrap.min.js?v222"></script>-->
+<nav class="top-nav sm-hidden">
+    <div class="container">
+        <div class="col-sm-4 none-padding">
+            <a href="#/user/login"><i class="fa fa-sign-in" aria-hidden="true" title="登入"></i>&nbsp;登入&nbsp;&nbsp;</a>
+            <a href="#/user/register"><i class="fa fa-address-card-o" aria-hidden="true"></i>&nbsp;注册&nbsp;&nbsp;</a>
+        </div>
+
+        <div class="col-sm-4 none-padding text-align-center">
+            <a href="#/user/register">在线下单&nbsp;&nbsp;</a>
+            <a>在线客服</a>
+        </div>
+
+        <div class="col-sm-4 none-padding" style="text-align: right">
+            <a><i class="fa fa-phone" aria-hidden="true"></i>&nbsp;服务热线：400-800-8888</a>
+        </div>
+    </div>
+</nav>
 
 <nav class="container navbar navbar-default" role="navigation">
-    <div class="col-sm-3 navbar-header">
-        <div class="logo ">
+
+    <div class="col-sm-4 navbar-header">
+        <div class="logo">
             <button type="button" class="col-md-6 navbar-toggle" data-toggle="collapse"
                     data-target="#menu-navbar-collapse">
             </button>
         </div>
     </div>
-    <div class="col-sm-9 collapse navbar-collapse" id="menu-navbar-collapse">
+
+    <div class="col-sm-8 none-padding float-right collapse navbar-collapse " id="menu-navbar-collapse">
+
+        <div class="search-bar">
+            <label class="col-sm-3" style="text-align: right;">订单号：</label>
+            <input type="text" class="form-control col-sm-6" ng-model="knowledge.author" placeholder="订单号">
+            &nbsp;&nbsp;
+            <button class="btn btn-primary">
+                <span class="glyphicon glyphicon-search"></span>
+                查询
+            </button>
+        </div>
+
         <ul class="nav navbar-nav">
-            <li role="presentation" ng-repeat="item in menuList" ng-if="!item.disabled" ng-class="{ true: 'active', false: ''}[item.active]"><a href="{{item.href}}" ng-bind="item.name"
-                                                                                                                                                ng-click="doChangeMenu(item);"></a></li>
-            <li role="presentation" uib-dropdown>
-                <a uib-dropdown-toggle>
-                    <span class="glyphicon glyphicon-user"></span>
-                    <span ng-bind="userInfo.name"></span>
-                    <span class="caret"></span>
+            <li role="presentation" ng-repeat="item in menuList" ng-if="!item.disabled"
+                ng-class="{ true: 'active', false: ''}[item.active]">
+
+
+                <a href="{{item.href}}" ng-click="doChangeMenu(item);">
+                    <span ng-if="$index == 0" class="glyphicon glyphicon-home"></span>
+                    <span ng-bind="item.name"></span>
                 </a>
-                <ul class="dropdown-menu" uib-dropdown-menu>
-                    <li>
-                        <a href="#/passwd"><span class="glyphicon glyphicon-edit"></span>&nbsp;修改密码</a>
-                    </li>
-                    <li>
-                        <a ng-click="doLogout();"><span class="glyphicon glyphicon-off"></span>&nbsp;退出</a>
-                    </li>
-                </ul>
+
+            </li>
+            <li role="presentation" class=" sm-show">
+                <a href="#/user/login"><i class="fa fa-sign-in" aria-hidden="true" title="登入"></i>&nbsp;登入&nbsp;&nbsp;
+                </a>
+            </li>
+            <li role="presentation" class=" sm-show">
+                <a href="#/user/register"><i class="fa fa-address-card-o" aria-hidden="true"></i>&nbsp;注册&nbsp;&nbsp;
+                </a>
             </li>
         </ul>
     </div>
