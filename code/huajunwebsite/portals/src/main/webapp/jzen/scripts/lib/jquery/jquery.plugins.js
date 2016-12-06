@@ -2,13 +2,41 @@
  * @summary: make more jquery plugins for jzen framework.
  * @author: Bond(China)
  */
-define(['jquery'], function ($) {
+define(['jquery', 'underscore'], function ($, _) {
+    'restrict'
 
     var bool = function (configValue, defaultValue) {
         if (configValue != undefined && configValue == false) {
             return configValue;
         }
         return defaultValue;
+    };
+
+    $.fn.toggleGroup = function () {
+
+        if($(this).css('display').indexOf('none') >= 0){
+            return;
+        }
+
+        var $lis = $(this).find(".toggle");
+        $lis.bind('click', function () {
+            if ($(this).hasClass("active")) {
+                return;
+            }
+            var sibs = $(this).siblings();
+            _.each(sibs, function (sib) {
+                var target = $(sib).removeClass("active").attr('data-toggle');
+                if (target) {
+                    $(target).removeClass("show").addClass("hide");
+                }
+            });
+            var target = $(this).addClass("active").attr('data-toggle');
+            if (target) {
+                $(target).removeClass("hide").addClass("show");
+            }
+        });
+
+        $(this).find(".toggle.default").eq(0).trigger('click');
     };
 
     //-S 滚动插件
@@ -59,7 +87,8 @@ define(['jquery'], function ($) {
             overflow: 'hidden'
         });
         $li.css({
-            position: 'relative'
+            position: 'relative',
+            top: "0px"
         });
 
         $li.bind('mouseover', function (event) {

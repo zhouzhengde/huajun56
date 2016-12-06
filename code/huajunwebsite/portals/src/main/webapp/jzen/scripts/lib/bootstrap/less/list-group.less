@@ -19,9 +19,10 @@
 // Use on `li`s or `div`s within the `.list-group` parent.
 
 .list-group-item {
+  text-align: center;
   position: relative;
   display: block;
-  padding: 10px 15px;
+  padding: 8px 15px;
   // Place the border on the list items and negative margin up for better styling
   margin-bottom: -1px;
   background-color: @list-group-bg;
@@ -29,11 +30,11 @@
 
   // Round the first and last items
   &:first-child {
-    .border-top-radius(@list-group-border-radius);
+    //.border-top-radius(@list-group-border-radius);
   }
   &:last-child {
     margin-bottom: 0;
-    .border-bottom-radius(@list-group-border-radius);
+    //.border-bottom-radius(@list-group-border-radius);
   }
 }
 

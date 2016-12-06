@@ -9,13 +9,13 @@ define(function () {
         },
         {
             "name": "合作案例",
-            "href": "#/inquiry",
+            "href": "#/corp",
             "disabled": false,
             "active": false
         },
         {
             "name": "公司介绍",
-            "href": "#/inquiry",
+            "href": "#/intro",
             "disabled": false,
             "active": false
         },

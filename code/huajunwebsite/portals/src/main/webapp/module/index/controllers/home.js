@@ -5,7 +5,7 @@ define([
     'underscore'
 ], function (md, ng, $, _) {
 
-    md.controller('IndexCtrl', ['$scope', function ($scope) {
+    md.controller('HomeCtrl', ['$scope', function ($scope) {
 
         $(function () {
 
@@ -14,10 +14,6 @@ define([
             $("#newsTicker2").ticker();
             $("#newsTicker3").ticker();
         });
-
-    }]).controller('DevelopCtrl', ['$scope', function ($scope) {
-
-        $scope.moduleName = "Welcome to Home Page!";
 
     }]);
 });

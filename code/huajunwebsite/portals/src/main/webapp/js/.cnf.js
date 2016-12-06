@@ -7,20 +7,12 @@ define(['app'], function (app) {
 
     return [
         {
-            name: 'aboutus',
-            path: '!module/aboutus'
-        },
-        {
             name: 'index',
             path: '!module/index'
         },
         {
             name: 'auth',
             path: '!module/auth'
-        },
-        {
-            name: 'case',
-            path: '!module/case'
         }
     ];
 });
