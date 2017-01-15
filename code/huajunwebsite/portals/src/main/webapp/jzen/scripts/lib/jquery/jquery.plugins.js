@@ -14,7 +14,7 @@ define(['jquery', 'underscore'], function ($, _) {
 
     $.fn.toggleGroup = function () {
 
-        if($(this).css('display').indexOf('none') >= 0){
+        if ($(this).css('display') != null && $(this).css('display').indexOf('none') >= 0) {
             return;
         }
 
@@ -52,7 +52,7 @@ define(['jquery', 'underscore'], function ($, _) {
         };
         var $root = $(this);
         var $li = $root.children("li");
-        var height = $li.height() * $li.size();
+        var height = $li.outerHeight() * $li.size();
         var interval = undefined;
         var obj = {
             // Manual to start

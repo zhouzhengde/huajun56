@@ -201,6 +201,9 @@
 
 .navbar-nav {
   margin: 0;
+  background: @brand-primary;
+  border-top-left-radius: 4px;
+  border-top-right-radius: 4px;
 
   > li {
     margin : 0px 5px;
@@ -483,7 +486,7 @@
     > li > a {
       color: darken(@navbar-default-link-color, 20%);
       background-color: transparent;// #FFFFFF;
-      border-top: 3px solid transparent;
+      border-top: 5px solid transparent;
      // border-left:1px solid #1b2826;
      // border-right:1px solid #1b2826;
 
@@ -491,7 +494,7 @@
       &:focus {
         color: @navbar-default-link-hover-color;
         background-color: @navbar-default-link-hover-bg;
-        border-top: 3px solid #1b2826;
+        border-top: 5px solid #1b2826;
       }
     }
     > .active > a {
@@ -502,7 +505,7 @@
         background-color: @navbar-default-link-active-bg;
         /*border: 1px solid darken(@navbar-default-bg, 5%);*/
         /*border-radius: 3px;*/
-        border-top: 3px solid #1b2826;
+        border-top: 5px solid #1b2826;
       }
     }
     > .disabled > a {

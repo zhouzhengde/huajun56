@@ -24,12 +24,15 @@ h4 {
     font-size: 1.2rem;
 }
 
+.text-align-right {
+    text-align: right;
+}
 
-.sm-show{
+.sm-show {
     display: none !important;
 }
 
-.sm-hidden{
+.sm-hidden {
     display: block !important;
 }
 
@@ -83,6 +86,7 @@ h4 {
     padding-top: 0px;
     padding-right: 0px;
     /* background: -webkit-linear-gradient(left, #620a00, #dc3606, #620a00);*/
+    background: #fafafa;
 }
 
 .header .top-nav .container {
@@ -99,14 +103,13 @@ h4 {
     line-height: 20px;
 }
 
-
-.header .service-400-tel{
+.header .service-400-tel {
     font-size: 20px;
 }
 
 .header .logo {
     background: url("../images/logo.png") no-repeat 0px;
-    height: 120px;
+    height: 130px;
     min-width: 320px;
     background-size: 320px 100px;
     background-position-x: -17px;
@@ -118,24 +121,34 @@ h4 {
 
 .header .search-bar {
     width: 100%;
-    line-height: 40px;
-    padding: 15px 0px;
+    /*  line-height: 39px;*/
+    padding: 20px 0px;
+    text-align: right;
 }
 
 .header .search-bar label {
     float: left;
     line-height: 40px;
+    width: 20%;
 }
 
-.header .search-bar input {
+.header .search-bar input.form-control {
     float: left;
     height: 40px;
-    width: 60%;
+    width: 65%;
+    /*padding-left: 2%;
+    padding-right: 2%;*/
 }
 
 .header .search-bar button {
     line-height: 20px;
+    width: 13%;
 }
+
+/*.header .navbar-nav {
+    background: #1b2826;
+    border-top-left-radius: 40px;
+}*/
 
 .footer {
     background: #1b2826;
@@ -166,8 +179,7 @@ h4 {
     background: #ffffff;
     float: left;
     width: 100%;
-    border-top:1px solid #1b2826;
-
+    /* border-top: 1px solid #d3d3d3;*/
 }
 
 .content, .content-real {
@@ -181,10 +193,30 @@ h4 {
 
 .container > div > .title {
     width: 100%;
-    padding: 15px 10px 10px;
-    font-weight: 700;
-    font-size: 16px;
+    /*padding: 5px 0px 5px;*/
+    margin-top: 19px;
+    /*font-weight: 700;*/
+    font-size: 22px;
+    letter-spacing: 4px;
+    font-family: "等线 Light", "Microsoft YaHei", sans-serif;
+}
 
+.container > div > .title > label.en {
+    letter-spacing: 2px;
+    font-size: 22px;
+    /*font-style: italic;*/
+    color: #908b8b;
+    font-weight: 100;
+    font-family: Vijaya, "Kozuka Gothic Pr6N EL";
+}
+
+.container > div > .title label.more {
+    font-weight: 300;
+    text-align: right;
+    float: right;
+    color: #f1c40f;
+    font-size: 22px;
+    cursor: pointer;
 }
 
 .prod-box {
@@ -223,14 +255,34 @@ h4 {
 }
 
 /*--S slide --*/
+.carousel-container, .carousel-inner .item .item-container {
+    height: 380px;
+}
+
 .carousel-inner .item .item-container {
     width: 100%;
-    height: 380px;
     background-size: 100% 380px !important;
+}
+
+.slide-top {
+    position: absolute;
+}
+
+.slide-top, .slide-bottom {
+    height: 50px;
+    width: 100%;
+    background: rgba(0, 0, 0, 0.6);
+    z-index: 14;
+}
+
+.slide-bottom {
+    position: relative;
+    top: -50px;
 }
 
 .carousel-indicators {
     margin-bottom: 0px;
+    bottom: 12px;
     /*background: rgba(0,0,0,0.7);
     border-radius: 8px;
     line-height:16px;*/
@@ -270,38 +322,46 @@ h4 {
     margin-top: -30px;
 }
 
+.intro .carousel-inner .item {
+    width: 30%;
+}
+
 @-webkit-keyframes animate-slide-bar {
-    0% { width: 0px;}
-    100% {width: 100px;}
+    0% {
+        width: 0px;
+    }
+    100% {
+        width: 100px;
+    }
 }
 
 /*--E slide --*/
 
-
 /*--S menu bar--*/
-.menu-bar{
+.menu-bar {
     padding: 0px;
 }
-.menu-bar .list-group{
+
+.menu-bar .list-group {
     /*background: #f3f3f3;*/
     margin: 20px 15px;
     /*border-left: 1px solid #1b2826;
     border-right: 1px solid #1b2826;
     border-bottom: 1px solid #1b2826;*/
 }
-.menu-bar .list-group-item{
+
+.menu-bar .list-group-item {
     border: none;
     cursor: pointer;
-    border-top:1px dashed #d3d3d3;
+    border-top: 1px dashed #d3d3d3;
     border-bottom: 1px dashed #d3d3d3;
 }
 
-.menu-bar .list-group-item.active{
-
+.menu-bar .list-group-item.active {
+    border: none;
 }
 
 /*--E menu bar--*/
-
 
 /*--S login.html --*/
 .login-page .header {
@@ -354,10 +414,32 @@ div.login-box {
 
 /*--E modal-dialog --*/
 
+.news-vertical-ticker {
+    height: 150px;
+    padding: 0px;
+    width: 100%;
+}
 
-.news-vertical-ticker{
-    height : 200px;
-    padding: 0px 10px;
+.news-vertical-ticker li {
+    border-top: 1px dashed #f3f3f3;
+    padding: 5px 10px;
+    float: left;
+    width: 100%;
+}
+
+/*
+.news-vertical-ticker li a, news-vertical-ticker li label {
+    margin-right: 20px;
+}
+*/
+
+.vertical-ticker-title {
+    /*width: 100%;
+    padding: 10px 10px;
+    font-size: 16px;
+    line-height: 30px;
+    font-weight: 700;
+    margin: 0px;*/
 }
 
 /*--S media adjust --*/
@@ -365,10 +447,7 @@ div.login-box {
 
 }
 
-
 @media (max-width: 767px) {
-
-
 
     .header .navbar-collapse {
         background-color: rgba(44, 44, 44, 0.9);
@@ -383,7 +462,7 @@ div.login-box {
         color: #fff;
     }
 
-    .header .navbar-collapse .navbar-nav > li > a:hover, .header .navbar-collapse .navbar-nav > li > a:focus{
+    .header .navbar-collapse .navbar-nav > li > a:hover, .header .navbar-collapse .navbar-nav > li > a:focus {
         background: #333333;
         border-top: 3px solid #333333;
     }
@@ -409,8 +488,11 @@ div.login-box {
         padding-top: 60px;
     }
 
-    .carousel-inner .item .item-container {
+    .carousel-container, .carousel-inner .item .item-container {
         height: 140px;
+    }
+
+    .carousel-inner .item .item-container {
         background-size: 100% 140px !important;
     }
 
@@ -435,13 +517,21 @@ div.login-box {
         background-position-x: 0px;
     }
 
-    .navbar-collapse{
+    .navbar-collapse {
         float: none;
         padding: 0px 15px;
     }
 
     .carousel-indicators {
         top: 78%;
+    }
+
+    .slide-bottom {
+        top: -32px;
+    }
+
+    .slide-top, .slide-bottom {
+        height: 32px;
     }
 
     .carousel-indicators li {
@@ -458,8 +548,12 @@ div.login-box {
     }
 
     @-webkit-keyframes animate-slide-bar-sm {
-        0% { width: 0px;}
-        100% {width: 30px;}
+        0% {
+            width: 0px;
+        }
+        100% {
+            width: 30px;
+        }
     }
 
     .prod-box {
@@ -503,9 +597,10 @@ div.login-box {
     .content, .content-real {
         min-height: 0px;
     }
-    .menu-bar .list-group{
+
+    .menu-bar .list-group {
         border-left: none;
-        border-right:none;
+        border-right: none;
     }
 
 }

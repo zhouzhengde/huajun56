@@ -11,8 +11,7 @@ define([
 
             $('#carousel-ad').carousel();
             $("#newsTicker1").ticker();
-            $("#newsTicker2").ticker();
-            $("#newsTicker3").ticker();
+
         });
 
     }]);
