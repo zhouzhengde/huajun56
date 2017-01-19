@@ -4186,7 +4186,7 @@ fieldset[disabled] .input-group-btn .btn-default.active {
 }
 .navbar-nav {
   margin: 0;
-  background: #1b2826;
+  background: #fafafa;
   border-top-left-radius: 4px;
   border-top-right-radius: 4px;
 }
@@ -4438,11 +4438,11 @@ select[multiple].navbar-form .select2-search input[type="text"] {
   background-color: #fafafa;
 }
 .navbar-default .navbar-brand {
-  color: #ffffff;
+  color: #000000;
 }
 .navbar-default .navbar-brand:hover,
 .navbar-default .navbar-brand:focus {
-  color: #1b2826;
+  color: #ff0000;
   background-color: #ffffff;
 }
 .navbar-default .navbar-toggle:before {
@@ -4454,7 +4454,7 @@ select[multiple].navbar-form .select2-search input[type="text"] {
 }
 .navbar-default .navbar-toggle:hover:before,
 .navbar-default .navbar-toggle:focus:before {
-  color: #1b2826;
+  color: #ff0000;
 }
 .navbar-default .navbar-collapse,
 .navbar-default .navbar-form {
@@ -4462,24 +4462,24 @@ select[multiple].navbar-form .select2-search input[type="text"] {
   border-width: 2px;
 }
 .navbar-default .navbar-nav > li > a {
-  color: #cccccc;
+  color: #000000;
   background-color: transparent;
-  border-top: 5px solid transparent;
+  border-top: 3px solid transparent;
 }
 .navbar-default .navbar-nav > li > a:hover,
 .navbar-default .navbar-nav > li > a:focus {
-  color: #1b2826;
+  color: #ff0000;
   background-color: #ffffff;
-  border-top: 5px solid #1b2826;
+  border-top: 3px solid #ff0000;
 }
 .navbar-default .navbar-nav > .active > a,
 .navbar-default .navbar-nav > .active > a:hover,
 .navbar-default .navbar-nav > .active > a:focus {
-  color: #1b2826;
+  color: #ff0000;
   background-color: #ffffff;
   /*border: 1px solid darken(@navbar-default-bg, 5%);*/
   /*border-radius: 3px;*/
-  border-top: 5px solid #1b2826;
+  border-top: 3px solid #ff0000;
 }
 .navbar-default .navbar-nav > .disabled > a,
 .navbar-default .navbar-nav > .disabled > a:hover,
@@ -4492,25 +4492,25 @@ select[multiple].navbar-form .select2-search input[type="text"] {
   border-bottom-color: #ffffff;
 }
 .navbar-default .navbar-nav > .active > a .caret {
-  border-top-color: #1b2826;
-  border-bottom-color: #1b2826;
+  border-top-color: #ff0000;
+  border-bottom-color: #ff0000;
 }
 .navbar-default .navbar-nav > .dropdown > a:hover .caret,
 .navbar-default .navbar-nav > .dropdown > a:focus .caret {
-  border-top-color: #1b2826;
-  border-bottom-color: #1b2826;
+  border-top-color: #ff0000;
+  border-bottom-color: #ff0000;
 }
 .navbar-default .navbar-nav > .open > a,
 .navbar-default .navbar-nav > .open > a:hover,
 .navbar-default .navbar-nav > .open > a:focus {
   background-color: #ffffff;
-  color: #1b2826;
+  color: #ff0000;
 }
 .navbar-default .navbar-nav > .open > a .caret,
 .navbar-default .navbar-nav > .open > a:hover .caret,
 .navbar-default .navbar-nav > .open > a:focus .caret {
-  border-top-color: #1b2826;
-  border-bottom-color: #1b2826;
+  border-top-color: #ff0000;
+  border-bottom-color: #ff0000;
 }
 @media (max-width: 767px) {
   .navbar-default .navbar-nav .open .dropdown-menu > li > a {
@@ -4518,13 +4518,13 @@ select[multiple].navbar-form .select2-search input[type="text"] {
   }
   .navbar-default .navbar-nav .open .dropdown-menu > li > a:hover,
   .navbar-default .navbar-nav .open .dropdown-menu > li > a:focus {
-    color: #1b2826;
+    color: #ff0000;
     background-color: #ffffff;
   }
   .navbar-default .navbar-nav .open .dropdown-menu > .active > a,
   .navbar-default .navbar-nav .open .dropdown-menu > .active > a:hover,
   .navbar-default .navbar-nav .open .dropdown-menu > .active > a:focus {
-    color: #1b2826;
+    color: #ff0000;
     background-color: #ffffff;
   }
   .navbar-default .navbar-nav .open .dropdown-menu > .disabled > a,
@@ -4574,14 +4574,14 @@ select[multiple].navbar-form .select2-search input[type="text"] {
   color: #ffffff;
 }
 .navbar-default .navbar-link:hover {
-  color: #1b2826;
+  color: #ff0000;
 }
 .navbar-default .btn-link {
   color: #ffffff;
 }
 .navbar-default .btn-link:hover,
 .navbar-default .btn-link:focus {
-  color: #1b2826;
+  color: #ff0000;
 }
 .navbar-default .btn-link[disabled]:hover,
 fieldset[disabled] .navbar-default .btn-link:hover,

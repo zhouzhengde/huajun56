@@ -37,42 +37,43 @@
 
         <div class="search-bar">
             <label class="" style="text-align: right;">订单号：</label>
-            <input type="text" class="form-control" ng-model="knowledge.author" placeholder="订单号">
+            <input type="text" class="form-control" ng-model="knowledge.author" placeholder="请输入订单号...">
             &nbsp;&nbsp;
             <button class="btn btn-warning">
                 <span class="glyphicon glyphicon-search"></span>
                 查询
             </button>
         </div>
-
         <ul class="nav navbar-nav">
             <li role="presentation" ng-repeat="item in menuList" ng-if="!item.disabled"
                 ng-class="{ true: 'active', false: ''}[item.active]">
-
 
                 <a href="{{item.href}}" ng-click="doChangeMenu(item);">
                     <span ng-if="$index == 0" class="glyphicon glyphicon-home"></span>
                     <span ng-bind="item.name"></span>
                 </a>
 
-                <a class="sm-show" href="{{item.href}}" ng-click="doChangeMenu(item);" data-toggle="collapse" data-target="#menu-navbar-collapse">
+                <a class="sm-show" href="{{item.href}}" ng-click="doChangeMenu(item);" data-toggle="collapse"
+                   data-target="#menu-navbar-collapse">
                     <span ng-if="$index == 0" class="glyphicon glyphicon-home"></span>
                     <span ng-bind="item.name"></span>
                 </a>
 
             </li>
             <li role="presentation" class=" sm-show">
-                <a href="#/user/login" data-toggle="collapse" data-target="#menu-navbar-collapse"><i class="fa fa-sign-in" aria-hidden="true" title="登入"></i>&nbsp;登入&nbsp;&nbsp;
+                <a href="#/user/login" data-toggle="collapse" data-target="#menu-navbar-collapse"><i
+                        class="fa fa-sign-in" aria-hidden="true" title="登入"></i>&nbsp;登入&nbsp;&nbsp;
                 </a>
             </li>
             <li role="presentation" class=" sm-show">
-                <a href="#/user/register" data-toggle="collapse" data-target="#menu-navbar-collapse"><i class="fa fa-address-card-o" aria-hidden="true"></i>&nbsp;注册&nbsp;&nbsp;
+                <a href="#/user/register" data-toggle="collapse" data-target="#menu-navbar-collapse"><i
+                        class="fa fa-address-card-o" aria-hidden="true"></i>&nbsp;注册&nbsp;&nbsp;
                 </a>
             </li>
 
             <li role="presentation" class=" sm-show">
                 <a class="w100p text-align-center" data-toggle="collapse" data-target="#menu-navbar-collapse"
-                        style="color: #FFF; font-size: 22px;">
+                   style="color: #FFF; font-size: 22px;">
                     <i class="fa fa-angle-double-up" aria-hidden="true"></i>
                 </a>
             </li>

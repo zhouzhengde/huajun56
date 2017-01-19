@@ -40,6 +40,7 @@ require.config({
         'validator-en': 'jquery/validator/languages/jquery.validationEngine-en',
         'validator-zh_CN': 'jquery/validator/languages/jquery.validationEngine-zh_CN',
         'treeview': 'jquery/treeview/js/bootstrap-treeview',
+        'iconfont': 'iconfont/iconfont',
         'underscore': 'util/underscore',
         'device': 'util/device',
         'style': 'util/style-adjust',
@@ -68,7 +69,8 @@ require.config({
                 'device',
                 'jquery-bootstrap',
                 'jquery-webticker',
-                'jquery-plugins'
+                'jquery-plugins',
+                'iconfont'
             ]
         },
         'bootstrap': {
@@ -76,6 +78,12 @@ require.config({
                 'jquery'
             ]
         },
+        'iconfont': {
+            'deps': [
+                'css!../lib/iconfont/iconfont'
+            ]
+        },
+
         'jquery-webticker': {
             'deps': [
                 'jquery'

@@ -145,11 +145,6 @@ h4 {
     width: 13%;
 }
 
-/*.header .navbar-nav {
-    background: #1b2826;
-    border-top-left-radius: 40px;
-}*/
-
 .footer {
     background: #1b2826;
     padding: 15px 0px;
@@ -193,9 +188,7 @@ h4 {
 
 .container > div > .title {
     width: 100%;
-    /*padding: 5px 0px 5px;*/
     margin-top: 19px;
-    /*font-weight: 700;*/
     font-size: 22px;
     letter-spacing: 4px;
     font-family: "等线 Light", "Microsoft YaHei", sans-serif;
@@ -235,9 +228,19 @@ h4 {
     border-radius: 50px;
     color: #1b2826;
     text-align: center;
-    font-size: 50px;
+    font-size: 60px;
     line-height: 100px;
     background: #f3f3f3;
+    /*background: -webkit-gradient(radial, 50 50, 0, 50 50, 50, from(#f3f3f3), to(#aaaaaa));*/
+    cursor: pointer;
+}
+
+.prod-item:hover {
+    background: #1b2826;
+}
+
+.prod-item:hover i {
+    color: #FFFFFF;
 }
 
 .corp-box {
@@ -252,16 +255,17 @@ h4 {
     background: #ffffff;
     text-align: center;
     padding: 25px 0px;
+    cursor: pointer;
 }
 
 /*--S slide --*/
 .carousel-container, .carousel-inner .item .item-container {
-    height: 380px;
+    height: 490px;
 }
 
 .carousel-inner .item .item-container {
     width: 100%;
-    background-size: 100% 380px !important;
+    background-size: 100% 490px !important;
 }
 
 .slide-top {
@@ -283,19 +287,15 @@ h4 {
 .carousel-indicators {
     margin-bottom: 0px;
     bottom: 12px;
-    /*background: rgba(0,0,0,0.7);
-    border-radius: 8px;
-    line-height:16px;*/
 }
 
 .carousel-indicators li {
-    cursor: pointer;
     width: 50px;
     background: #f3f3f3;
     border: none;
     border-radius: 2px;
     height: 4px;
-
+    cursor: pointer;
 }
 
 .carousel-indicators li.active {
@@ -334,78 +334,7 @@ h4 {
         width: 100px;
     }
 }
-
 /*--E slide --*/
-
-/*--S menu bar--*/
-.menu-bar {
-    padding: 0px;
-}
-
-.menu-bar .list-group {
-    /*background: #f3f3f3;*/
-    margin: 20px 15px;
-    /*border-left: 1px solid #1b2826;
-    border-right: 1px solid #1b2826;
-    border-bottom: 1px solid #1b2826;*/
-}
-
-.menu-bar .list-group-item {
-    border: none;
-    cursor: pointer;
-    border-top: 1px dashed #d3d3d3;
-    border-bottom: 1px dashed #d3d3d3;
-}
-
-.menu-bar .list-group-item.active {
-    border: none;
-}
-
-/*--E menu bar--*/
-
-/*--S login.html --*/
-.login-page .header {
-    background: #FFFFFF;
-}
-
-.login-page .header .logo {
-    /*background: url("../images/logo_1.png") no-repeat 0px;*/
-}
-
-.login-page .content {
-    background: -webkit-linear-gradient(left, #620a00, #dc3606, #620a00);;
-}
-
-.login-page .content .container {
-    margin-top: 100px;
-    padding: 50px 20px;
-}
-
-.login-page .system-name {
-    text-align: center;
-    padding-top: 25%;
-    color: #FFFFFF;
-    font: 32px bold frutigernext_medium, frutigernext, "Microsoft YaHei", Arial;
-}
-
-.login_text_1 {
-    font-size: 26px;
-    color: #757575;
-    padding: 0px 0px 10px 0px
-}
-
-div.login-box {
-    border: none;
-    background: #FFFFFF;
-    padding: 40px 20px;
-}
-
-.login-message {
-    padding: 20px 0px 0px;
-    color: #dc3606;
-}
-
-/*--E login.html --*/
 
 /*--S modal-dialog --*/
 .modal-dialog {
@@ -427,27 +356,21 @@ div.login-box {
     width: 100%;
 }
 
-/*
-.news-vertical-ticker li a, news-vertical-ticker li label {
-    margin-right: 20px;
+/**-S fixed-sidebar **/
+.fixed-sidebar {
+    position: fixed;
+    z-index: 65559;
 }
-*/
 
-.vertical-ticker-title {
-    /*width: 100%;
-    padding: 10px 10px;
-    font-size: 16px;
-    line-height: 30px;
-    font-weight: 700;
-    margin: 0px;*/
+.fixed-sidebar.right {
+    right: 0px;
+    top: 45%;
 }
+
+/**-E fixed-sidebar **/
 
 /*--S media adjust --*/
-@media (min-width: 992px) {
-
-}
-
-@media (max-width: 767px) {
+@media all and (max-width: 767px) {
 
     .header .navbar-collapse {
         background-color: rgba(44, 44, 44, 0.9);
@@ -547,15 +470,6 @@ div.login-box {
         -webkit-animation-timing-function: linear;
     }
 
-    @-webkit-keyframes animate-slide-bar-sm {
-        0% {
-            width: 0px;
-        }
-        100% {
-            width: 30px;
-        }
-    }
-
     .prod-box {
         width: 34%;
         float: left;
@@ -605,4 +519,12 @@ div.login-box {
 
 }
 
+@-webkit-keyframes animate-slide-bar-sm {
+    0% {
+        width: 0px;
+    }
+    100% {
+        width: 30px;
+    }
+}
 /*--E media adjust --*
