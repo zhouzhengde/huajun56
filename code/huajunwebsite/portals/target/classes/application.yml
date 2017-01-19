@@ -1,5 +1,0 @@
-server:
-  port: 9090
-  address: 192.168.1.2
-  sessionTimeout: 30
-  contextPath: /
