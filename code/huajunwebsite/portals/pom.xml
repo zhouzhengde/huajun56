@@ -30,7 +30,7 @@
 
     </dependencies>
     <build>
-        <finalName>portals</finalName>
+        <finalName>ROOT</finalName>
         <plugins>
 
             <plugin>

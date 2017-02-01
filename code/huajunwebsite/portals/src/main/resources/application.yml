@@ -1,5 +1,5 @@
 server:
   port: 9090
-  address: 192.168.1.2
+  address: localhost
   sessionTimeout: 30
   contextPath: /
