@@ -2,13 +2,13 @@
  * Copyright (c) 2016. Bond(China), java freestyle app
  */
 
-define(['app'], function (app) {
+define([
+    'angular',
+    'app',
+    '!module/index/.cnf'
+], function (ng) {
     'use strict';
 
-    return [
-        {
-            name: 'index',
-            path: '!module/index'
-        }
-    ];
+    var mds = ['app', 'index'];
+    ng.bootstrap(document, mds);
 });

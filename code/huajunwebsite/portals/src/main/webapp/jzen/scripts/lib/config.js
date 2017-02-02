@@ -28,8 +28,7 @@ require.config({
         'root': '../../../js',
         'app': '../../../js/.md',
         'module': '../../../module',
-        'lib': '../../../jzen/scripts/lib',
-        'iconfont': 'iconfont/iconfont'
+        'lib': '../../../jzen/scripts/lib'
     },
     map: {
         '*': {
@@ -49,18 +48,13 @@ require.config({
                 'css!../lib/bootstrap/css/bootstrap',
                 'css!../lib/fontawesome/css/font-awesome',
                 'css!../lib/flatui/css/flat-ui',
+                'css!../lib/iconfont/iconfont',
                 'css!../../../css/common',
                 'css!../../../css/function',
                 'jquery',
                 'device',
                 'jquery-bootstrap',
-                'jquery-plugins',
-                'iconfont'
-            ]
-        },
-        'iconfont': {
-            'deps': [
-                'css!../lib/iconfont/iconfont'
+                'jquery-plugins'
             ]
         },
         'bootstrap': {

@@ -6,24 +6,24 @@ module.exports = function (grunt) {
         //     dist: {
         //         src: [
         //             // 'jzen/scripts/lib/*.js',
-        //             'jzen/scripts/lib/**/*.js',
-        //             'jzen/scripts/lib/**/**/*.js',
-        //             'jzen/scripts/lib/**/**/**/*.js',
+        //             'jzen/scripts/lib/require.js',
+        //             // 'jzen/scripts/lib/**/**/*.js',
+        //             // 'jzen/scripts/lib/**/**/**/*.js',
         //             /*'js/!*.js',
         //              'module/!**!/!*.js',
         //              'module/!**!/!**!/!*.js',*/
         //         ],
-        //         dest: 'dist/built.js'
+        //         dest: 'dist/built-require.js'
         //     }
         // }
         // ,
-        // uglify: {
-        //     build: {
-        //         src: 'dist/built.js',
-        //         dest: 'dist/main.min.js'
-        //     }
-        // }
-        // ,
+        uglify: {
+            build: {
+                src: 'jzen/scripts/lib/require.js',
+                dest: 'dist/require.min.js'
+            }
+        }
+        ,
         requirejs: {
             compile: {
                 options: {
@@ -39,10 +39,10 @@ module.exports = function (grunt) {
             }
         }
     });
-    //grunt.loadNpmTasks('grunt-contrib-uglify');
+    grunt.loadNpmTasks('grunt-contrib-uglify');
     //grunt.loadNpmTasks('grunt-contrib-concat');
     grunt.loadNpmTasks('grunt-contrib-requirejs');
 
     //grunt.registerTask('default', ['requirejs','concat', 'uglify']);
-    grunt.registerTask('default', ['requirejs']);
+    grunt.registerTask('default', ['requirejs', 'uglify']);
 }

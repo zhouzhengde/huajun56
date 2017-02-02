@@ -28,6 +28,12 @@
             <scope>test</scope>
         </dependency>
 
+        <dependency>
+            <groupId>org.apache.maven.plugins</groupId>
+            <artifactId>maven-war-plugin</artifactId>
+            <version>3.0.0</version>
+        </dependency>
+
     </dependencies>
     <build>
         <finalName>ROOT</finalName>
@@ -48,6 +54,32 @@
                         </goals>
                     </execution>
                 </executions>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-war-plugin</artifactId>
+                <version>3.0.0</version>
+                <configuration>
+                    <packagingExcludes>
+                        css/**,
+                        js/**,
+                        module/**/*.js,
+                        module/**/**/*.js,
+                        node_modules/**,
+                        Gruntfile.js,
+                        package.json,
+                        jzen/css/**,
+                        jzen/scripts/lib/*.js,
+                        jzen/scripts/lib/**/*.js,
+                        jzen/scripts/lib/**/**/*.js,
+                        jzen/scripts/lib/*.css,
+                        jzen/scripts/lib/**/*.css,
+                        jzen/scripts/lib/**/**/*.css,
+                        jzen/scripts/lib/*.css.map,
+                        jzen/scripts/lib/**/*.css.map,
+                        jzen/scripts/lib/**/**/*.css.map,
+                    </packagingExcludes>
+                </configuration>
             </plugin>
         </plugins>
     </build>
