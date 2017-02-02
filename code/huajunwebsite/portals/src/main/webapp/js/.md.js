@@ -8,9 +8,8 @@ define([
     'underscore',
     'angular-route',
     'ui-bootstrap',
-    'js/menu.js',
-    'jquery-bootstrap'
-], function (ng, $, _, route, ui, menuList, jqboot) {
+    '!root/menu'
+], function (ng, $, _, route, ui, menuList) {
     'use strict';
 
     // 设置全局的alert 样式
@@ -25,8 +24,8 @@ define([
 
     var listMenu = {};
 
-    var md = ng.module('app', ['ngRoute', 'angular-ui', "ui.bootstrap", 'auth', 'index'])
-        .controller('HeaderCtrl', ['$scope', "AuthResource", "$location", "$rootScope", function ($scope, $authResource, $location, $rootScope) {
+    var md = ng.module('app', ['ngRoute', "ui.bootstrap", 'ngResource'])
+        .controller('HeaderCtrl', ['$scope', "$location", "$rootScope", function ($scope, $location, $rootScope) {
 
             $scope.menuList = menuList;
 
@@ -71,37 +70,10 @@ define([
                 $scope.doChangeMenu(undefined, hash);
             });
 
-            // 登出
-            $scope.doLogout = function () {
-                $authResource.logout({}, function (data) {
-                    if (data.status == 500) {
-                        $.messager.alert("提示", data.message);
-                    }
-                    if (data.status == 200) {
-                        window.location.href = "login.html#/login";
-                    }
-                });
-            };
-
-            //是否已经登入
-           /* $authResource.islogin({}, function (data) {
-                $rootScope.userInfo = {};
-                if (data.status == 500) {
-                    $.messager.alert("错误", data.message);
-                    return;
-                }
-                if (data.status == 200 && data.result && !data.result.islogin) {
-                    window.location.href = "login.html#/login";
-                } else {
-                    // 设置登入用户信息
-                    $rootScope.userInfo = data.result.userInfo;
-                }
-            });*/
-
         }]).controller('FooterCtrl', ['$scope', function ($scope) {
             /*页脚*/
 
-        }]).run(function ($rootScope, $templateCache) {
+        }]).run(['$rootScope','$templateCache',function ($rootScope, $templateCache) {
 
             $rootScope.isMobile = window.isMobile;
             $rootScope.$on('$routeChangeStart', function (event, current, previous) {
@@ -113,7 +85,7 @@ define([
                 }
             });
 
-        }).factory('$pager', function ($rootScope) {
+        }]).factory('$pager', function ($rootScope) {
             return {
                 pageIndex: 0,
                 pageSize: 5,

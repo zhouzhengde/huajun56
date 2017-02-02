@@ -9,10 +9,6 @@ define(['app'], function (app) {
         {
             name: 'index',
             path: '!module/index'
-        },
-        {
-            name: 'auth',
-            path: '!module/auth'
         }
     ];
 });
