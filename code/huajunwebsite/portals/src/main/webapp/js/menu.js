@@ -27,7 +27,7 @@ define(function () {
         },
         {
             "name": "特色业务",
-            "href": "#/serice",
+            "href": "#/service",
             "disabled": false,
             "active": false
         },
@@ -39,7 +39,7 @@ define(function () {
         },
         {
             "name": "行业新闻",
-            "href": "#/serice",
+            "href": "#/service",
             "disabled": false,
             "active": false
         }
