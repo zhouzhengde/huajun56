@@ -42,6 +42,7 @@ Network Trash Folder
 Temporary Items
 .apdisk
 code/huajunwebsite/.idea
-.idea
-code/huajunwebsite/huajunwebsite.iml
-huajun56.iml
+code/huajunwebsite/*.iml
+code/huajunwebsite/*/*.iml
+code/huajunwebsite/target
+code/huajunwebsite/*/target
