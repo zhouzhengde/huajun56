@@ -25,7 +25,8 @@ define([
     var listMenu = {};
 
     var md = ng.module('app', ['ngRoute', "ui.bootstrap", 'ngResource'])
-        .controller('HeaderCtrl', ['$scope', "$location", "$rootScope", function ($scope, $location, $rootScope) {
+        .controller('HeaderCtrl', ['$scope', "$location", "$rootScope", '$timeout', function ($scope, $location, $rootScope, $timeout) {
+
 
             $scope.menuList = menuList;
 
@@ -73,9 +74,12 @@ define([
         }]).controller('FooterCtrl', ['$scope', function ($scope) {
             /*页脚*/
 
-        }]).run(['$rootScope','$templateCache',function ($rootScope, $templateCache) {
+        }]).run(['$rootScope', '$templateCache', '$timeout', function ($rootScope, $templateCache, $timeout) {
 
-            $rootScope.isMobile = window.isMobile;
+            $timeout(function () {
+                $rootScope.isMobile = window.isMobile;
+            }, 10);
+
             $rootScope.$on('$routeChangeStart', function (event, current, previous) {
                 if ($.isFunction(listMenu.$path) && current.$$route && current.$$route.originalPath) {
                     listMenu.$path("#" + current.$$route.originalPath);

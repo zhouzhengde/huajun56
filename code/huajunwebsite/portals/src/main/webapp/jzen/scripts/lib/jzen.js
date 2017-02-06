@@ -15,6 +15,9 @@ require([
     'use strict';
 
     window.isMobile = device.isMobile();
+    if ($(window).width() < 768) {
+        window.isMobile = true;
+    }
     if (window.isMobile) {
         $("body").removeClass('layout-default').addClass("layout-mobile");
     }

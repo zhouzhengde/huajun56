@@ -17,6 +17,8 @@ require.config({
         'angular': 'angular/angular',
         "bootstrap": 'bootstrap/js/bootstrap',
         'jquery': 'jquery/jquery-2.1.4',
+        'echarts': 'echarts/echarts',
+        'echarts-map-china': 'echarts/china',
         "jquery-bootstrap": 'jquery/jquery.bootstrap.min',
         "jquery-plugins": 'jquery/jquery.plugins',
         "ui-bootstrap": 'angular/uibootstrap/ui-bootstrap-tpls',
@@ -54,7 +56,14 @@ require.config({
                 'jquery',
                 'device',
                 'jquery-bootstrap',
-                'jquery-plugins'
+                'jquery-plugins',
+                'echarts'
+            ]
+        },
+        'echarts':{
+            'deps':[
+                'jquery',
+                //'echarts-map-china'
             ]
         },
         'bootstrap': {

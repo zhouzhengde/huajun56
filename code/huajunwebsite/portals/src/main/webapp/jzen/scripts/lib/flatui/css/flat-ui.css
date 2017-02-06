@@ -350,7 +350,7 @@
 body {
   font-family: frutigernext_medium, frutigernext, "Microsoft YaHei", Arial, Helvetica, sans-serif;
   font-size: 14px;
-  line-height: 1.72222;
+  line-height: 1.8;
   color: #333333;
   background-color: #ffffff;
 }
@@ -372,7 +372,7 @@ a:focus {
 }
 .img-thumbnail {
   padding: 4px;
-  line-height: 1.72222;
+  line-height: 1.8;
   background-color: #ffffff;
   border: 2px solid #bdc3c7;
   border-radius: 6px;
@@ -421,14 +421,14 @@ h6 small,
 h1,
 h2,
 h3 {
-  margin-top: 30px;
-  margin-bottom: 15px;
+  margin-top: 32px;
+  margin-bottom: 16px;
 }
 h4,
 h5,
 h6 {
-  margin-top: 15px;
-  margin-bottom: 15px;
+  margin-top: 16px;
+  margin-bottom: 16px;
 }
 h6 {
   font-weight: normal;
@@ -459,11 +459,11 @@ h6,
 }
 p {
   font-size: 18px;
-  line-height: 1.72222;
-  margin: 0 0 15px;
+  line-height: 1.8;
+  margin: 0 0 16px;
 }
 .lead {
-  margin-bottom: 30px;
+  margin-bottom: 32px;
   font-size: 28px;
   line-height: 1.46428571;
   font-weight: 300;
@@ -546,20 +546,20 @@ a.bg-danger:hover {
   background-color: #e4b9b9;
 }
 .page-header {
-  padding-bottom: 14px;
-  margin: 60px 0 30px;
+  padding-bottom: 15px;
+  margin: 64px 0 32px;
   border-bottom: 2px solid #e7e7e7;
 }
 ul,
 ol {
-  margin-bottom: 15px;
+  margin-bottom: 16px;
 }
 dl {
-  margin-bottom: 30px;
+  margin-bottom: 32px;
 }
 dt,
 dd {
-  line-height: 1.72222;
+  line-height: 1.8;
 }
 @media (min-width: 768px) {
   .dl-horizontal dt {
@@ -576,7 +576,7 @@ abbr[data-original-title] {
 blockquote {
   border-left: 3px solid #e7e7e7;
   padding: 0 0 0 16px;
-  margin: 0 0 30px;
+  margin: 0 0 32px;
 }
 blockquote p {
   font-size: 20px;
@@ -587,7 +587,7 @@ blockquote p {
 blockquote small,
 blockquote .small {
   font-size: 18px;
-  line-height: 1.72222;
+  line-height: 1.8;
   font-style: italic;
   color: inherit;
 }
@@ -605,8 +605,8 @@ blockquote.pull-right small:after {
   content: "";
 }
 address {
-  margin-bottom: 30px;
-  line-height: 1.72222;
+  margin-bottom: 32px;
+  line-height: 1.8;
 }
 sub,
 sup {
@@ -634,15 +634,15 @@ kbd {
   box-shadow: none;
 }
 pre {
-  padding: 8px;
-  margin: 0 0 15px;
+  padding: 8.66666667px;
+  margin: 0 0 16px;
   font-size: 13px;
-  line-height: 1.72222;
+  line-height: 1.8;
   color: inherit;
   background-color: #ffffff;
-  border: 2px solid #e7e7e7;
-  border-radius: 6px;
+  border: none;
   white-space: pre;
+  height: auto;
 }
 .pre-scrollable {
   max-height: 340px;
@@ -651,7 +651,7 @@ pre {
   display: block;
   padding: 4px;
   margin-bottom: 5px;
-  line-height: 1.72222;
+  line-height: 1.8;
   background-color: #ffffff;
   border: 2px solid #bdc3c7;
   border-radius: 6px;
@@ -1248,7 +1248,7 @@ legend {
   display: block;
   width: 100%;
   padding: 0;
-  margin-bottom: 15px;
+  margin-bottom: 16px;
   font-size: 24px;
   line-height: inherit;
   color: inherit;

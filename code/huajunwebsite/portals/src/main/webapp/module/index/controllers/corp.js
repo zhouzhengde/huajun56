@@ -2,8 +2,9 @@ define([
     '../.md',
     'angular',
     'jquery',
-    'underscore'
-], function (md, ng, $, _) {
+    'underscore',
+    'echarts'
+], function (md, ng, $, _, echarts) {
 
     md.controller('CorpCtrl', ['$scope', function ($scope) {
 
@@ -12,6 +13,9 @@ define([
             $(".menu-bar ul").toggleGroup();
 
         });
+
+
+
 
     }]);
 });
