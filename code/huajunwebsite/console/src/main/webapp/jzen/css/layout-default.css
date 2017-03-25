@@ -1,0 +1,86 @@
+.layout-default {
+  overflow: hidden;
+}
+/**--S ui-layout **/
+.layout-default .ui-layout-north {
+  width: 100%;
+  height: auto;
+  /* position: absolute;
+     top: 0px;
+     left: 0px;
+     z-index: 1;*/
+}
+.layout-default .ui-layout-west {
+  width: 15%;
+  height: 100%;
+}
+.layout-default .ui-layout-center {
+  width: 85%;
+  height: 100%;
+  /* position: absolute;
+     padding-top: 60px;
+     top: 0px;
+     left: 0px;
+     z-index: 0;*/
+}
+.layout-default.flex-zoom .ui-layout-north {
+  width: 100%;
+  height: auto;
+}
+.layout-default.flex-zoom .ui-layout-west {
+  width: 90px;
+  position: fixed;
+  overflow: hidden;
+  z-index: 9999;
+  animation: ui-layout-west-hover2 0.5s;
+  background-image: linear-gradient(540deg, #3d546e, #392734) !important;
+}
+.layout-default.flex-zoom .ui-layout-west:hover {
+  width: 15%;
+  animation: ui-layout-west-hover 0.5s;
+}
+@keyframes ui-layout-west-hover {
+  from {
+    width: 90px;
+  }
+  to {
+    width: 15%;
+  }
+}
+@keyframes ui-layout-west-hover2 {
+  from {
+    width: 15%;
+  }
+  to {
+    width: 90px;
+  }
+}
+.layout-default.flex-zoom .ui-layout-center {
+  width: 100% !important;
+  padding: 0px 0px 0px 0px;
+  margin: 0px auto;
+}
+.layout-default.flex-zoom .ui-layout-center > .ui-layout.ui-layout-content {
+  padding-left: 110px;
+}
+.layout-default .ui-layout-east {
+  width: 0px;
+  height: 100%;
+}
+.layout-default .ui-layout-south {
+  width: 100%;
+  height: auto;
+  /* position: absolute;
+     top: @west-center-east-height;
+     left: 0px;
+     z-index: 1;*/
+}
+/*@media only screen and (max-width: 1366px) {
+    .@{layout-name} .ui-layout-west {
+      width: @west-width * 0.8;
+    }
+
+    .@{layout-name} .ui-layout-center {
+      width: @west-width * 0.5 +  @center-width;
+    }
+  }*/

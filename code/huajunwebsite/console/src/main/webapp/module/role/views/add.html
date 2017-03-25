@@ -1,0 +1,50 @@
+<div class="list-container col-sm-12" ui-scrollbar>
+    <form class="list-frame add-container" ng-validator validator-config="validator">
+        <div class="list-title">
+            <h3><i class="glyphicon glyphicon-th"></i>&nbsp;新建角色</h3>
+        </div>
+        <div class="container add-container">
+            <div class="col-sm-12 align-center">
+                <div class="form-group form-material col-sm-12">
+                    <div class="control-label">
+                        <label><span class="require-flag">*</span>角色编号：</label>
+                    </div>
+                    <div class="control-input">
+                        <input type="text" ng-model="role.code" ng-valid="validate[required[maxSize[5]]]" class="form-control" placeholder="角色编号">
+                    </div>
+                </div>
+                <div class="form-group form-material col-sm-12">
+                    <div class="control-label">
+                        <label><span class="require-flag">*</span>角色名称：</label>
+                    </div>
+                    <div class="control-input">
+                        <input type="text" ng-model="role.name" ng-valid="validate[required[custom[onlyLetterSp[ajax[getByRoleName]]]]]" class="form-control" placeholder="角色名称">
+                    </div>
+                </div>
+                <div class="form-group form-material col-sm-12">
+                    <div class="control-label">
+                        <label><span class="require-flag">*</span>别名：</label>
+                    </div>
+                    <div class="control-input">
+                        <input type="text" ng-model="role.alias" ng-valid="validate[required[custom[chinese]]]" class="form-control" placeholder="别名">
+                    </div>
+                </div>
+                <div class="form-group form-material col-sm-12">
+                    <div class="control-label">
+                        <label><span class="require-flag">*</span>角色描述：</label>
+                    </div>
+                    <div class="control-input">
+                        <textarea style="height: 120px;resize: none" ng-model="role.description" ng-valid="validate[required]" class="form-control" placeholder="请填写对该角色的描述">
+                        </textarea>
+                    </div>
+                </div>
+                <div class="text-align-center col-sm-12">
+                    <button ng-click="doAdd();" class="btn btn-primary"><i class="glyphicon glyphicon-save"></i>&nbsp;保存
+                    </button>
+                    <a href="#/role" class="btn btn-warning "><i class="glyphicon glyphicon-share-alt mirror-x"></i>&nbsp;返回
+                    </a>
+                </div>
+            </div>
+        </div>
+    </form>
+</div>

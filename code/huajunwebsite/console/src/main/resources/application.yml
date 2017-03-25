@@ -1,0 +1,39 @@
+server:
+  port: 9090
+  address: localhost
+  sessionTimeout: 30
+  contextPath: /
+---
+pagehelper:
+  helperDialect: mysql
+  reasonable: true
+  supportMethodsArguments: true
+  params: pageNum=start;pageSize=limit;pageSizeZero=zero;reasonable=heli;count=contSql
+---
+mybatis:
+  mapperLocations: classpath:mapper/*.xml
+  typeAliasesPackage: com.huajun56.*.entity
+---
+sms:
+  sendUrl: https://api.sms.jpush.cn/v1/codes
+---
+spring:
+  datasource:
+    name: huajun56
+    url: jdbc:mysql://localhost:3306/huajun56?useUnicode=true&characterEncoding=UTF-8&allowMultiQueries=true
+    username: root
+    password: root
+    driverClassName: com.mysql.jdbc.Driver
+---
+spring:
+  profiles: dev
+server:
+  address: 127.0.0.0
+---
+spring:
+  profiles: prod
+  datasource:
+    password: yaD0812zX0819
+server:
+  port: 10090
+  address: 0.0.0.0

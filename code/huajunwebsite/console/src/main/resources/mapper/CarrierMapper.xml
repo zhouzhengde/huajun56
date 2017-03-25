@@ -1,0 +1,350 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.huajun56.crm.dao.CarrierMapper">
+  <resultMap id="BaseResultMap" type="com.huajun56.crm.entity.Carrier">
+    <!--
+      WARNING - @mbg.generated
+    -->
+    <id column="id" jdbcType="INTEGER" property="id" />
+    <result column="name" jdbcType="VARCHAR" property="name" />
+    <result column="province" jdbcType="VARCHAR" property="province" />
+    <result column="city" jdbcType="VARCHAR" property="city" />
+    <result column="address" jdbcType="VARCHAR" property="address" />
+    <result column="tel" jdbcType="VARCHAR" property="tel" />
+    <result column="mobile" jdbcType="VARCHAR" property="mobile" />
+    <result column="country_code" jdbcType="VARCHAR" property="countryCode" />
+    <result column="contact_people" jdbcType="VARCHAR" property="contactPeople" />
+    <result column="disabled" jdbcType="BIT" property="disabled" />
+    <result column="is_del" jdbcType="BIT" property="isDel" />
+    <result column="create_date" jdbcType="TIMESTAMP" property="createDate" />
+    <result column="create_by" jdbcType="VARCHAR" property="createBy" />
+    <result column="update_date" jdbcType="TIMESTAMP" property="updateDate" />
+    <result column="update_by" jdbcType="VARCHAR" property="updateBy" />
+  </resultMap>
+  <resultMap extends="BaseResultMap" id="ResultMapWithBLOBs" type="com.huajun56.crm.entity.Carrier">
+    <!--
+      WARNING - @mbg.generated
+    -->
+    <result column="more_info" jdbcType="LONGVARCHAR" property="moreInfo" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    <!--
+      WARNING - @mbg.generated
+    -->
+    id, name, province, city, address, tel, mobile, country_code, contact_people, disabled, 
+    is_del, create_date, create_by, update_date, update_by
+  </sql>
+  <sql id="Blob_Column_List">
+    <!--
+      WARNING - @mbg.generated
+    -->
+    more_info
+  </sql>
+  <select id="findByPK" parameterType="java.lang.Integer" resultMap="ResultMapWithBLOBs">
+    <!--
+      WARNING - @mbg.generated
+    -->
+    select 
+    <include refid="Base_Column_List" />
+    ,
+    <include refid="Blob_Column_List" />
+    from crm_carrier
+    where   is_del=0  and id = #{id,jdbcType=INTEGER}
+  </select>
+  <select id="find" resultMap="BaseResultMap">
+    <!--
+      WARNING - @mbg.generated
+    -->
+    select 
+    <include refid="Base_Column_List" />
+    from crm_carrier
+    <where>
+      is_del=0
+      <if test="id != null">
+         and id=#{id,jdbcType=INTEGER}
+      </if>
+      <if test="name != null">
+         and name=#{name,jdbcType=VARCHAR}
+      </if>
+      <if test="province != null">
+         and province=#{province,jdbcType=VARCHAR}
+      </if>
+      <if test="city != null">
+         and city=#{city,jdbcType=VARCHAR}
+      </if>
+      <if test="address != null">
+         and address=#{address,jdbcType=VARCHAR}
+      </if>
+      <if test="tel != null">
+         and tel=#{tel,jdbcType=VARCHAR}
+      </if>
+      <if test="mobile != null">
+         and mobile=#{mobile,jdbcType=VARCHAR}
+      </if>
+      <if test="countryCode != null">
+         and country_code=#{countryCode,jdbcType=VARCHAR}
+      </if>
+      <if test="contactPeople != null">
+         and contact_people=#{contactPeople,jdbcType=VARCHAR}
+      </if>
+      <if test="disabled != null">
+         and disabled=#{disabled,jdbcType=BIT}
+      </if>
+      <if test="isDel != null">
+         and is_del=#{isDel,jdbcType=BIT}
+      </if>
+      <if test="createDate != null">
+         and create_date=#{createDate,jdbcType=TIMESTAMP}
+      </if>
+      <if test="createBy != null">
+         and create_by=#{createBy,jdbcType=VARCHAR}
+      </if>
+      <if test="updateDate != null">
+         and update_date=#{updateDate,jdbcType=TIMESTAMP}
+      </if>
+      <if test="updateBy != null">
+         and update_by=#{updateBy,jdbcType=VARCHAR}
+      </if>
+      <if test="moreInfo != null">
+         and more_info=#{moreInfo,jdbcType=LONGVARCHAR}
+      </if>
+    </where>
+  </select>
+  <update id="deleteByPK" parameterType="java.lang.Integer">
+    <!--
+      WARNING - @mbg.generated
+    -->
+    update crm_carrier  set is_del=1
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="batchDelete" parameterType="java.util.List">
+    <!--
+      WARNING - @mbg.generated
+    -->
+    update crm_carrier  set is_del=1
+    where id  in  
+    <foreach close=")" collection="ids" item="id" open="(" separator=",">
+      #{id}
+    </foreach>
+  </update>
+  <insert id="insert" parameterType="com.huajun56.crm.entity.Carrier">
+    <!--
+      WARNING - @mbg.generated
+    -->
+    insert into crm_carrier (id, name, province, 
+      city, address, tel, 
+      mobile, country_code, contact_people, 
+      disabled, is_del, create_date, 
+      create_by, update_date, update_by, 
+      more_info)
+    values (#{id,jdbcType=INTEGER}, #{name,jdbcType=VARCHAR}, #{province,jdbcType=VARCHAR}, 
+      #{city,jdbcType=VARCHAR}, #{address,jdbcType=VARCHAR}, #{tel,jdbcType=VARCHAR}, 
+      #{mobile,jdbcType=VARCHAR}, #{countryCode,jdbcType=VARCHAR}, #{contactPeople,jdbcType=VARCHAR}, 
+      #{disabled,jdbcType=BIT}, #{isDel,jdbcType=BIT}, #{createDate,jdbcType=TIMESTAMP}, 
+      #{createBy,jdbcType=VARCHAR}, #{updateDate,jdbcType=TIMESTAMP}, #{updateBy,jdbcType=VARCHAR}, 
+      #{moreInfo,jdbcType=LONGVARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.huajun56.crm.entity.Carrier">
+    <!--
+      WARNING - @mbg.generated
+    -->
+    insert into crm_carrier
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        id,
+      </if>
+      <if test="name != null">
+        name,
+      </if>
+      <if test="province != null">
+        province,
+      </if>
+      <if test="city != null">
+        city,
+      </if>
+      <if test="address != null">
+        address,
+      </if>
+      <if test="tel != null">
+        tel,
+      </if>
+      <if test="mobile != null">
+        mobile,
+      </if>
+      <if test="countryCode != null">
+        country_code,
+      </if>
+      <if test="contactPeople != null">
+        contact_people,
+      </if>
+      <if test="disabled != null">
+        disabled,
+      </if>
+      <if test="isDel != null">
+        is_del,
+      </if>
+      <if test="createDate != null">
+        create_date,
+      </if>
+      <if test="createBy != null">
+        create_by,
+      </if>
+      <if test="updateDate != null">
+        update_date,
+      </if>
+      <if test="updateBy != null">
+        update_by,
+      </if>
+      <if test="moreInfo != null">
+        more_info,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="name != null">
+        #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="province != null">
+        #{province,jdbcType=VARCHAR},
+      </if>
+      <if test="city != null">
+        #{city,jdbcType=VARCHAR},
+      </if>
+      <if test="address != null">
+        #{address,jdbcType=VARCHAR},
+      </if>
+      <if test="tel != null">
+        #{tel,jdbcType=VARCHAR},
+      </if>
+      <if test="mobile != null">
+        #{mobile,jdbcType=VARCHAR},
+      </if>
+      <if test="countryCode != null">
+        #{countryCode,jdbcType=VARCHAR},
+      </if>
+      <if test="contactPeople != null">
+        #{contactPeople,jdbcType=VARCHAR},
+      </if>
+      <if test="disabled != null">
+        #{disabled,jdbcType=BIT},
+      </if>
+      <if test="isDel != null">
+        #{isDel,jdbcType=BIT},
+      </if>
+      <if test="createDate != null">
+        #{createDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="createBy != null">
+        #{createBy,jdbcType=VARCHAR},
+      </if>
+      <if test="updateDate != null">
+        #{updateDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateBy != null">
+        #{updateBy,jdbcType=VARCHAR},
+      </if>
+      <if test="moreInfo != null">
+        #{moreInfo,jdbcType=LONGVARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPkSelective" parameterType="com.huajun56.crm.entity.Carrier">
+    <!--
+      WARNING - @mbg.generated
+    -->
+    update crm_carrier
+    <set>
+      <if test="name != null">
+        name = #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="province != null">
+        province = #{province,jdbcType=VARCHAR},
+      </if>
+      <if test="city != null">
+        city = #{city,jdbcType=VARCHAR},
+      </if>
+      <if test="address != null">
+        address = #{address,jdbcType=VARCHAR},
+      </if>
+      <if test="tel != null">
+        tel = #{tel,jdbcType=VARCHAR},
+      </if>
+      <if test="mobile != null">
+        mobile = #{mobile,jdbcType=VARCHAR},
+      </if>
+      <if test="countryCode != null">
+        country_code = #{countryCode,jdbcType=VARCHAR},
+      </if>
+      <if test="contactPeople != null">
+        contact_people = #{contactPeople,jdbcType=VARCHAR},
+      </if>
+      <if test="disabled != null">
+        disabled = #{disabled,jdbcType=BIT},
+      </if>
+      <if test="isDel != null">
+        is_del = #{isDel,jdbcType=BIT},
+      </if>
+      <if test="createDate != null">
+        create_date = #{createDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="createBy != null">
+        create_by = #{createBy,jdbcType=VARCHAR},
+      </if>
+      <if test="updateDate != null">
+        update_date = #{updateDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateBy != null">
+        update_by = #{updateBy,jdbcType=VARCHAR},
+      </if>
+      <if test="moreInfo != null">
+        more_info = #{moreInfo,jdbcType=LONGVARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPkWithBLOBs" parameterType="com.huajun56.crm.entity.Carrier">
+    <!--
+      WARNING - @mbg.generated
+    -->
+    update crm_carrier
+    set name = #{name,jdbcType=VARCHAR},
+      province = #{province,jdbcType=VARCHAR},
+      city = #{city,jdbcType=VARCHAR},
+      address = #{address,jdbcType=VARCHAR},
+      tel = #{tel,jdbcType=VARCHAR},
+      mobile = #{mobile,jdbcType=VARCHAR},
+      country_code = #{countryCode,jdbcType=VARCHAR},
+      contact_people = #{contactPeople,jdbcType=VARCHAR},
+      disabled = #{disabled,jdbcType=BIT},
+      is_del = #{isDel,jdbcType=BIT},
+      create_date = #{createDate,jdbcType=TIMESTAMP},
+      create_by = #{createBy,jdbcType=VARCHAR},
+      update_date = #{updateDate,jdbcType=TIMESTAMP},
+      update_by = #{updateBy,jdbcType=VARCHAR},
+      more_info = #{moreInfo,jdbcType=LONGVARCHAR}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPK" parameterType="com.huajun56.crm.entity.Carrier">
+    <!--
+      WARNING - @mbg.generated
+    -->
+    update crm_carrier
+    set name = #{name,jdbcType=VARCHAR},
+      province = #{province,jdbcType=VARCHAR},
+      city = #{city,jdbcType=VARCHAR},
+      address = #{address,jdbcType=VARCHAR},
+      tel = #{tel,jdbcType=VARCHAR},
+      mobile = #{mobile,jdbcType=VARCHAR},
+      country_code = #{countryCode,jdbcType=VARCHAR},
+      contact_people = #{contactPeople,jdbcType=VARCHAR},
+      disabled = #{disabled,jdbcType=BIT},
+      is_del = #{isDel,jdbcType=BIT},
+      create_date = #{createDate,jdbcType=TIMESTAMP},
+      create_by = #{createBy,jdbcType=VARCHAR},
+      update_date = #{updateDate,jdbcType=TIMESTAMP},
+      update_by = #{updateBy,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+</mapper>

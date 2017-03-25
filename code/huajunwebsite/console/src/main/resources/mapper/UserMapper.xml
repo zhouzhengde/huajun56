@@ -1,0 +1,365 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.huajun56.web.dao.UserMapper">
+  <resultMap id="BaseResultMap" type="com.huajun56.web.entity.User">
+    <id column="id" jdbcType="INTEGER" property="id" />
+    <result column="username" jdbcType="VARCHAR" property="username" />
+    <result column="realname" jdbcType="VARCHAR" property="realname" />
+    <result column="password" jdbcType="VARCHAR" property="password" />
+    <result column="salt" jdbcType="VARCHAR" property="salt" />
+    <result column="role_id" jdbcType="INTEGER" property="roleId" />
+    <result column="gender" jdbcType="TINYINT" property="gender" />
+    <result column="birthday" jdbcType="DATE" property="birthday" />
+    <result column="tel" jdbcType="VARCHAR" property="tel" />
+    <result column="mobile" jdbcType="VARCHAR" property="mobile" />
+    <result column="wechat" jdbcType="VARCHAR" property="wechat" />
+    <result column="qq" jdbcType="VARCHAR" property="qq" />
+    <result column="disabled" jdbcType="BIT" property="disabled" />
+    <result column="is_del" jdbcType="BIT" property="isDel" />
+    <result column="create_date" jdbcType="TIMESTAMP" property="createDate" />
+    <result column="create_by" jdbcType="VARCHAR" property="createBy" />
+    <result column="update_date" jdbcType="TIMESTAMP" property="updateDate" />
+    <result column="update_by" jdbcType="VARCHAR" property="updateBy" />
+
+    <association property="role" javaType="com.huajun56.web.entity.Role">
+      <id column="role_id" property="id"/>
+      <result column="role_code" property="code"/>
+      <result column="role_name" property="name"/>
+      <result column="role_alias" property="alias"/>
+    </association>
+
+  </resultMap>
+  <resultMap extends="BaseResultMap" id="ResultMapWithBLOBs" type="com.huajun56.web.entity.User">
+    <result column="contact_info" jdbcType="LONGVARCHAR" property="contactInfo" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    u1.id, u1.username, u1.realname, u1.password, u1.salt, u1.role_id, u1.gender, u1.birthday, u1.tel, u1.mobile, u1.wechat,
+    u1.qq, u1.disabled, u1.is_del, u1.create_date, u1.create_by, u1.update_date, u1.update_by,
+    r1.code as role_code,
+    r1.name as role_name,
+    r1.alias as role_alias
+  </sql>
+  <sql id="Blob_Column_List">
+    contact_info
+  </sql>
+  <select id="findByPK" parameterType="java.lang.Integer" resultMap="ResultMapWithBLOBs">
+    select 
+    <include refid="Base_Column_List" />
+    ,
+    <include refid="Blob_Column_List" />
+    from web_user u1
+    LEFT JOIN web_role r1 ON u1.role_id = r1.id
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <select id="find" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    ,
+    <include refid="Blob_Column_List" />
+    from web_user u1
+    LEFT JOIN web_role r1 ON u1.role_id = r1.id
+    <where>
+      <if test="id != null">
+        and id=#{id,jdbcType=INTEGER}
+      </if>
+      <if test="username != null">
+        and  username=#{username,jdbcType=VARCHAR}
+      </if>
+      <if test="realname != null">
+        and realname=#{realname,jdbcType=VARCHAR}
+      </if>
+      <if test="password != null">
+        and password=#{password,jdbcType=VARCHAR}
+      </if>
+      <if test="salt != null">
+        and salt=#{salt,jdbcType=VARCHAR}
+      </if>
+      <if test="roleId != null">
+        and role_id=#{roleId,jdbcType=INTEGER}
+      </if>
+      <if test="gender != null">
+        and gender=#{gender,jdbcType=TINYINT}
+      </if>
+      <if test="birthday != null">
+        and birthday=#{birthday,jdbcType=DATE}
+      </if>
+      <if test="tel != null">
+        and tel=#{tel,jdbcType=VARCHAR}
+      </if>
+      <if test="mobile != null">
+        and mobile=#{mobile,jdbcType=VARCHAR}
+      </if>
+      <if test="wechat != null">
+        and wechat=#{wechat,jdbcType=VARCHAR}
+      </if>
+      <if test="qq != null">
+        and qq=#{qq,jdbcType=VARCHAR}
+      </if>
+      <if test="disabled != null">
+        and disabled=#{disabled,jdbcType=BIT}
+      </if>
+      <if test="isDel != null">
+        and is_del=#{isDel,jdbcType=BIT}
+      </if>
+      <if test="createDate != null">
+        and create_date=#{createDate,jdbcType=TIMESTAMP}
+      </if>
+      <if test="createBy != null">
+        and create_by=#{createBy,jdbcType=VARCHAR}
+      </if>
+      <if test="updateDate != null">
+        and update_date=#{updateDate,jdbcType=TIMESTAMP}
+      </if>
+      <if test="updateBy != null">
+        and  update_by=#{updateBy,jdbcType=VARCHAR}
+      </if>
+      <if test="contactInfo != null">
+        and contact_info=#{contactInfo,jdbcType=LONGVARCHAR}
+      </if>
+    </where>
+  </select>
+  <update id="deleteByPK" parameterType="java.lang.Integer">
+    update web_user  set is_del=1
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <insert id="insert" parameterType="com.huajun56.web.entity.User">
+    insert into web_user (id, username, realname, 
+      password, salt, role_id, 
+      gender, birthday, tel, 
+      mobile, wechat, qq, 
+      disabled, is_del, create_date, 
+      create_by, update_date, update_by, 
+      contact_info)
+    values (#{id,jdbcType=INTEGER}, #{username,jdbcType=VARCHAR}, #{realname,jdbcType=VARCHAR}, 
+      #{password,jdbcType=VARCHAR}, #{salt,jdbcType=VARCHAR}, #{roleId,jdbcType=INTEGER}, 
+      #{gender,jdbcType=TINYINT}, #{birthday,jdbcType=DATE}, #{tel,jdbcType=VARCHAR}, 
+      #{mobile,jdbcType=VARCHAR}, #{wechat,jdbcType=VARCHAR}, #{qq,jdbcType=VARCHAR}, 
+      #{disabled,jdbcType=BIT}, #{isDel,jdbcType=BIT}, #{createDate,jdbcType=TIMESTAMP}, 
+      #{createBy,jdbcType=VARCHAR}, #{updateDate,jdbcType=TIMESTAMP}, #{updateBy,jdbcType=VARCHAR}, 
+      #{contactInfo,jdbcType=LONGVARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.huajun56.web.entity.User">
+    insert into web_user
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        id,
+      </if>
+      <if test="username != null">
+        username,
+      </if>
+      <if test="realname != null">
+        realname,
+      </if>
+      <if test="password != null">
+        password,
+      </if>
+      <if test="salt != null">
+        salt,
+      </if>
+      <if test="roleId != null">
+        role_id,
+      </if>
+      <if test="gender != null">
+        gender,
+      </if>
+      <if test="birthday != null">
+        birthday,
+      </if>
+      <if test="tel != null">
+        tel,
+      </if>
+      <if test="mobile != null">
+        mobile,
+      </if>
+      <if test="wechat != null">
+        wechat,
+      </if>
+      <if test="qq != null">
+        qq,
+      </if>
+      <if test="disabled != null">
+        disabled,
+      </if>
+      <if test="isDel != null">
+        is_del,
+      </if>
+      <if test="createDate != null">
+        create_date,
+      </if>
+      <if test="createBy != null">
+        create_by,
+      </if>
+      <if test="updateDate != null">
+        update_date,
+      </if>
+      <if test="updateBy != null">
+        update_by,
+      </if>
+      <if test="contactInfo != null">
+        contact_info,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="username != null">
+        #{username,jdbcType=VARCHAR},
+      </if>
+      <if test="realname != null">
+        #{realname,jdbcType=VARCHAR},
+      </if>
+      <if test="password != null">
+        #{password,jdbcType=VARCHAR},
+      </if>
+      <if test="salt != null">
+        #{salt,jdbcType=VARCHAR},
+      </if>
+      <if test="roleId != null">
+        #{roleId,jdbcType=INTEGER},
+      </if>
+      <if test="gender != null">
+        #{gender,jdbcType=TINYINT},
+      </if>
+      <if test="birthday != null">
+        #{birthday,jdbcType=DATE},
+      </if>
+      <if test="tel != null">
+        #{tel,jdbcType=VARCHAR},
+      </if>
+      <if test="mobile != null">
+        #{mobile,jdbcType=VARCHAR},
+      </if>
+      <if test="wechat != null">
+        #{wechat,jdbcType=VARCHAR},
+      </if>
+      <if test="qq != null">
+        #{qq,jdbcType=VARCHAR},
+      </if>
+      <if test="disabled != null">
+        #{disabled,jdbcType=BIT},
+      </if>
+      <if test="isDel != null">
+        #{isDel,jdbcType=BIT},
+      </if>
+      <if test="createDate != null">
+        #{createDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="createBy != null">
+        #{createBy,jdbcType=VARCHAR},
+      </if>
+      <if test="updateDate != null">
+        #{updateDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateBy != null">
+        #{updateBy,jdbcType=VARCHAR},
+      </if>
+      <if test="contactInfo != null">
+        #{contactInfo,jdbcType=LONGVARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPkSelective" parameterType="com.huajun56.web.entity.User">
+    update web_user
+    <set>
+      <if test="username != null">
+        username = #{username,jdbcType=VARCHAR},
+      </if>
+      <if test="realname != null">
+        realname = #{realname,jdbcType=VARCHAR},
+      </if>
+      <if test="password != null">
+        password = #{password,jdbcType=VARCHAR},
+      </if>
+      <if test="salt != null">
+        salt = #{salt,jdbcType=VARCHAR},
+      </if>
+      <if test="roleId != null">
+        role_id = #{roleId,jdbcType=INTEGER},
+      </if>
+      <if test="gender != null">
+        gender = #{gender,jdbcType=TINYINT},
+      </if>
+      <if test="birthday != null">
+        birthday = #{birthday,jdbcType=DATE},
+      </if>
+      <if test="tel != null">
+        tel = #{tel,jdbcType=VARCHAR},
+      </if>
+      <if test="mobile != null">
+        mobile = #{mobile,jdbcType=VARCHAR},
+      </if>
+      <if test="wechat != null">
+        wechat = #{wechat,jdbcType=VARCHAR},
+      </if>
+      <if test="qq != null">
+        qq = #{qq,jdbcType=VARCHAR},
+      </if>
+      <if test="disabled != null">
+        disabled = #{disabled,jdbcType=BIT},
+      </if>
+      <if test="isDel != null">
+        is_del = #{isDel,jdbcType=BIT},
+      </if>
+      <if test="createDate != null">
+        create_date = #{createDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="createBy != null">
+        create_by = #{createBy,jdbcType=VARCHAR},
+      </if>
+      <if test="updateDate != null">
+        update_date = #{updateDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateBy != null">
+        update_by = #{updateBy,jdbcType=VARCHAR},
+      </if>
+      <if test="contactInfo != null">
+        contact_info = #{contactInfo,jdbcType=LONGVARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPkWithBLOBs" parameterType="com.huajun56.web.entity.User">
+    update web_user
+    set username = #{username,jdbcType=VARCHAR},
+      realname = #{realname,jdbcType=VARCHAR},
+      password = #{password,jdbcType=VARCHAR},
+      salt = #{salt,jdbcType=VARCHAR},
+      role_id = #{roleId,jdbcType=INTEGER},
+      gender = #{gender,jdbcType=TINYINT},
+      birthday = #{birthday,jdbcType=DATE},
+      tel = #{tel,jdbcType=VARCHAR},
+      mobile = #{mobile,jdbcType=VARCHAR},
+      wechat = #{wechat,jdbcType=VARCHAR},
+      qq = #{qq,jdbcType=VARCHAR},
+      disabled = #{disabled,jdbcType=BIT},
+      is_del = #{isDel,jdbcType=BIT},
+      create_date = #{createDate,jdbcType=TIMESTAMP},
+      create_by = #{createBy,jdbcType=VARCHAR},
+      update_date = #{updateDate,jdbcType=TIMESTAMP},
+      update_by = #{updateBy,jdbcType=VARCHAR},
+      contact_info = #{contactInfo,jdbcType=LONGVARCHAR}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPK" parameterType="com.huajun56.web.entity.User">
+    update web_user
+    set username = #{username,jdbcType=VARCHAR},
+      realname = #{realname,jdbcType=VARCHAR},
+      password = #{password,jdbcType=VARCHAR},
+      salt = #{salt,jdbcType=VARCHAR},
+      role_id = #{roleId,jdbcType=INTEGER},
+      gender = #{gender,jdbcType=TINYINT},
+      birthday = #{birthday,jdbcType=DATE},
+      tel = #{tel,jdbcType=VARCHAR},
+      mobile = #{mobile,jdbcType=VARCHAR},
+      wechat = #{wechat,jdbcType=VARCHAR},
+      qq = #{qq,jdbcType=VARCHAR},
+      disabled = #{disabled,jdbcType=BIT},
+      is_del = #{isDel,jdbcType=BIT},
+      create_date = #{createDate,jdbcType=TIMESTAMP},
+      create_by = #{createBy,jdbcType=VARCHAR},
+      update_date = #{updateDate,jdbcType=TIMESTAMP},
+      update_by = #{updateBy,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+</mapper>

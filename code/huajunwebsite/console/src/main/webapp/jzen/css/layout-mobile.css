@@ -1,0 +1,33 @@
+/*{*/
+/**--S ui-layout **/
+.layout-mobile .ui-layout-north {
+  width: 100%;
+  height: auto;
+}
+.layout-mobile .ui-layout-west {
+  width: 0%;
+  height: auto;
+}
+.layout-mobile .ui-layout-center {
+  width: 100%;
+  height: auto;
+  min-height: 82%;
+}
+.layout-mobile .ui-layout-east {
+  width: 0px;
+  height: auto;
+}
+.layout-mobile .ui-layout-south {
+  width: 100%;
+  height: auto;
+}
+.layout-mobile .header {
+  height: auto;
+  min-height: 10%;
+  overflow: visible;
+}
+.layout-mobile .footer {
+  height: auto;
+  min-height: 10%;
+  overflow: visible;
+}

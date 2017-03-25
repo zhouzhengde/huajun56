@@ -1,0 +1,94 @@
+<div class="list-container col-sm-12" ui-scrollbar="">
+    <form class="list-frame" ng-validator validator-config="validator">
+        <div class="list-title">
+            <h3><i class="glyphicon glyphicon-th"></i>&nbsp;修改用户</h3>
+        </div>
+        <div class="container add-container">
+
+            <div class="col-sm-12 align-center pt20 pb20">
+                <div class="form-group form-material col-sm-12">
+                    <div class="control-label ">
+                        <label><span class="require-flag">*</span>角色：</label>
+                    </div>
+                    <div class="control-input">
+                        <select ng-valid="validate[required]" class="form-control" ng-model="user.roleId" ng-options="item.id as item.name for item in roleList">
+                            <option value="">请选择</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="form-group form-material col-sm-12">
+                    <div class="control-label">
+                        <label><span class="require-flag">*</span>门店：</label>
+                    </div>
+                    <div class="control-input">
+                        <select ng-valid="validate[required]" class="form-control group" ng-change="doChangeCompany(user.companyCode);" ng-model="user.companyCode"
+                                ng-options="item.code as item.companyName for item in companyList">
+                            <option value="">请选择公司</option>
+                        </select>
+                        <select ng-valid="validate[required]" ng-change="doChangeStore(user.storeCode);" class="form-control group" ng-model="user.storeCode"
+                                ng-options="item.storeCode as item.storeName for item in storeList">
+                            <option value="">请选择门店</option>
+                        </select>
+                    </div>
+                </div>
+                <div ng-if="user.roleId == 3 || user.roleId == 4" class="form-group form-material col-sm-12">
+                    <div class="control-label">
+                        <label><span class="require-flag">*</span>专柜：</label>
+                    </div>
+                    <div class="control-input">
+                        <select ng-valid="validate[required]" class="form-control" ng-model="user.brandStore" defaultValue="" ng-options="item.storeCode as item.storeName for item in brandStoreList">
+                            <option value="">请选择专柜</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="form-group form-material col-sm-12">
+                    <div class="control-label">
+                        <label><span class="require-flag">*</span>姓名：</label>
+                    </div>
+                    <div class="control-input">
+                        <input type="text" ng-model="user.userName" ng-valid="validate[required[custom[chinese]]]" class="form-control" placeholder="姓名">
+                    </div>
+                </div>
+                <div class="form-group form-material col-sm-12">
+                    <div class="control-label">
+                        <label>性别：</label>
+                    </div>
+                    <div class="control-input">
+                        <div ui-radio ui-model="user.gender" ui-config="{options:[{value:0,text:'男'},{value:1,text:'女'}]}"></div>
+                    </div>
+                </div>
+                <div class="form-group form-material col-sm-12">
+                    <div class="control-label">
+                        <label><span class="require-flag">*</span>手机号：</label>
+                    </div>
+                    <div class="control-input">
+                        <input type="text" ng-valid="validate[required[custom[phone[ajax[getByMobile]]]]]" ng-model="user.phone" class="form-control" placeholder="手机号">
+                        <label ng-if="user.roleId == 3 || user.roleId == 4" class="font-alert">提示：导购员的登入帐号即注册的手机号，默认密码：123456</label>
+                    </div>
+                </div>
+                <div ng-if="user.roleId != 3 && user.roleId != 4" class="form-group form-material col-sm-12">
+                    <div class="control-label">
+                        <label><span class="require-flag">*</span>账号/工号：</label>
+                    </div>
+                    <div class="control-input">
+                        <input type="text" ng-valid="validate[required[minSize[4[maxSize[16[custom[userCode[ajax[getByUserCode]]]]]]]]]" ng-model="user.userCode" class="form-control" placeholder="账号/工号">
+                    </div>
+                </div>
+                <div class="form-group form-material col-sm-12">
+                    <div class="control-label">
+                        <label>账户状态：</label>
+                    </div>
+                    <div class="control-input">
+                        <div ui-radio ui-model="user.disabled" ui-config="{options:[{value:false,text:'启用'},{value:true,text:'禁用'}]}"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="text-align-center col-sm-12">
+            <button ng-click="doUpdate();" class="btn btn-primary"><i class="glyphicon glyphicon-save"></i>&nbsp;保存
+            </button>
+            <a href="#/user" class="btn btn-warning "><i class="glyphicon glyphicon-share-alt mirror-x"></i>&nbsp;返回
+            </a>
+        </div>
+</div>
+</form>

@@ -1,0 +1,8 @@
+<label ng-bind="uiLabel"></label>
+<div ng-class="[{true: 'bootstrap-switch-handle-on', false:'bootstrap-switch-handle-off'}[uiModel],{true:'bootstrap-switch-disabled'}[uiDisabled]]" class="bootstrap-switch"
+     ng-click="doChange();">
+    <div>
+        <span class="switch-left"><i class="glyphicon glyphicon-ok"></i></span>
+        <span class="switch-right"><i class="glyphicon glyphicon-remove"></i></span>
+    </div>
+</div>

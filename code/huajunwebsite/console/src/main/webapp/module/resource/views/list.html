@@ -1,0 +1,99 @@
+<div class="list-container col-md-12" ui-scrollbar>
+    <div class="list-frame">
+        <div class="list-title">
+            <h3><i class="glyphicon glyphicon-th"></i>&nbsp;资源列表</h3>
+        </div>
+        <div class="input-area col-md-12">
+            <div class="form-group form-material col-md-3">
+                <div class="control-label">
+                    <label>资源名称：</label>
+                </div>
+                <div class="control-input">
+                    <input type="text" class="form-control" ng-model="pager.condition.name"
+                           placeholder="资源名称">
+                </div>
+            </div>
+            <div class="form-group form-material col-md-3">
+                <div class="control-label">
+                    <label>路径：</label>
+                </div>
+                <div class="control-input">
+                    <input type="text" class="form-control" ng-model="pager.condition.path"
+                           placeholder="路径">
+                </div>
+            </div>
+            <div class="form-group form-material col-md-3">
+                <div class="control-label">
+                    <label>资源类型：</label>
+                </div>
+                <div class="control-input">
+                    <select class="form-control" ng-model="pager.condition.type" ng-options="item.typeId as item.name for item in resourceTypeList">
+                        <option value="">请选择</option>
+                    </select>
+                </div>
+            </div>
+            <div class="form-group form-material col-md-2">
+                <button ng-click="reload(pager, 1);" class="btn btn-primary"><i class="glyphicon glyphicon-search"></i>&nbsp;查询
+                </button>
+            </div>
+        </div>
+        <div class="opt-panel col-md-12">
+            <a class="btn btn-success" href="#/resource/add"><i class="glyphicon glyphicon-plus"></i>&nbsp;新建
+            </a>
+            <button class="btn btn-warning" ng-click="reload();"><i class="glyphicon glyphicon-refresh"></i>&nbsp;刷新
+            </button>
+        </div>
+        <div class="list-table">
+            <div class="tab">
+                <table>
+                    <thead>
+                    <tr>
+                        <!--  <th>
+                              <input type="checkbox" ng-checked="globalChecked" ng-click="doCheckAll();">
+                          </th>-->
+                        <th>序号</th>
+                        <th>资源名称</th>
+                        <th>路径</th>
+                        <th>排列序号</th>
+                        <th>父级</th>
+                        <th>状态</th>
+                        <th>操作</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr ng-if="pager.result.length == 0">
+                        <td colspan="15" class="none-result">
+                            没有相关数据！
+                        </td>
+                    </tr>
+                    <tr ng-if="pager.result.length > 0" ng-repeat="item in pager.result">
+                        <!-- <td width="3%">
+                             <input type="checkbox" ng-model="item.checked">
+                         </td>-->
+                        <td width="3%" ng-bind="$index + 1">
+                        </td>
+                        <td width="10%" ng-bind="item.name">
+                        </td>
+                        <td ng-bind="item.path">
+                        </td>
+                        <td width="5%" ng-bind="item.orderId">
+                        </td>
+                        <td width="15%">
+                            <select disabled class="form-control" ng-model="item.parentId" defaultValue="" ng-options="item.id as item.name for item in resourceList">
+                                <option value="">--</option>
+                            </select>
+                        </td>
+                        <td width="10%" ng-bind="item.disabled | disabledType">
+                        </td>
+                        <td width="15%">
+                            <a href="#/resource/modify/{{item.id}}">修改</a>
+                        </td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div pagination ng-pager="pager" ng-callback="reload(pager);" ng-block-num="10"></div>
+        </div>
+
+    </div>
+</div>

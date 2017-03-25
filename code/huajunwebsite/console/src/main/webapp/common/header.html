@@ -1,0 +1,47 @@
+<!--<nav class="container navbar navbar-default" role="navigation">
+    <div class="col-sm-3 navbar-header">
+        <div class="logo ">
+            <button type="button" class="col-md-6 navbar-toggle" data-toggle="collapse"
+                    data-target="#menu-navbar-collapse">
+            </button>
+        </div>
+    </div>
+    <div class="col-sm-9 collapse navbar-collapse" id="menu-navbar-collapse">
+        <ul class="nav navbar-nav">
+            <li role="presentation" ng-repeat="item in menuList" ng-if="!item.disabled" ng-class="{ true: 'active', false: ''}[item.active]"><a href="{{item.href}}" ng-bind="item.name"
+                                                                                                                                                ng-click="doChangeMenu(item);"></a></li>
+            <li role="presentation" uib-dropdown>
+                <a uib-dropdown-toggle>
+                    <span class="glyphicon glyphicon-user"></span>
+                    <span ng-bind="userInfo.userName"></span>
+                    <span class="caret"></span>
+                </a>
+                <ul class="dropdown-menu" uib-dropdown-menu>
+                    <li>
+                        <a href="#/passwd"><span class="glyphicon glyphicon-edit"></span>&nbsp;修改密码</a>
+                    </li>
+                    <li>
+                        <a ng-click="doLogout();"><span class="glyphicon glyphicon-off"></span>&nbsp;退出</a>
+                    </li>
+                </ul>
+            </li>
+        </ul>
+    </div>
+</nav>-->
+<ul class="nav navbar-nav float-right">
+    <li role="presentation" uib-dropdown>
+        <a href="javascript:void (0);" class="user-info" uib-dropdown-toggle>
+            <span class="glyphicon glyphicon-user"></span>
+            <span ng-bind="userInfo.userName"></span>
+            <span class="caret"></span>
+        </a>
+        <ul class="dropdown-menu" uib-dropdown-menu>
+            <li>
+                <a href="#/passwd"><span class="glyphicon glyphicon-edit"></span>&nbsp;修改密码</a>
+            </li>
+            <li>
+                <a ng-click="doLogout();"><span class="glyphicon glyphicon-off"></span>&nbsp;退出</a>
+            </li>
+        </ul>
+    </li>
+</ul>

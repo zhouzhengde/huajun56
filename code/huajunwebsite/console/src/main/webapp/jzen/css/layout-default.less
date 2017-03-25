@@ -1,0 +1,115 @@
+.layout-default(layout-default);
+.layout-default(@layout-name) {
+  // north height
+  @north-height: auto;
+  // middle height
+  @west-center-east-height: 100%;
+  // left or west width
+  @west-width: 13%;
+  // center width;
+  @center-width: 87%;
+  // east width
+  @east-width: 0px;
+  // south height
+  @south-height: auto;
+
+  .@{layout-name} {
+    overflow: hidden;
+  }
+
+  /**--S ui-layout **/
+  .@{layout-name} .ui-layout-north:extend(.ui-layout) {
+    width: 100%;
+    height: @north-height;
+    /* position: absolute;
+     top: 0px;
+     left: 0px;
+     z-index: 1;*/
+  }
+
+  .@{layout-name} .ui-layout-west:extend(.ui-layout) {
+    width: @west-width;
+    height: @west-center-east-height;
+  }
+
+  .@{layout-name} .ui-layout-center:extend(.ui-layout) {
+    width: @center-width;
+    height: @west-center-east-height;
+
+    /* position: absolute;
+     padding-top: 60px;
+     top: 0px;
+     left: 0px;
+     z-index: 0;*/
+  }
+  .@{layout-name}.flex-zoom .ui-layout-north:extend(.ui-layout) {
+    width: 100%;
+    height: @north-height;
+  }
+
+  .@{layout-name}.flex-zoom .ui-layout-west {
+    width: 90px;
+    position: fixed;
+    overflow: hidden;
+    z-index: 9999;
+    animation: ui-layout-west-hover2 0.5s;
+    background-image: linear-gradient(540deg, darken(#4a6685, 7%), darken(#4e3647, 7%)) !important;
+  }
+
+  .@{layout-name}.flex-zoom .ui-layout-west:hover {
+    width: @west-width;
+    animation: ui-layout-west-hover 0.5s;
+  }
+
+  @keyframes ui-layout-west-hover {
+    from {
+      width: 90px;
+    }
+    to {
+      width: @west-width;
+    }
+  }
+
+  @keyframes ui-layout-west-hover2 {
+    from {
+      width: @west-width;
+    }
+    to {
+      width: 90px;
+    }
+  }
+
+  .@{layout-name}.flex-zoom .ui-layout-center {
+    width: 100% !important;
+    padding: 0px 0px 0px 0px;
+    margin: 0px auto;
+  }
+
+  .@{layout-name}.flex-zoom .ui-layout-center > .ui-layout.ui-layout-content {
+    padding-left: 110px;
+  }
+
+  .@{layout-name} .ui-layout-east:extend(.ui-layout) {
+    width: @east-width;
+    height: @west-center-east-height;
+  }
+
+  .@{layout-name} .ui-layout-south:extend(.ui-layout) {
+    width: 100%;
+    height: @south-height;
+    /* position: absolute;
+     top: @west-center-east-height;
+     left: 0px;
+     z-index: 1;*/
+  }
+
+  /*@media only screen and (max-width: 1366px) {
+    .@{layout-name} .ui-layout-west {
+      width: @west-width * 0.8;
+    }
+
+    .@{layout-name} .ui-layout-center {
+      width: @west-width * 0.5 +  @center-width;
+    }
+  }*/
+}

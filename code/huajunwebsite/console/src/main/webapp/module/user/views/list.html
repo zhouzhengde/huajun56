@@ -1,0 +1,139 @@
+<div class="list-container col-md-12" ui-scrollbar>
+    <div class="list-frame">
+        <div class="list-title">
+            <h3><i class="glyphicon glyphicon-th"></i>&nbsp;用户列表</h3>
+        </div>
+        <div class="input-area col-md-12">
+            <div class="form-group form-material col-sm-3">
+                <div class="control-label">
+                    <label>公司：</label>
+                </div>
+                <div class="control-input">
+                    <select ng-disabled="disabledChoose" class="form-control" ng-change="doChangeCompany(pager.condition.companyCode);" ng-model="pager.condition.companyCode"
+                            defaultValue="" ng-options="item.code as item.companyName for item in companyList">
+                        <option value="">请选择公司</option>
+                    </select>
+                </div>
+            </div>
+            <div class="form-group form-material col-sm-3">
+                <div class="control-label">
+                    <label>门店：</label>
+                </div>
+                <div class="control-input">
+                    <select ng-disabled="disabledChoose" ng-change="doChangeStore(pager.condition.storeCode);"
+                            class="form-control group" ng-model="pager.condition.storeCode" defaultValue="" ng-options="item.storeCode as item.storeName for item in storeList">
+                        <option value="">请选择门店</option>
+                    </select>
+                </div>
+            </div>
+            <div class="form-group form-material col-sm-3">
+                <div class="control-label">
+                    <label>角色：</label>
+                </div>
+                <div class="control-input">
+                    <select ng-disabled="disabledChoose" ng-change="doChangeRole()" class="form-control group"
+                            ng-model="pager.condition.roleId" defaultValue=""
+                            ng-options="item.id as item.name for item in roleList">
+                        <option value="">请选择</option>
+                    </select>
+                </div>
+            </div>
+            <div class="form-group form-material col-md-3">
+                <button ng-click="reload(pager, 1);" class="btn btn-primary"><i class="glyphicon glyphicon-search"></i>&nbsp;查询
+                </button>
+            </div>
+        </div>
+        <div class="input-area col-md-12">
+            <div class="form-group form-material col-sm-3">
+                <div class="control-label">
+                    <label>状态：</label>
+                </div>
+                <div class="control-input">
+                    <select class="form-control" ng-model="pager.condition.disabled" defaultValue=""
+                            ng-options="item.code as item.name for item in disabledType">
+                        <option value="">请选择</option>
+                    </select>
+                </div>
+            </div>
+            <div class="form-group form-material col-md-3">
+                <div class="control-label">
+                    <label>关键字：</label>
+                </div>
+                <div class="control-input">
+                    <input type="text" class="form-control" ng-model="pager.condition.searchKeywords"
+                           placeholder="姓名、工号、手机号">
+                </div>
+            </div>
+        </div>
+        <div class="opt-panel col-md-12">
+            <a class="btn btn-success" href="#/user/add"><i class="glyphicon glyphicon-plus"></i>&nbsp;新建
+            </a>
+            <button class="btn btn-warning" ng-click="reload();"><i class="glyphicon glyphicon-refresh"></i>&nbsp;刷新
+            </button>
+        </div>
+        <div class="list-table">
+            <div class="tab">
+                <table>
+                    <thead>
+                    <tr>
+                        <th>序号</th>
+                        <th>帐号</th>
+                        <th>姓名</th>
+                        <th>性别</th>
+                        <th>角色</th>
+                        <th>门店</th>
+                        <th>公司</th>
+                        <th>专柜</th>
+                        <th>手机号</th>
+                        <th>工号</th>
+                        <th>状态</th>
+                        <th>操作</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr ng-if="pager.result.length == 0 && !loading">
+                        <td colspan="12" class="none-result">
+                            没有相关数据！
+                        </td>
+                    </tr>
+                    <tr ng-if="loading">
+                        <td colspan="12">
+                            <div ui-loading ui-show="loading"></div>
+                        </td>
+                    </tr>
+                    <tr ng-if="pager.result.length > 0  && !loading" ng-repeat="item in pager.result">
+                        <td width="5%" ng-bind="$index + 1">
+                        </td>
+                        <td width="10%" ng-bind="item.loginName">
+                        </td>
+                        <td width="5%" ng-bind="item.userName">
+                        </td>
+                        <td width="3%" ng-bind="item.gender|gender ">
+                        </td>
+                        <td width="7%" ng-bind="item.role.name">
+                        </td>
+                        <td ng-bind="item.store.storeName">
+                        </td>
+                        <td ng-bind="item.company.companyName">
+                        </td>
+                        <td width="7%" ng-bind="item.brandStoreEntity.storeName || '--'">
+                        </td>
+                        <td width="7%" ng-bind="item.phone">
+                        </td>
+                        <td width="5%" ng-bind="item.userCode || '--'">
+                        </td>
+                        <td width="5%" ng-bind="item.disabled | disabledType">
+                        </td>
+                        <td width="10%">
+                            <a href="javascript:void(0);" ng-click="doResetPwd(item.id);">重置密码</a>
+                            &nbsp;
+                            <a href="#/user/modify/{{item.id}}">修改</a>
+                        </td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div pagination ng-pager="pager" ng-callback="reload(pager);" ng-block-num="10"></div>
+        </div>
+    </div>
+</div>

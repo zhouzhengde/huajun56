@@ -1,0 +1,412 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.huajun56.crm.dao.CustomerMapper">
+  <resultMap id="BaseResultMap" type="com.huajun56.crm.entity.Customer">
+    <!--
+      WARNING - @mbg.generated
+    -->
+    <id column="id" jdbcType="INTEGER" property="id" />
+    <result column="name" jdbcType="VARCHAR" property="name" />
+    <result column="realname" jdbcType="VARCHAR" property="realname" />
+    <result column="nickname" jdbcType="VARCHAR" property="nickname" />
+    <result column="age" jdbcType="INTEGER" property="age" />
+    <result column="gender" jdbcType="INTEGER" property="gender" />
+    <result column="tel" jdbcType="VARCHAR" property="tel" />
+    <result column="mobile" jdbcType="VARCHAR" property="mobile" />
+    <result column="wechat" jdbcType="VARCHAR" property="wechat" />
+    <result column="qq" jdbcType="VARCHAR" property="qq" />
+    <result column="country_code" jdbcType="VARCHAR" property="countryCode" />
+    <result column="disabled" jdbcType="BIT" property="disabled" />
+    <result column="is_del" jdbcType="BIT" property="isDel" />
+    <result column="create_date" jdbcType="TIMESTAMP" property="createDate" />
+    <result column="create_by" jdbcType="VARCHAR" property="createBy" />
+    <result column="update_date" jdbcType="TIMESTAMP" property="updateDate" />
+    <result column="update_by" jdbcType="VARCHAR" property="updateBy" />
+    <result column="password" jdbcType="VARCHAR" property="password" />
+    <result column="salt" jdbcType="VARCHAR" property="salt" />
+  </resultMap>
+  <resultMap extends="BaseResultMap" id="ResultMapWithBLOBs" type="com.huajun56.crm.entity.Customer">
+    <!--
+      WARNING - @mbg.generated
+    -->
+    <result column="more_info" jdbcType="LONGVARCHAR" property="moreInfo" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    <!--
+      WARNING - @mbg.generated
+    -->
+    id, name, realname, nickname, age, gender, tel, mobile, wechat, qq, country_code, 
+    disabled, is_del, create_date, create_by, update_date, update_by, password, salt
+  </sql>
+  <sql id="Blob_Column_List">
+    <!--
+      WARNING - @mbg.generated
+    -->
+    more_info
+  </sql>
+  <select id="findByPK" parameterType="java.lang.Integer" resultMap="ResultMapWithBLOBs">
+    <!--
+      WARNING - @mbg.generated
+    -->
+    select 
+    <include refid="Base_Column_List" />
+    ,
+    <include refid="Blob_Column_List" />
+    from crm_customer
+    where   is_del=0  and id = #{id,jdbcType=INTEGER}
+  </select>
+  <select id="find" resultMap="BaseResultMap">
+    <!--
+      WARNING - @mbg.generated
+    -->
+    select 
+    <include refid="Base_Column_List" />
+    from crm_customer
+    <where>
+      is_del=0
+      <if test="id != null">
+         and id=#{id,jdbcType=INTEGER}
+      </if>
+      <if test="name != null">
+         and name=#{name,jdbcType=VARCHAR}
+      </if>
+      <if test="realname != null">
+         and realname=#{realname,jdbcType=VARCHAR}
+      </if>
+      <if test="nickname != null">
+         and nickname=#{nickname,jdbcType=VARCHAR}
+      </if>
+      <if test="age != null">
+         and age=#{age,jdbcType=INTEGER}
+      </if>
+      <if test="gender != null">
+         and gender=#{gender,jdbcType=INTEGER}
+      </if>
+      <if test="tel != null">
+         and tel=#{tel,jdbcType=VARCHAR}
+      </if>
+      <if test="mobile != null">
+         and mobile=#{mobile,jdbcType=VARCHAR}
+      </if>
+      <if test="wechat != null">
+         and wechat=#{wechat,jdbcType=VARCHAR}
+      </if>
+      <if test="qq != null">
+         and qq=#{qq,jdbcType=VARCHAR}
+      </if>
+      <if test="countryCode != null">
+         and country_code=#{countryCode,jdbcType=VARCHAR}
+      </if>
+      <if test="disabled != null">
+         and disabled=#{disabled,jdbcType=BIT}
+      </if>
+      <if test="isDel != null">
+         and is_del=#{isDel,jdbcType=BIT}
+      </if>
+      <if test="createDate != null">
+         and create_date=#{createDate,jdbcType=TIMESTAMP}
+      </if>
+      <if test="createBy != null">
+         and create_by=#{createBy,jdbcType=VARCHAR}
+      </if>
+      <if test="updateDate != null">
+         and update_date=#{updateDate,jdbcType=TIMESTAMP}
+      </if>
+      <if test="updateBy != null">
+         and update_by=#{updateBy,jdbcType=VARCHAR}
+      </if>
+      <if test="password != null">
+         and password=#{password,jdbcType=VARCHAR}
+      </if>
+      <if test="salt != null">
+         and salt=#{salt,jdbcType=VARCHAR}
+      </if>
+      <if test="moreInfo != null">
+         and more_info=#{moreInfo,jdbcType=LONGVARCHAR}
+      </if>
+    </where>
+  </select>
+  <update id="deleteByPK" parameterType="java.lang.Integer">
+    <!--
+      WARNING - @mbg.generated
+    -->
+    update crm_customer  set is_del=1
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="batchDelete" parameterType="java.util.List">
+    <!--
+      WARNING - @mbg.generated
+    -->
+    update crm_customer  set is_del=1
+    where id  in  
+    <foreach close=")" collection="ids" item="id" open="(" separator=",">
+      #{id}
+    </foreach>
+  </update>
+  <insert id="insert" parameterType="com.huajun56.crm.entity.Customer">
+    <!--
+      WARNING - @mbg.generated
+    -->
+    insert into crm_customer (id, name, realname, 
+      nickname, age, gender, 
+      tel, mobile, wechat, 
+      qq, country_code, disabled, 
+      is_del, create_date, create_by, 
+      update_date, update_by, password, 
+      salt, more_info)
+    values (#{id,jdbcType=INTEGER}, #{name,jdbcType=VARCHAR}, #{realname,jdbcType=VARCHAR}, 
+      #{nickname,jdbcType=VARCHAR}, #{age,jdbcType=INTEGER}, #{gender,jdbcType=INTEGER}, 
+      #{tel,jdbcType=VARCHAR}, #{mobile,jdbcType=VARCHAR}, #{wechat,jdbcType=VARCHAR}, 
+      #{qq,jdbcType=VARCHAR}, #{countryCode,jdbcType=VARCHAR}, #{disabled,jdbcType=BIT}, 
+      #{isDel,jdbcType=BIT}, #{createDate,jdbcType=TIMESTAMP}, #{createBy,jdbcType=VARCHAR}, 
+      #{updateDate,jdbcType=TIMESTAMP}, #{updateBy,jdbcType=VARCHAR}, #{password,jdbcType=VARCHAR}, 
+      #{salt,jdbcType=VARCHAR}, #{moreInfo,jdbcType=LONGVARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.huajun56.crm.entity.Customer" useGeneratedKeys="true" keyProperty="id">
+    <!--
+      WARNING - @mbg.generated
+    -->
+    insert into crm_customer
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        id,
+      </if>
+      <if test="name != null">
+        name,
+      </if>
+      <if test="realname != null">
+        realname,
+      </if>
+      <if test="nickname != null">
+        nickname,
+      </if>
+      <if test="age != null">
+        age,
+      </if>
+      <if test="gender != null">
+        gender,
+      </if>
+      <if test="tel != null">
+        tel,
+      </if>
+      <if test="mobile != null">
+        mobile,
+      </if>
+      <if test="wechat != null">
+        wechat,
+      </if>
+      <if test="qq != null">
+        qq,
+      </if>
+      <if test="countryCode != null">
+        country_code,
+      </if>
+      <if test="disabled != null">
+        disabled,
+      </if>
+      <if test="isDel != null">
+        is_del,
+      </if>
+      <if test="createDate != null">
+        create_date,
+      </if>
+      <if test="createBy != null">
+        create_by,
+      </if>
+      <if test="updateDate != null">
+        update_date,
+      </if>
+      <if test="updateBy != null">
+        update_by,
+      </if>
+      <if test="password != null">
+        password,
+      </if>
+      <if test="salt != null">
+        salt,
+      </if>
+      <if test="moreInfo != null">
+        more_info,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="name != null">
+        #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="realname != null">
+        #{realname,jdbcType=VARCHAR},
+      </if>
+      <if test="nickname != null">
+        #{nickname,jdbcType=VARCHAR},
+      </if>
+      <if test="age != null">
+        #{age,jdbcType=INTEGER},
+      </if>
+      <if test="gender != null">
+        #{gender,jdbcType=INTEGER},
+      </if>
+      <if test="tel != null">
+        #{tel,jdbcType=VARCHAR},
+      </if>
+      <if test="mobile != null">
+        #{mobile,jdbcType=VARCHAR},
+      </if>
+      <if test="wechat != null">
+        #{wechat,jdbcType=VARCHAR},
+      </if>
+      <if test="qq != null">
+        #{qq,jdbcType=VARCHAR},
+      </if>
+      <if test="countryCode != null">
+        #{countryCode,jdbcType=VARCHAR},
+      </if>
+      <if test="disabled != null">
+        #{disabled,jdbcType=BIT},
+      </if>
+      <if test="isDel != null">
+        #{isDel,jdbcType=BIT},
+      </if>
+      <if test="createDate != null">
+        #{createDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="createBy != null">
+        #{createBy,jdbcType=VARCHAR},
+      </if>
+      <if test="updateDate != null">
+        #{updateDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateBy != null">
+        #{updateBy,jdbcType=VARCHAR},
+      </if>
+      <if test="password != null">
+        #{password,jdbcType=VARCHAR},
+      </if>
+      <if test="salt != null">
+        #{salt,jdbcType=VARCHAR},
+      </if>
+      <if test="moreInfo != null">
+        #{moreInfo,jdbcType=LONGVARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPkSelective" parameterType="com.huajun56.crm.entity.Customer">
+    <!--
+      WARNING - @mbg.generated
+    -->
+    update crm_customer
+    <set>
+      <if test="name != null">
+        name = #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="realname != null">
+        realname = #{realname,jdbcType=VARCHAR},
+      </if>
+      <if test="nickname != null">
+        nickname = #{nickname,jdbcType=VARCHAR},
+      </if>
+      <if test="age != null">
+        age = #{age,jdbcType=INTEGER},
+      </if>
+      <if test="gender != null">
+        gender = #{gender,jdbcType=INTEGER},
+      </if>
+      <if test="tel != null">
+        tel = #{tel,jdbcType=VARCHAR},
+      </if>
+      <if test="mobile != null">
+        mobile = #{mobile,jdbcType=VARCHAR},
+      </if>
+      <if test="wechat != null">
+        wechat = #{wechat,jdbcType=VARCHAR},
+      </if>
+      <if test="qq != null">
+        qq = #{qq,jdbcType=VARCHAR},
+      </if>
+      <if test="countryCode != null">
+        country_code = #{countryCode,jdbcType=VARCHAR},
+      </if>
+      <if test="disabled != null">
+        disabled = #{disabled,jdbcType=BIT},
+      </if>
+      <if test="isDel != null">
+        is_del = #{isDel,jdbcType=BIT},
+      </if>
+      <if test="createDate != null">
+        create_date = #{createDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="createBy != null">
+        create_by = #{createBy,jdbcType=VARCHAR},
+      </if>
+      <if test="updateDate != null">
+        update_date = #{updateDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateBy != null">
+        update_by = #{updateBy,jdbcType=VARCHAR},
+      </if>
+      <if test="password != null">
+        password = #{password,jdbcType=VARCHAR},
+      </if>
+      <if test="salt != null">
+        salt = #{salt,jdbcType=VARCHAR},
+      </if>
+      <if test="moreInfo != null">
+        more_info = #{moreInfo,jdbcType=LONGVARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPkWithBLOBs" parameterType="com.huajun56.crm.entity.Customer">
+    <!--
+      WARNING - @mbg.generated
+    -->
+    update crm_customer
+    set name = #{name,jdbcType=VARCHAR},
+      realname = #{realname,jdbcType=VARCHAR},
+      nickname = #{nickname,jdbcType=VARCHAR},
+      age = #{age,jdbcType=INTEGER},
+      gender = #{gender,jdbcType=INTEGER},
+      tel = #{tel,jdbcType=VARCHAR},
+      mobile = #{mobile,jdbcType=VARCHAR},
+      wechat = #{wechat,jdbcType=VARCHAR},
+      qq = #{qq,jdbcType=VARCHAR},
+      country_code = #{countryCode,jdbcType=VARCHAR},
+      disabled = #{disabled,jdbcType=BIT},
+      is_del = #{isDel,jdbcType=BIT},
+      create_date = #{createDate,jdbcType=TIMESTAMP},
+      create_by = #{createBy,jdbcType=VARCHAR},
+      update_date = #{updateDate,jdbcType=TIMESTAMP},
+      update_by = #{updateBy,jdbcType=VARCHAR},
+      password = #{password,jdbcType=VARCHAR},
+      salt = #{salt,jdbcType=VARCHAR},
+      more_info = #{moreInfo,jdbcType=LONGVARCHAR}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPK" parameterType="com.huajun56.crm.entity.Customer">
+    <!--
+      WARNING - @mbg.generated
+    -->
+    update crm_customer
+    set name = #{name,jdbcType=VARCHAR},
+      realname = #{realname,jdbcType=VARCHAR},
+      nickname = #{nickname,jdbcType=VARCHAR},
+      age = #{age,jdbcType=INTEGER},
+      gender = #{gender,jdbcType=INTEGER},
+      tel = #{tel,jdbcType=VARCHAR},
+      mobile = #{mobile,jdbcType=VARCHAR},
+      wechat = #{wechat,jdbcType=VARCHAR},
+      qq = #{qq,jdbcType=VARCHAR},
+      country_code = #{countryCode,jdbcType=VARCHAR},
+      disabled = #{disabled,jdbcType=BIT},
+      is_del = #{isDel,jdbcType=BIT},
+      create_date = #{createDate,jdbcType=TIMESTAMP},
+      create_by = #{createBy,jdbcType=VARCHAR},
+      update_date = #{updateDate,jdbcType=TIMESTAMP},
+      update_by = #{updateBy,jdbcType=VARCHAR},
+      password = #{password,jdbcType=VARCHAR},
+      salt = #{salt,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+</mapper>

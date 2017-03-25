@@ -1,0 +1,367 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.huajun56.web.dao.RoleResourceMapper">
+    <resultMap id="BaseResultMap" type="com.huajun56.web.entity.RoleResource">
+        <!--
+          WARNING - @mbg.generated
+        -->
+        <id column="id" jdbcType="BIGINT" property="id"/>
+        <result column="role_id" jdbcType="INTEGER" property="roleId"/>
+        <result column="resource_id" jdbcType="INTEGER" property="resourceId"/>
+        <result column="permission" jdbcType="VARCHAR" property="permission"/>
+        <result column="is_del" jdbcType="BIT" property="isDel"/>
+        <result column="disabled" jdbcType="BIT" property="disabled"/>
+        <result column="create_date" jdbcType="TIMESTAMP" property="createDate"/>
+        <result column="create_by" jdbcType="VARCHAR" property="createBy"/>
+        <result column="update_date" jdbcType="TIMESTAMP" property="updateDate"/>
+        <result column="update_by" jdbcType="VARCHAR" property="updateBy"/>
+
+        <association property="resource" javaType="com.huajun56.web.entity.Resource">
+            <id column="resource_id" jdbcType="INTEGER" property="id"/>
+            <result column="resource_name" jdbcType="VARCHAR" property="name"/>
+            <result column="resource_path" jdbcType="VARCHAR" property="path"/>
+            <result column="resource_iconfont" jdbcType="VARCHAR" property="iconfont"/>
+            <result column="resource_type" jdbcType="TINYINT" property="type"/>
+            <result column="resource_order_id" jdbcType="INTEGER" property="orderId"/>
+            <result column="resource_parent_id" jdbcType="INTEGER" property="parentId"/>
+            <result column="resource_is_del" jdbcType="BIT" property="isDel"/>
+            <result column="resource_disabled" jdbcType="BIT" property="disabled"/>
+        </association>
+
+    </resultMap>
+    <sql id="Base_Column_List">
+        <!--
+          WARNING - @mbg.generated
+        -->
+        rr.id, rr.role_id, rr.resource_id, rr.permission, rr.is_del, rr.disabled, rr.create_date, rr.create_by,
+        rr.update_date,
+        rr.update_by,
+        res.name as resource_name,
+        res.path as resource_path,
+        res.type as resource_type,
+        res.iconfont as resource_iconfont,
+        res.order_id as resource_order_id,
+        res.parent_id as resource_parent_id,
+        res.is_del as resource_is_del,
+        res.disabled as resource_disabled
+    </sql>
+    <select id="findByPK" parameterType="java.lang.Long" resultMap="BaseResultMap">
+        <!--
+          WARNING - @mbg.generated
+        -->
+        select
+        <include refid="Base_Column_List"/>
+        from web_role_resource rr, web_resource res
+        where rr.is_del=0 and rr.id = #{id,jdbcType=BIGINT}
+        and res.id = rr.resource_id
+        and res.is_del=0
+        and res.disabled=0
+    </select>
+    <select id="find" resultMap="BaseResultMap">
+        <!--
+          WARNING - @mbg.generated
+        -->
+        select
+        <include refid="Base_Column_List"/>
+        from web_role_resource rr, web_resource res
+        <where>
+            res.is_del = 0
+            and res.disabled=0
+            and res.id = rr.resource_id
+            <if test="id != null">
+                and rr.id=#{id,jdbcType=BIGINT}
+            </if>
+            <if test="roleId != null">
+                and rr.role_id=#{roleId,jdbcType=INTEGER}
+            </if>
+            <if test="resourceId != null">
+                and rr.resource_id=#{resourceId,jdbcType=INTEGER}
+            </if>
+            <if test="permission != null">
+                and rr.permission=#{permission,jdbcType=VARCHAR}
+            </if>
+            <if test="isDel != null">
+                and rr.is_del=#{isDel,jdbcType=BIT}
+            </if>
+            <if test="disabled != null">
+                and rr.disabled=#{disabled,jdbcType=BIT}
+            </if>
+            <if test="createDate != null">
+                and rr.create_date=#{createDate,jdbcType=TIMESTAMP}
+            </if>
+            <if test="createBy != null">
+                and rr.create_by=#{createBy,jdbcType=VARCHAR}
+            </if>
+            <if test="updateDate != null">
+                and rr.update_date=#{updateDate,jdbcType=TIMESTAMP}
+            </if>
+            <if test="updateBy != null">
+                and rr.update_by=#{updateBy,jdbcType=VARCHAR}
+            </if>
+        </where>
+    </select>
+
+    <update id="deleteByPK" parameterType="java.lang.Long">
+        <!--
+          WARNING - @mbg.generated
+        -->
+        update web_role_resource set is_del=1
+        where id = #{id,jdbcType=BIGINT}
+    </update>
+    <update id="batchDelete" parameterType="java.util.List">
+        <!--
+          WARNING - @mbg.generated
+        -->
+        update web_role_resource set is_del=1
+        where id in
+        <foreach close=")" collection="ids" item="id" open="(" separator=",">
+            #{id}
+        </foreach>
+    </update>
+
+    <insert id="insert" parameterType="com.huajun56.web.entity.RoleResource">
+        <!--
+          WARNING - @mbg.generated
+        -->
+        insert into web_role_resource (id, role_id, resource_id,
+        permission, is_del, disabled,
+        create_date, create_by, update_date,
+        update_by)
+        values (#{id,jdbcType=BIGINT}, #{roleId,jdbcType=INTEGER}, #{resourceId,jdbcType=INTEGER},
+        #{permission,jdbcType=VARCHAR}, #{isDel,jdbcType=BIT}, #{disabled,jdbcType=BIT},
+        #{createDate,jdbcType=TIMESTAMP}, #{createBy,jdbcType=VARCHAR}, #{updateDate,jdbcType=TIMESTAMP},
+        #{updateBy,jdbcType=VARCHAR})
+    </insert>
+
+    <insert id="insertSelective" parameterType="com.huajun56.web.entity.RoleResource">
+        <!--
+          WARNING - @mbg.generated
+        -->
+        insert into web_role_resource
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="id != null">
+                id,
+            </if>
+            <if test="roleId != null">
+                role_id,
+            </if>
+            <if test="resourceId != null">
+                resource_id,
+            </if>
+            <if test="permission != null">
+                permission,
+            </if>
+            <if test="isDel != null">
+                is_del,
+            </if>
+            <if test="disabled != null">
+                disabled,
+            </if>
+            <if test="createDate != null">
+                create_date,
+            </if>
+            <if test="createBy != null">
+                create_by,
+            </if>
+            <if test="updateDate != null">
+                update_date,
+            </if>
+            <if test="updateBy != null">
+                update_by,
+            </if>
+        </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="id != null">
+                #{id,jdbcType=BIGINT},
+            </if>
+            <if test="roleId != null">
+                #{roleId,jdbcType=INTEGER},
+            </if>
+            <if test="resourceId != null">
+                #{resourceId,jdbcType=INTEGER},
+            </if>
+            <if test="permission != null">
+                #{permission,jdbcType=VARCHAR},
+            </if>
+            <if test="isDel != null">
+                #{isDel,jdbcType=BIT},
+            </if>
+            <if test="disabled != null">
+                #{disabled,jdbcType=BIT},
+            </if>
+            <if test="createDate != null">
+                #{createDate,jdbcType=TIMESTAMP},
+            </if>
+            <if test="createBy != null">
+                #{createBy,jdbcType=VARCHAR},
+            </if>
+            <if test="updateDate != null">
+                #{updateDate,jdbcType=TIMESTAMP},
+            </if>
+            <if test="updateBy != null">
+                #{updateBy,jdbcType=VARCHAR},
+            </if>
+        </trim>
+    </insert>
+    <update id="updateByPkSelective" parameterType="com.huajun56.web.entity.RoleResource">
+        <!--
+          WARNING - @mbg.generated
+        -->
+        update web_role_resource
+        <set>
+            <if test="roleId != null">
+                role_id = #{roleId,jdbcType=INTEGER},
+            </if>
+            <if test="resourceId != null">
+                resource_id = #{resourceId,jdbcType=INTEGER},
+            </if>
+            <if test="permission != null">
+                permission = #{permission,jdbcType=VARCHAR},
+            </if>
+            <if test="isDel != null">
+                is_del = #{isDel,jdbcType=BIT},
+            </if>
+            <if test="disabled != null">
+                disabled = #{disabled,jdbcType=BIT},
+            </if>
+            <if test="createDate != null">
+                create_date = #{createDate,jdbcType=TIMESTAMP},
+            </if>
+            <if test="createBy != null">
+                create_by = #{createBy,jdbcType=VARCHAR},
+            </if>
+            <if test="updateDate != null">
+                update_date = #{updateDate,jdbcType=TIMESTAMP},
+            </if>
+            <if test="updateBy != null">
+                update_by = #{updateBy,jdbcType=VARCHAR},
+            </if>
+        </set>
+        where id = #{id,jdbcType=BIGINT}
+    </update>
+
+
+    <insert id="batchInsert" parameterType="com.huajun56.web.entity.RoleResource">
+        <!--
+          WARNING - @mbg.generated
+        -->
+        <foreach collection="list" item="item" open="" close="" separator=";">
+            insert into web_role_resource
+            <trim prefix="(" suffix=")" suffixOverrides=",">
+                <if test="item.id != null">
+                    id,
+                </if>
+                <if test="item.roleId != null">
+                    role_id,
+                </if>
+                <if test="item.resourceId != null">
+                    resource_id,
+                </if>
+                <if test="item.permission != null">
+                    permission,
+                </if>
+                <if test="item.isDel != null">
+                    is_del,
+                </if>
+                <if test="item.disabled != null">
+                    disabled,
+                </if>
+                <if test="item.createDate != null">
+                    create_date,
+                </if>
+                <if test="item.createBy != null">
+                    create_by,
+                </if>
+                <if test="item.updateDate != null">
+                    update_date,
+                </if>
+                <if test="item.updateBy != null">
+                    update_by,
+                </if>
+            </trim>
+            <trim prefix="values (" suffix=")" suffixOverrides=",">
+                <if test="item.id != null">
+                    #{item.id,jdbcType=BIGINT},
+                </if>
+                <if test="item.roleId != null">
+                    #{item.roleId,jdbcType=INTEGER},
+                </if>
+                <if test="item.resourceId != null">
+                    #{item.resourceId,jdbcType=INTEGER},
+                </if>
+                <if test="item.permission != null">
+                    #{item.permission,jdbcType=VARCHAR},
+                </if>
+                <if test="item.isDel != null">
+                    #{item.isDel,jdbcType=BIT},
+                </if>
+                <if test="item.disabled != null">
+                    #{item.disabled,jdbcType=BIT},
+                </if>
+                <if test="item.createDate != null">
+                    #{item.createDate,jdbcType=TIMESTAMP},
+                </if>
+                <if test="item.createBy != null">
+                    #{item.createBy,jdbcType=VARCHAR},
+                </if>
+                <if test="item.updateDate != null">
+                    #{item.updateDate,jdbcType=TIMESTAMP},
+                </if>
+                <if test="item.updateBy != null">
+                    #{item.updateBy,jdbcType=VARCHAR},
+                </if>
+            </trim>
+        </foreach>
+    </insert>
+
+    <update id="batchUpdate" parameterType="com.huajun56.web.entity.RoleResource">
+        <!--
+          WARNING - @mbg.generated
+        -->
+        <foreach collection="list" item="item" open="" close="" separator=";">
+            update web_role_resource rr
+            <set>
+                <if test="item.permission != null">
+                    rr.permission = #{item.permission,jdbcType=VARCHAR},
+                </if>
+                <if test="item.isDel != null">
+                    rr.is_del = #{item.isDel,jdbcType=BIT},
+                </if>
+                <if test="item.disabled != null">
+                    rr.disabled = #{item.disabled,jdbcType=BIT},
+                </if>
+                <if test="item.createDate != null">
+                    rr.create_date = #{item.createDate,jdbcType=TIMESTAMP},
+                </if>
+                <if test="item.createBy != null">
+                    rr.create_by = #{item.createBy,jdbcType=VARCHAR},
+                </if>
+                <if test="item.updateDate != null">
+                    rr.update_date = #{item.updateDate,jdbcType=TIMESTAMP},
+                </if>
+                <if test="item.updateBy != null">
+                    rr.update_by = #{item.updateBy,jdbcType=VARCHAR},
+                </if>
+            </set>
+            where rr.role_id = #{item.roleId,jdbcType=INTEGER}
+            and rr.resource_id = #{item.resourceId,jdbcType=INTEGER}
+        </foreach>
+    </update>
+
+    <update id="updateByPK" parameterType="com.huajun56.web.entity.RoleResource">
+        <!--
+          WARNING - @mbg.generated
+        -->
+        update web_role_resource
+        set role_id = #{roleId,jdbcType=INTEGER},
+        resource_id = #{resourceId,jdbcType=INTEGER},
+        permission = #{permission,jdbcType=VARCHAR},
+        is_del = #{isDel,jdbcType=BIT},
+        disabled = #{disabled,jdbcType=BIT},
+        create_date = #{createDate,jdbcType=TIMESTAMP},
+        create_by = #{createBy,jdbcType=VARCHAR},
+        update_date = #{updateDate,jdbcType=TIMESTAMP},
+        update_by = #{updateBy,jdbcType=VARCHAR}
+        where id = #{id,jdbcType=BIGINT}
+    </update>
+</mapper>

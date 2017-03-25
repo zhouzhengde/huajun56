@@ -1,0 +1,502 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.huajun56.crm.dao.OrderMapper">
+    <resultMap id="BaseResultMap" type="com.huajun56.crm.entity.Order">
+        <!--
+          WARNING - @mbg.generated
+        -->
+        <id column="id" jdbcType="VARCHAR" property="id"/>
+        <result column="pay_id" jdbcType="VARCHAR" property="payId"/>
+        <result column="customer_id" jdbcType="INTEGER" property="customerId"/>
+        <result column="order_type" jdbcType="INTEGER" property="orderType"/>
+        <result column="carrier_id" jdbcType="INTEGER" property="carrierId"/>
+        <result column="status" jdbcType="INTEGER" property="status"/>
+        <result column="from_province" jdbcType="VARCHAR" property="fromProvince"/>
+        <result column="from_city" jdbcType="VARCHAR" property="fromCity"/>
+        <result column="from_address" jdbcType="VARCHAR" property="fromAddress"/>
+        <result column="from_mobile" jdbcType="VARCHAR" property="fromMobile"/>
+        <result column="to_province" jdbcType="VARCHAR" property="toProvince"/>
+        <result column="to_city" jdbcType="VARCHAR" property="toCity"/>
+        <result column="to_address" jdbcType="VARCHAR" property="toAddress"/>
+        <result column="to_mobile" jdbcType="VARCHAR" property="toMobile"/>
+        <result column="weight" jdbcType="DOUBLE" property="weight"/>
+        <result column="volume" jdbcType="DOUBLE" property="volume"/>
+        <result column="route_id" jdbcType="INTEGER" property="routeId"/>
+        <result column="price_type" jdbcType="INTEGER" property="priceType"/>
+        <result column="quoted_price" jdbcType="DOUBLE" property="quotedPrice"/>
+        <result column="final_price" jdbcType="DOUBLE" property="finalPrice"/>
+        <result column="disabled" jdbcType="BIT" property="disabled"/>
+        <result column="is_del" jdbcType="BIT" property="isDel"/>
+        <result column="create_date" jdbcType="TIMESTAMP" property="createDate"/>
+        <result column="create_by" jdbcType="VARCHAR" property="createBy"/>
+        <result column="update_date" jdbcType="TIMESTAMP" property="updateDate"/>
+        <result column="update_by" jdbcType="VARCHAR" property="updateBy"/>
+        <result column="from_realname" jdbcType="VARCHAR" property="fromRealname"/>
+        <result column="to_realname" jdbcType="VARCHAR" property="toRealname"/>
+    </resultMap>
+    <sql id="Base_Column_List">
+        <!--
+          WARNING - @mbg.generated
+        -->
+        id, pay_id, customer_id, order_type, carrier_id, status, from_province, from_city,
+        from_address, to_province, to_city, to_address, weight, volume, route_id, price_type,
+        quoted_price, final_price, disabled, is_del, create_date, create_by, update_date,
+        update_by,
+        from_mobile,
+        to_mobile
+    </sql>
+    <select id="findByPK" parameterType="java.lang.String" resultMap="BaseResultMap">
+        <!--
+          WARNING - @mbg.generated
+        -->
+        select
+        <include refid="Base_Column_List"/>
+        from crm_order
+        where is_del=0 and id = #{id,jdbcType=VARCHAR}
+    </select>
+    <select id="find" resultMap="BaseResultMap">
+        <!--
+          WARNING - @mbg.generated
+        -->
+        select
+        <include refid="Base_Column_List"/>
+        from crm_order
+        <where>
+            is_del=0
+            <if test="id != null">
+                and id=#{id,jdbcType=VARCHAR}
+            </if>
+            <if test="payId != null">
+                and pay_id=#{payId,jdbcType=VARCHAR}
+            </if>
+            <if test="customerId != null">
+                and customer_id=#{customerId,jdbcType=INTEGER}
+            </if>
+            <if test="orderType != null">
+                and order_type=#{orderType,jdbcType=INTEGER}
+            </if>
+            <if test="carrierId != null">
+                and carrier_id=#{carrierId,jdbcType=INTEGER}
+            </if>
+            <if test="status != null">
+                and status=#{status,jdbcType=INTEGER}
+            </if>
+            <if test="fromProvince != null">
+                and from_province=#{fromProvince,jdbcType=VARCHAR}
+            </if>
+            <if test="fromCity != null">
+                and from_city=#{fromCity,jdbcType=VARCHAR}
+            </if>
+            <if test="fromAddress != null">
+                and from_address=#{fromAddress,jdbcType=VARCHAR}
+            </if>
+            <if test="fromMobile != null">
+                and from_mobile=#{fromMobile,jdbcType=VARCHAR}
+            </if>
+            <if test="toMobile != null">
+                and to_mobile=#{toMobile,jdbcType=VARCHAR}
+            </if>
+            <if test="fromRealname != null">
+                and from_realname=#{fromRealname,jdbcType=VARCHAR}
+            </if>
+            <if test="toRealname != null">
+                and to_realname=#{toRealname,jdbcType=VARCHAR}
+            </if>
+            <if test="toProvince != null">
+                and to_province=#{toProvince,jdbcType=VARCHAR}
+            </if>
+            <if test="toCity != null">
+                and to_city=#{toCity,jdbcType=VARCHAR}
+            </if>
+            <if test="toAddress != null">
+                and to_address=#{toAddress,jdbcType=VARCHAR}
+            </if>
+            <if test="weight != null">
+                and weight=#{weight,jdbcType=DOUBLE}
+            </if>
+            <if test="volume != null">
+                and volume=#{volume,jdbcType=DOUBLE}
+            </if>
+            <if test="routeId != null">
+                and route_id=#{routeId,jdbcType=INTEGER}
+            </if>
+            <if test="priceType != null">
+                and price_type=#{priceType,jdbcType=INTEGER}
+            </if>
+            <if test="quotedPrice != null">
+                and quoted_price=#{quotedPrice,jdbcType=DOUBLE}
+            </if>
+            <if test="finalPrice != null">
+                and final_price=#{finalPrice,jdbcType=DOUBLE}
+            </if>
+            <if test="disabled != null">
+                and disabled=#{disabled,jdbcType=BIT}
+            </if>
+            <if test="isDel != null">
+                and is_del=#{isDel,jdbcType=BIT}
+            </if>
+            <if test="createDate != null">
+                and create_date=#{createDate,jdbcType=TIMESTAMP}
+            </if>
+            <if test="createBy != null">
+                and create_by=#{createBy,jdbcType=VARCHAR}
+            </if>
+            <if test="updateDate != null">
+                and update_date=#{updateDate,jdbcType=TIMESTAMP}
+            </if>
+            <if test="updateBy != null">
+                and update_by=#{updateBy,jdbcType=VARCHAR}
+            </if>
+        </where>
+    </select>
+    <update id="deleteByPK" parameterType="java.lang.String">
+        <!--
+          WARNING - @mbg.generated
+        -->
+        update crm_order set is_del=1
+        where id = #{id,jdbcType=VARCHAR}
+    </update>
+    <update id="batchDelete" parameterType="java.util.List">
+        <!--
+          WARNING - @mbg.generated
+        -->
+        update crm_order set is_del=1
+        where id in
+        <foreach close=")" collection="ids" item="id" open="(" separator=",">
+            #{id}
+        </foreach>
+    </update>
+    <insert id="insert" parameterType="com.huajun56.crm.entity.Order">
+        <!--
+          WARNING - @mbg.generated
+        -->
+        insert into crm_order (id, pay_id, customer_id,
+        order_type, carrier_id, status,
+        from_province, from_city, from_address,
+        to_province, to_city, to_address,
+        weight, volume, route_id,
+        price_type, quoted_price, final_price,
+        disabled, is_del, create_date,
+        create_by, update_date, update_by,
+        from_mobile,
+        to_mobile, from_realname,
+        to_realname
+        )
+        values (#{id,jdbcType=VARCHAR}, #{payId,jdbcType=VARCHAR}, #{customerId,jdbcType=INTEGER},
+        #{orderType,jdbcType=INTEGER}, #{carrierId,jdbcType=INTEGER}, #{status,jdbcType=INTEGER},
+        #{fromProvince,jdbcType=VARCHAR}, #{fromCity,jdbcType=VARCHAR}, #{fromAddress,jdbcType=VARCHAR},
+        #{toProvince,jdbcType=VARCHAR}, #{toCity,jdbcType=VARCHAR}, #{toAddress,jdbcType=VARCHAR},
+        #{weight,jdbcType=DOUBLE}, #{volume,jdbcType=DOUBLE}, #{routeId,jdbcType=INTEGER},
+        #{priceType,jdbcType=INTEGER}, #{quotedPrice,jdbcType=DOUBLE}, #{finalPrice,jdbcType=DOUBLE},
+        #{disabled,jdbcType=BIT}, #{isDel,jdbcType=BIT}, #{createDate,jdbcType=TIMESTAMP},
+        #{createBy,jdbcType=VARCHAR}, #{updateDate,jdbcType=TIMESTAMP}, #{updateBy,jdbcType=VARCHAR},
+        #{fromMobile},
+        #{toMobile},
+        #{fromRealname},
+        #{toRealname}
+        )
+    </insert>
+    <insert id="insertSelective" parameterType="com.huajun56.crm.entity.Order">
+        <!--
+          WARNING - @mbg.generated
+        -->
+        insert into crm_order
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="id != null">
+                id,
+            </if>
+            <if test="payId != null">
+                pay_id,
+            </if>
+            <if test="customerId != null">
+                customer_id,
+            </if>
+            <if test="orderType != null">
+                order_type,
+            </if>
+            <if test="carrierId != null">
+                carrier_id,
+            </if>
+            <if test="status != null">
+                status,
+            </if>
+            <if test="fromProvince != null">
+                from_province,
+            </if>
+            <if test="fromCity != null">
+                from_city,
+            </if>
+            <if test="fromAddress != null">
+                from_address,
+            </if>
+            <if test="toProvince != null">
+                to_province,
+            </if>
+            <if test="toCity != null">
+                to_city,
+            </if>
+            <if test="toAddress != null">
+                to_address,
+            </if>
+            <if test="weight != null">
+                weight,
+            </if>
+            <if test="volume != null">
+                volume,
+            </if>
+            <if test="routeId != null">
+                route_id,
+            </if>
+            <if test="priceType != null">
+                price_type,
+            </if>
+            <if test="quotedPrice != null">
+                quoted_price,
+            </if>
+            <if test="finalPrice != null">
+                final_price,
+            </if>
+            <if test="disabled != null">
+                disabled,
+            </if>
+            <if test="isDel != null">
+                is_del,
+            </if>
+            <if test="createDate != null">
+                create_date,
+            </if>
+            <if test="createBy != null">
+                create_by,
+            </if>
+            <if test="updateDate != null">
+                update_date,
+            </if>
+            <if test="updateBy != null">
+                update_by,
+            </if>
+            <if test="fromMobile != null">
+                from_mobile,
+            </if>
+            <if test="toMobile != null">
+                to_mobile,
+            </if>
+            <if test="fromRealname != null">
+                from_realname,
+            </if>
+            <if test="toRealname != null">
+                to_realname,
+            </if>
+        </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="id != null">
+                #{id,jdbcType=VARCHAR},
+            </if>
+            <if test="payId != null">
+                #{payId,jdbcType=VARCHAR},
+            </if>
+            <if test="customerId != null">
+                #{customerId,jdbcType=INTEGER},
+            </if>
+            <if test="orderType != null">
+                #{orderType,jdbcType=INTEGER},
+            </if>
+            <if test="carrierId != null">
+                #{carrierId,jdbcType=INTEGER},
+            </if>
+            <if test="status != null">
+                #{status,jdbcType=INTEGER},
+            </if>
+            <if test="fromProvince != null">
+                #{fromProvince,jdbcType=VARCHAR},
+            </if>
+            <if test="fromCity != null">
+                #{fromCity,jdbcType=VARCHAR},
+            </if>
+            <if test="fromAddress != null">
+                #{fromAddress,jdbcType=VARCHAR},
+            </if>
+            <if test="toProvince != null">
+                #{toProvince,jdbcType=VARCHAR},
+            </if>
+            <if test="toCity != null">
+                #{toCity,jdbcType=VARCHAR},
+            </if>
+            <if test="toAddress != null">
+                #{toAddress,jdbcType=VARCHAR},
+            </if>
+            <if test="weight != null">
+                #{weight,jdbcType=DOUBLE},
+            </if>
+            <if test="volume != null">
+                #{volume,jdbcType=DOUBLE},
+            </if>
+            <if test="routeId != null">
+                #{routeId,jdbcType=INTEGER},
+            </if>
+            <if test="priceType != null">
+                #{priceType,jdbcType=INTEGER},
+            </if>
+            <if test="quotedPrice != null">
+                #{quotedPrice,jdbcType=DOUBLE},
+            </if>
+            <if test="finalPrice != null">
+                #{finalPrice,jdbcType=DOUBLE},
+            </if>
+            <if test="disabled != null">
+                #{disabled,jdbcType=BIT},
+            </if>
+            <if test="isDel != null">
+                #{isDel,jdbcType=BIT},
+            </if>
+            <if test="createDate != null">
+                #{createDate,jdbcType=TIMESTAMP},
+            </if>
+            <if test="createBy != null">
+                #{createBy,jdbcType=VARCHAR},
+            </if>
+            <if test="updateDate != null">
+                #{updateDate,jdbcType=TIMESTAMP},
+            </if>
+            <if test="updateBy != null">
+                #{updateBy,jdbcType=VARCHAR},
+            </if>
+            <if test="fromMobile != null">
+                #{fromMobile},
+            </if>
+            <if test="toMobile != null">
+                #{toMobile},
+            </if>
+            <if test="fromRealname != null">
+                #{fromRealname},
+            </if>
+            <if test="toRealname != null">
+                #{toRealname},
+            </if>
+
+        </trim>
+    </insert>
+    <update id="updateByPkSelective" parameterType="com.huajun56.crm.entity.Order">
+        <!--
+          WARNING - @mbg.generated
+        -->
+        update crm_order
+        <set>
+            <if test="payId != null">
+                pay_id = #{payId,jdbcType=VARCHAR},
+            </if>
+            <if test="customerId != null">
+                customer_id = #{customerId,jdbcType=INTEGER},
+            </if>
+            <if test="orderType != null">
+                order_type = #{orderType,jdbcType=INTEGER},
+            </if>
+            <if test="carrierId != null">
+                carrier_id = #{carrierId,jdbcType=INTEGER},
+            </if>
+            <if test="status != null">
+                status = #{status,jdbcType=INTEGER},
+            </if>
+            <if test="fromProvince != null">
+                from_province = #{fromProvince,jdbcType=VARCHAR},
+            </if>
+            <if test="fromCity != null">
+                from_city = #{fromCity,jdbcType=VARCHAR},
+            </if>
+            <if test="fromAddress != null">
+                from_address = #{fromAddress,jdbcType=VARCHAR},
+            </if>
+            <if test="toProvince != null">
+                to_province = #{toProvince,jdbcType=VARCHAR},
+            </if>
+            <if test="toCity != null">
+                to_city = #{toCity,jdbcType=VARCHAR},
+            </if>
+            <if test="toAddress != null">
+                to_address = #{toAddress,jdbcType=VARCHAR},
+            </if>
+            <if test="weight != null">
+                weight = #{weight,jdbcType=DOUBLE},
+            </if>
+            <if test="volume != null">
+                volume = #{volume,jdbcType=DOUBLE},
+            </if>
+            <if test="routeId != null">
+                route_id = #{routeId,jdbcType=INTEGER},
+            </if>
+            <if test="priceType != null">
+                price_type = #{priceType,jdbcType=INTEGER},
+            </if>
+            <if test="quotedPrice != null">
+                quoted_price = #{quotedPrice,jdbcType=DOUBLE},
+            </if>
+            <if test="finalPrice != null">
+                final_price = #{finalPrice,jdbcType=DOUBLE},
+            </if>
+            <if test="disabled != null">
+                disabled = #{disabled,jdbcType=BIT},
+            </if>
+            <if test="isDel != null">
+                is_del = #{isDel,jdbcType=BIT},
+            </if>
+            <if test="createDate != null">
+                create_date = #{createDate,jdbcType=TIMESTAMP},
+            </if>
+            <if test="createBy != null">
+                create_by = #{createBy,jdbcType=VARCHAR},
+            </if>
+            <if test="updateDate != null">
+                update_date = #{updateDate,jdbcType=TIMESTAMP},
+            </if>
+            <if test="updateBy != null">
+                update_by = #{updateBy,jdbcType=VARCHAR},
+            </if>
+            <if test="fromMobile != null">
+                from_mobile=#{fromMobile},
+            </if>
+            <if test="toMobile != null">
+                to_mobile=#{toMobile},
+            </if>
+            <if test="fromRealname != null">
+                from_realname=#{fromRealname},
+            </if>
+            <if test="toRealname != null">
+                to_realname=#{toRealname},
+            </if>
+        </set>
+        where id = #{id,jdbcType=VARCHAR}
+    </update>
+    <update id="updateByPK" parameterType="com.huajun56.crm.entity.Order">
+        <!--
+          WARNING - @mbg.generated
+        -->
+        update crm_order
+        set pay_id = #{payId,jdbcType=VARCHAR},
+        customer_id = #{customerId,jdbcType=INTEGER},
+        order_type = #{orderType,jdbcType=INTEGER},
+        carrier_id = #{carrierId,jdbcType=INTEGER},
+        status = #{status,jdbcType=INTEGER},
+        from_province = #{fromProvince,jdbcType=VARCHAR},
+        from_city = #{fromCity,jdbcType=VARCHAR},
+        from_address = #{fromAddress,jdbcType=VARCHAR},
+        to_province = #{toProvince,jdbcType=VARCHAR},
+        to_city = #{toCity,jdbcType=VARCHAR},
+        to_address = #{toAddress,jdbcType=VARCHAR},
+        weight = #{weight,jdbcType=DOUBLE},
+        volume = #{volume,jdbcType=DOUBLE},
+        route_id = #{routeId,jdbcType=INTEGER},
+        price_type = #{priceType,jdbcType=INTEGER},
+        quoted_price = #{quotedPrice,jdbcType=DOUBLE},
+        final_price = #{finalPrice,jdbcType=DOUBLE},
+        disabled = #{disabled,jdbcType=BIT},
+        is_del = #{isDel,jdbcType=BIT},
+        create_date = #{createDate,jdbcType=TIMESTAMP},
+        create_by = #{createBy,jdbcType=VARCHAR},
+        update_date = #{updateDate,jdbcType=TIMESTAMP},
+        update_by = #{updateBy,jdbcType=VARCHAR},
+        from_mobile = #{fromMobile,jdbcType=VARCHAR},
+        to_mobile = #{toMobile,jdbcType=VARCHAR},
+        from_realname = #{fromRealname,jdbcType=VARCHAR},
+        to_realname = #{toRealname,jdbcType=VARCHAR}
+        where id = #{id,jdbcType=VARCHAR}
+    </update>
+</mapper>

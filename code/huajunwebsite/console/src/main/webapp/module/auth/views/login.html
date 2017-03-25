@@ -1,0 +1,27 @@
+<div>
+    <div class="panel panel-default login-b">
+        <div class="panel-heading">
+            <img src="images/logo2.png"/> &nbsp;客户关系管理系统
+        </div>
+        <div class="panel-body">
+            <form role="form">
+                <div class="form-group">
+                    <label><span class="glyphicon glyphicon-user"></span>&nbsp;&nbsp;用户名</label>
+                    <input type="text" ng-model="user.username" class="form-control" id="name" placeholder="请输入用户名">
+                </div>
+                <div class="form-group">
+                    <label><span class="glyphicon glyphicon-lock"></span>&nbsp;&nbsp;密码</label>
+                    <input type="password" ng-model="user.password" class="form-control" id="password"
+                           placeholder="请输入密码">
+                </div>
+                <p class="font-alert" ng-bind="message"></p>
+                <button type="submit" ng-click="doLogin();" class="btn btn-success btn-primary btn-lg btn-block">登录
+                </button>
+            </form>
+        </div>
+    </div>
+</div>
+
+</div>
+<img src="images/loginbg.gif" id="bgimg">
+</div>

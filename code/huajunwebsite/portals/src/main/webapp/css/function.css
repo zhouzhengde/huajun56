@@ -230,8 +230,14 @@ h4 {
     width: 16%;
 }
 
+.prod-box > label {
+    color: #5a9bec;
+    text-align: center;
+    width: 100%;
+}
+
 .prod-item {
-    margin: 20px auto;
+    margin: 20px auto 5px;
     width: 100px;
     height: 100px;
     border-radius: 50px;
@@ -276,6 +282,20 @@ h4 {
     width: 130px;
     height: 30px;
     background-size: 130px 30px !important;
+}
+
+.contact-us .list-group-item {
+    border-top: 0px;
+    border-bottom: 0px;
+    text-align: left;
+}
+.contact-us .list-group-item:last-child{
+    border-bottom: 1px solid #dddddd;
+}
+
+#comp-culture-canvas {
+    width: 100%;
+    height: 600px;
 }
 
 /*--S slide --*/
@@ -415,6 +435,14 @@ h4 {
 }
 
 /**-E fixed-sidebar **/
+
+/**-S map **/
+#echart-map-transform {
+    width: 100%;
+    height: 600px;
+}
+
+/**-E map **/
 
 /*--S media adjust --*/
 @media all and (max-width: 767px) {
@@ -599,6 +627,14 @@ h4 {
     .news-vertical-ticker li > a:nth-child(2n) {
         float: right;
         text-align: right;
+    }
+
+    #echart-map-transform {
+        height: 350px;
+    }
+
+    #comp-culture-canvas{
+        height: 300px;
     }
 
 }

@@ -1,0 +1,242 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.huajun56.crm.dao.PayMapper">
+  <resultMap id="BaseResultMap" type="com.huajun56.crm.entity.Pay">
+    <!--
+      WARNING - @mbg.generated
+    -->
+    <id column="id" jdbcType="VARCHAR" property="id" />
+    <result column="pay_type" jdbcType="INTEGER" property="payType" />
+    <result column="pay_account" jdbcType="VARCHAR" property="payAccount" />
+    <result column="pay_status" jdbcType="INTEGER" property="payStatus" />
+    <result column="pay_money" jdbcType="DOUBLE" property="payMoney" />
+    <result column="disabled" jdbcType="BIT" property="disabled" />
+    <result column="is_del" jdbcType="BIT" property="isDel" />
+    <result column="create_date" jdbcType="TIMESTAMP" property="createDate" />
+    <result column="create_by" jdbcType="VARCHAR" property="createBy" />
+    <result column="update_date" jdbcType="TIMESTAMP" property="updateDate" />
+    <result column="update_by" jdbcType="VARCHAR" property="updateBy" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    <!--
+      WARNING - @mbg.generated
+    -->
+    id, pay_type, pay_account, pay_status, pay_money, disabled, is_del, create_date, 
+    create_by, update_date, update_by
+  </sql>
+  <select id="findByPK" parameterType="java.lang.String" resultMap="BaseResultMap">
+    <!--
+      WARNING - @mbg.generated
+    -->
+    select 
+    <include refid="Base_Column_List" />
+    from crm_pay
+    where   is_del=0  and id = #{id,jdbcType=VARCHAR}
+  </select>
+  <select id="find" resultMap="BaseResultMap">
+    <!--
+      WARNING - @mbg.generated
+    -->
+    select 
+    <include refid="Base_Column_List" />
+    from crm_pay
+    <where>
+      is_del=0
+      <if test="id != null">
+         and id=#{id,jdbcType=VARCHAR}
+      </if>
+      <if test="payType != null">
+         and pay_type=#{payType,jdbcType=INTEGER}
+      </if>
+      <if test="payAccount != null">
+         and pay_account=#{payAccount,jdbcType=VARCHAR}
+      </if>
+      <if test="payStatus != null">
+         and pay_status=#{payStatus,jdbcType=INTEGER}
+      </if>
+      <if test="payMoney != null">
+         and pay_money=#{payMoney,jdbcType=DOUBLE}
+      </if>
+      <if test="disabled != null">
+         and disabled=#{disabled,jdbcType=BIT}
+      </if>
+      <if test="isDel != null">
+         and is_del=#{isDel,jdbcType=BIT}
+      </if>
+      <if test="createDate != null">
+         and create_date=#{createDate,jdbcType=TIMESTAMP}
+      </if>
+      <if test="createBy != null">
+         and create_by=#{createBy,jdbcType=VARCHAR}
+      </if>
+      <if test="updateDate != null">
+         and update_date=#{updateDate,jdbcType=TIMESTAMP}
+      </if>
+      <if test="updateBy != null">
+         and update_by=#{updateBy,jdbcType=VARCHAR}
+      </if>
+    </where>
+  </select>
+  <update id="deleteByPK" parameterType="java.lang.String">
+    <!--
+      WARNING - @mbg.generated
+    -->
+    update crm_pay  set is_del=1
+    where id = #{id,jdbcType=VARCHAR}
+  </update>
+  <update id="batchDelete" parameterType="java.util.List">
+    <!--
+      WARNING - @mbg.generated
+    -->
+    update crm_pay  set is_del=1
+    where id  in  
+    <foreach close=")" collection="ids" item="id" open="(" separator=",">
+      #{id}
+    </foreach>
+  </update>
+  <insert id="insert" parameterType="com.huajun56.crm.entity.Pay">
+    <!--
+      WARNING - @mbg.generated
+    -->
+    insert into crm_pay (id, pay_type, pay_account, 
+      pay_status, pay_money, disabled, 
+      is_del, create_date, create_by, 
+      update_date, update_by)
+    values (#{id,jdbcType=VARCHAR}, #{payType,jdbcType=INTEGER}, #{payAccount,jdbcType=VARCHAR}, 
+      #{payStatus,jdbcType=INTEGER}, #{payMoney,jdbcType=DOUBLE}, #{disabled,jdbcType=BIT}, 
+      #{isDel,jdbcType=BIT}, #{createDate,jdbcType=TIMESTAMP}, #{createBy,jdbcType=VARCHAR}, 
+      #{updateDate,jdbcType=TIMESTAMP}, #{updateBy,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.huajun56.crm.entity.Pay">
+    <!--
+      WARNING - @mbg.generated
+    -->
+    insert into crm_pay
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        id,
+      </if>
+      <if test="payType != null">
+        pay_type,
+      </if>
+      <if test="payAccount != null">
+        pay_account,
+      </if>
+      <if test="payStatus != null">
+        pay_status,
+      </if>
+      <if test="payMoney != null">
+        pay_money,
+      </if>
+      <if test="disabled != null">
+        disabled,
+      </if>
+      <if test="isDel != null">
+        is_del,
+      </if>
+      <if test="createDate != null">
+        create_date,
+      </if>
+      <if test="createBy != null">
+        create_by,
+      </if>
+      <if test="updateDate != null">
+        update_date,
+      </if>
+      <if test="updateBy != null">
+        update_by,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=VARCHAR},
+      </if>
+      <if test="payType != null">
+        #{payType,jdbcType=INTEGER},
+      </if>
+      <if test="payAccount != null">
+        #{payAccount,jdbcType=VARCHAR},
+      </if>
+      <if test="payStatus != null">
+        #{payStatus,jdbcType=INTEGER},
+      </if>
+      <if test="payMoney != null">
+        #{payMoney,jdbcType=DOUBLE},
+      </if>
+      <if test="disabled != null">
+        #{disabled,jdbcType=BIT},
+      </if>
+      <if test="isDel != null">
+        #{isDel,jdbcType=BIT},
+      </if>
+      <if test="createDate != null">
+        #{createDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="createBy != null">
+        #{createBy,jdbcType=VARCHAR},
+      </if>
+      <if test="updateDate != null">
+        #{updateDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateBy != null">
+        #{updateBy,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPkSelective" parameterType="com.huajun56.crm.entity.Pay">
+    <!--
+      WARNING - @mbg.generated
+    -->
+    update crm_pay
+    <set>
+      <if test="payType != null">
+        pay_type = #{payType,jdbcType=INTEGER},
+      </if>
+      <if test="payAccount != null">
+        pay_account = #{payAccount,jdbcType=VARCHAR},
+      </if>
+      <if test="payStatus != null">
+        pay_status = #{payStatus,jdbcType=INTEGER},
+      </if>
+      <if test="payMoney != null">
+        pay_money = #{payMoney,jdbcType=DOUBLE},
+      </if>
+      <if test="disabled != null">
+        disabled = #{disabled,jdbcType=BIT},
+      </if>
+      <if test="isDel != null">
+        is_del = #{isDel,jdbcType=BIT},
+      </if>
+      <if test="createDate != null">
+        create_date = #{createDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="createBy != null">
+        create_by = #{createBy,jdbcType=VARCHAR},
+      </if>
+      <if test="updateDate != null">
+        update_date = #{updateDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateBy != null">
+        update_by = #{updateBy,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPK" parameterType="com.huajun56.crm.entity.Pay">
+    <!--
+      WARNING - @mbg.generated
+    -->
+    update crm_pay
+    set pay_type = #{payType,jdbcType=INTEGER},
+      pay_account = #{payAccount,jdbcType=VARCHAR},
+      pay_status = #{payStatus,jdbcType=INTEGER},
+      pay_money = #{payMoney,jdbcType=DOUBLE},
+      disabled = #{disabled,jdbcType=BIT},
+      is_del = #{isDel,jdbcType=BIT},
+      create_date = #{createDate,jdbcType=TIMESTAMP},
+      create_by = #{createBy,jdbcType=VARCHAR},
+      update_date = #{updateDate,jdbcType=TIMESTAMP},
+      update_by = #{updateBy,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=VARCHAR}
+  </update>
+</mapper>

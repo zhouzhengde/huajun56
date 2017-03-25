@@ -1,0 +1,55 @@
+/*{*/
+.layout-mobile(layout-mobile);
+.layout-mobile(@layout-name) {
+  // north height
+  @north-height: auto;
+  // middle height
+  @west-center-east-height: auto;
+  // left or west width
+  @west-width: 0%;
+  // center width;
+  @center-width: 100%;
+  // east width
+  @east-width: 0px;
+  // south height
+  @south-height: auto;
+
+  /**--S ui-layout **/
+  .@{layout-name} .ui-layout-north:extend(.ui-layout) {
+    width: 100%;
+    height: @north-height;
+  }
+
+  .@{layout-name} .ui-layout-west:extend(.ui-layout) {
+    width: @west-width;
+    height: @west-center-east-height;
+  }
+
+  .@{layout-name} .ui-layout-center:extend(.ui-layout) {
+    width: @center-width;
+    height: @west-center-east-height;
+    min-height: 82%;
+  }
+
+  .@{layout-name} .ui-layout-east:extend(.ui-layout) {
+    width: @east-width;
+    height: @west-center-east-height;
+  }
+
+  .@{layout-name} .ui-layout-south:extend(.ui-layout) {
+    width: 100%;
+    height: @south-height;
+  }
+
+  .@{layout-name} .header {
+    height: auto;
+    min-height: 10%;
+    overflow: visible;
+  }
+
+  .@{layout-name} .footer {
+    height: auto;
+    min-height: 10%;
+    overflow: visible;
+  }
+}

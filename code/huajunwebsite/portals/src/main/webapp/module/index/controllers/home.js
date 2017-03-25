@@ -16,7 +16,16 @@ define([
 
         $scope.doHome = function () {
             $("#menu-navbar-collapse").removeClass("in");
-        }
+        };
+
+
+        // var data1 = $.ajax({
+        //     url: "http://localhost:9090/api/portals/order/latest/4",
+        //     type: 'get',
+        //     success: function(data, status, xhr) {
+        //         alert(data);
+        //     }
+        // });
 
     }]);
 });

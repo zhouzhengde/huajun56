@@ -1,0 +1,172 @@
+//
+// Switch
+// --------------------------------------------------
+
+// Switch wrapper
+// --------------------------------------------------
+
+.@{switch-name} {
+  font-size: @component-font-size-base; // 15px
+  line-height: @switch-height;
+  display: inline-block;
+  cursor: pointer;
+  /*border-radius: @switch-border-radius;*/
+  position: relative;
+  text-align: left;
+  overflow: hidden;
+  vertical-align: middle;
+  width: @switch-width;
+  height: @switch-height;
+  border: 1px solid #d3d3d3;
+  border-radius: @switch-border-radius;
+  user-select: none;
+
+  // Handlers wrapp
+  > div {
+    display: inline-block;
+    width: @switch-width * 1.5;
+    transform: translate3d(0, 0, 0);
+    border-radius: @switch-border-radius;
+    background: #f5f5f5;
+    background: linear-gradient(to bottom, #ffffff, #e6e6e6);
+    height: @switch-height;
+    margin-left: 0px;
+
+    // Handlers
+    > span {
+      cursor: pointer;
+      display: inline-block;
+      height: @switch-height - 2;
+      text-align: center;
+      z-index: 1;
+      width: @switch-width / 2;
+      transition: box-shadow .25s ease-out;
+      float: left;
+
+      &.switch-left {
+        color: #ffffff;
+        border-top-left-radius: @switch-border-radius;
+        border-bottom-left-radius: @switch-border-radius;
+        /*background: linear-gradient(to bottom, #1f395f, #1f395f);*/
+        background: linear-gradient(to bottom, #50d60f, #38b326);;
+      }
+      &.switch-right {
+        margin-left: @switch-width / 2;
+        color: #000;
+        border-top-right-radius: @switch-border-radius;
+        border-bottom-right-radius: @switch-border-radius;
+        background: linear-gradient(to bottom, #e6e6e6, #ffffff);
+        border-left: 1px solid #d3d3d3;
+      }
+    }
+
+    > label {
+      cursor: pointer;
+      display: block;
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      text-indent: -9999px;
+      font-size: 0;
+      top: 0;
+      left: 0;
+      margin: 0;
+      z-index: 200;
+      .opacity(0);
+    }
+  }
+
+  input[type="radio"],
+  input[type="checkbox"] {
+    position: absolute !important;
+    margin: 0;
+    top: 0;
+    left: 0;
+    z-index: -1;
+    .opacity(0);
+  }
+}
+
+.@{switch-name}-handle-off {
+  > div {
+    margin-left: -(@switch-width / 2);
+    animation: switch-off-animate 0.2s;
+    -moz-animation: switch-off-animate 0.2s;
+    -webkit-animation: switch-off-animate 0.2s;
+    -o-animation: switch-off-animate 0.2s;
+  }
+}
+
+.@{switch-name}-handle-on {
+  > div {
+    margin-left: 0px;
+    animation: switch-on-animate 0.2s;
+    -moz-animation: switch-on-animate 0.2s;
+    -webkit-animation: switch-on-animate 0.2s;
+    -o-animation: switch-on-animate 0.2s;
+  }
+}
+
+@keyframes switch-off-animate {
+  from {
+    margin-left: 0px;
+  }
+  to {
+    margin-left: -(@switch-width / 2);
+  }
+}
+
+@keyframes switch-on-animate {
+  from {
+    margin-left: -(@switch-width / 2);
+  }
+  to {
+    margin-left: 0px;
+  }
+}
+
+/*.@{switch-name}-on > div {
+  margin-left: 0;
+}
+
+.@{switch-name}-off > div {
+  margin-left: -51px;
+}*/
+
+// Switch `disabled` states
+.@{switch-name}-disabled,
+.@{switch-name}-readonly {
+  .opacity(.5);
+  cursor: not-allowed;
+  > div > span,
+  > div > label {
+    cursor: not-allowed !important;
+  }
+}
+
+// Handler feedback states
+// --------------------------------------------------
+
+.@{switch-name}-default {
+  .switch-variant(@inverse, @gray-light, @gray-light, mix(@brand-primary, white, 63%));
+}
+
+.@{switch-name}-primary {
+  .switch-variant(@brand-secondary, @brand-primary, @brand-primary, @brand-secondary);
+}
+
+.@{switch-name}-info {
+  .switch-variant(@inverse, @brand-info, @brand-info, @inverse);
+}
+
+.@{switch-name}-success {
+  .switch-variant(@inverse, @brand-success, @brand-success, @inverse);
+}
+
+.@{switch-name}-warning {
+  .switch-variant(@inverse, @brand-warning, @brand-warning, @inverse);
+}
+
+.@{switch-name}-danger {
+  .switch-variant(@inverse, @brand-danger, @brand-danger, @inverse);
+}

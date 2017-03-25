@@ -26,6 +26,7 @@ require.config({
         'underscore': 'util/underscore',
         'device': 'util/device',
         'style': 'util/style-adjust',
+        'raphael': 'util/raphael',
         'jzen': 'jzen',
         'root': '../../../js',
         'app': '../../../js/.md',
@@ -57,7 +58,8 @@ require.config({
                 'device',
                 'jquery-bootstrap',
                 'jquery-plugins',
-                'echarts'
+                'echarts',
+                'raphael'
             ]
         },
         'echarts':{

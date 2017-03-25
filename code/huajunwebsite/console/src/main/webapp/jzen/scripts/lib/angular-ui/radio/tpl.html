@@ -1,0 +1,6 @@
+<div ng-class="{true:'disabled'}[ngDisabled]" class="radio-group">
+    <div ng-class="{true:'active'}[item.value == uiModel]" class="radio-ext" ng-repeat="item in uiConfig.options" ng-click="doCheck(item);">
+        <div class="icons"><i ng-class="{false:'fa-circle-o', true:'fa-dot-circle-o'}[item.value == uiModel]" class="fa" aria-hidden="true"></i></div>
+        <div class="radio-text" ng-bind="item.text" data-value="item.value"></div>
+    </div>
+</div>

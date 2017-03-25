@@ -1,0 +1,235 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.huajun56.web.dao.RoleMapper">
+    <resultMap id="BaseResultMap" type="com.huajun56.web.entity.Role">
+        <!--
+          WARNING - @mbg.generated
+        -->
+        <id column="id" jdbcType="INTEGER" property="id"/>
+        <result column="name" jdbcType="VARCHAR" property="name"/>
+        <result column="code" jdbcType="VARCHAR" property="code"/>
+        <result column="alias" jdbcType="VARCHAR" property="alias"/>
+        <result column="description" jdbcType="VARCHAR" property="description"/>
+        <result column="disabled" jdbcType="BIT" property="disabled"/>
+        <result column="is_del" jdbcType="BIT" property="isDel"/>
+        <result column="create_date" jdbcType="TIMESTAMP" property="createDate"/>
+        <result column="create_by" jdbcType="VARCHAR" property="createBy"/>
+        <result column="update_date" jdbcType="TIMESTAMP" property="updateDate"/>
+        <result column="update_by" jdbcType="VARCHAR" property="updateBy"/>
+    </resultMap>
+    <sql id="Base_Column_List">
+        <!--
+          WARNING - @mbg.generated
+        -->
+        ro.id, ro.name, ro.alias, ro.code, ro.description, ro.disabled, ro.is_del, ro.create_date, ro.create_by,
+        ro.update_date, ro.update_by
+    </sql>
+    <select id="findByPK" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+        <!--
+          WARNING - @mbg.generated
+        -->
+        select
+        <include refid="Base_Column_List"/>
+        from web_role ro
+        where ro.is_del = 0
+        and ro.id = #{id}
+    </select>
+    <select id="find" resultMap="BaseResultMap">
+        <!--
+          WARNING - @mbg.generated
+        -->
+        select
+        <include refid="Base_Column_List"/>
+        from web_role ro
+        <where>
+            ro.is_del = 0
+            <if test="id != null">
+                and id=#{id,jdbcType=INTEGER}
+            </if>
+            <if test="name != null">
+                and name=#{name,jdbcType=VARCHAR}
+            </if>
+            <if test="description != null">
+                and description=#{description,jdbcType=VARCHAR}
+            </if>
+            <if test="disabled != null">
+                and disabled=#{disabled,jdbcType=BIT}
+            </if>
+            <if test="isDel != null">
+                and is_del=#{isDel,jdbcType=BIT}
+            </if>
+            <if test="createDate != null">
+                and create_date=#{createDate,jdbcType=TIMESTAMP}
+            </if>
+            <if test="createBy != null">
+                and create_by=#{createBy,jdbcType=VARCHAR}
+            </if>
+            <if test="updateDate != null">
+                and update_date=#{updateDate,jdbcType=TIMESTAMP}
+            </if>
+            <if test="updateBy != null">
+                and update_by=#{updateBy,jdbcType=VARCHAR}
+            </if>
+        </where>
+    </select>
+    <update id="deleteByPK" parameterType="java.lang.Integer">
+        <!--
+          WARNING - @mbg.generated
+        -->
+        update web_role set is_del=1
+        where id = #{id,jdbcType=INTEGER}
+    </update>
+    <update id="batchDelete" parameterType="java.util.List">
+        <!--
+          WARNING - @mbg.generated
+        -->
+        update web_role set is_del=1
+        where id in
+        <foreach close=")" collection="ids" item="id" open="(" separator=",">
+            #{id}
+        </foreach>
+    </update>
+    <insert id="insert" parameterType="com.huajun56.web.entity.Role">
+        <!--
+          WARNING - @mbg.generated
+        -->
+        insert into web_role (id, name, alias, code ,description,
+        disabled, is_del, create_date,
+        create_by, update_date, update_by
+        )
+        values (#{id,jdbcType=INTEGER}, #{name,jdbcType=VARCHAR}, #{alias}, #{code}, #{description,jdbcType=VARCHAR},
+        #{disabled,jdbcType=BIT}, #{isDel,jdbcType=BIT}, #{createDate,jdbcType=TIMESTAMP},
+        #{createBy,jdbcType=VARCHAR}, #{updateDate,jdbcType=TIMESTAMP}, #{updateBy,jdbcType=VARCHAR}
+        )
+    </insert>
+    <insert id="insertSelective" parameterType="com.huajun56.web.entity.Role">
+        <!--
+          WARNING - @mbg.generated
+        -->
+        insert into web_role
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="id != null">
+                id,
+            </if>
+            <if test="name != null">
+                name,
+            </if>
+            <if test="alias != null">
+                alias,
+            </if>
+            <if test="code != null">
+                code,
+            </if>
+            <if test="description != null">
+                description,
+            </if>
+            <if test="disabled != null">
+                disabled,
+            </if>
+            <if test="isDel != null">
+                is_del,
+            </if>
+            <if test="createDate != null">
+                create_date,
+            </if>
+            <if test="createBy != null">
+                create_by,
+            </if>
+            <if test="updateDate != null">
+                update_date,
+            </if>
+            <if test="updateBy != null">
+                update_by,
+            </if>
+        </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="id != null">
+                #{id,jdbcType=INTEGER},
+            </if>
+            <if test="name != null">
+                #{name,jdbcType=VARCHAR},
+            </if>
+            <if test="alias != null">
+                #{alias,jdbcType=VARCHAR},
+            </if>
+            <if test="code != null">
+                #{code,jdbcType=VARCHAR},
+            </if>
+            <if test="description != null">
+                #{description,jdbcType=VARCHAR},
+            </if>
+            <if test="disabled != null">
+                #{disabled,jdbcType=BIT},
+            </if>
+            <if test="isDel != null">
+                #{isDel,jdbcType=BIT},
+            </if>
+            <if test="createDate != null">
+                #{createDate,jdbcType=TIMESTAMP},
+            </if>
+            <if test="createBy != null">
+                #{createBy,jdbcType=VARCHAR},
+            </if>
+            <if test="updateDate != null">
+                #{updateDate,jdbcType=TIMESTAMP},
+            </if>
+            <if test="updateBy != null">
+                #{updateBy,jdbcType=VARCHAR},
+            </if>
+        </trim>
+    </insert>
+    <update id="updateByPkSelective" parameterType="com.huajun56.web.entity.Role">
+        <!--
+          WARNING - @mbg.generated
+        -->
+        update web_role
+        <set>
+            <if test="name != null">
+                name = #{name,jdbcType=VARCHAR},
+            </if>
+            <if test="code != null">
+                code = #{code,jdbcType=VARCHAR},
+            </if>
+            <if test="alias != null">
+                alias = #{alias,jdbcType=VARCHAR},
+            </if>
+            <if test="description != null">
+                description = #{description,jdbcType=VARCHAR},
+            </if>
+            <if test="disabled != null">
+                disabled = #{disabled,jdbcType=BIT},
+            </if>
+            <if test="isDel != null">
+                is_del = #{isDel,jdbcType=BIT},
+            </if>
+            <if test="createDate != null">
+                create_date = #{createDate,jdbcType=TIMESTAMP},
+            </if>
+            <if test="createBy != null">
+                create_by = #{createBy,jdbcType=VARCHAR},
+            </if>
+            <if test="updateDate != null">
+                update_date = #{updateDate,jdbcType=TIMESTAMP},
+            </if>
+            <if test="updateBy != null">
+                update_by = #{updateBy,jdbcType=VARCHAR},
+            </if>
+        </set>
+        where id = #{id,jdbcType=INTEGER}
+    </update>
+    <update id="updateByPK" parameterType="com.huajun56.web.entity.Role">
+        <!--
+          WARNING - @mbg.generated
+        -->
+        update web_role
+        set name = #{name,jdbcType=VARCHAR}, code=#{code,jdbcType=VARCHAR}, alias=#{alias,jdbcType=VARCHAR},
+        description = #{description,jdbcType=VARCHAR},
+        disabled = #{disabled,jdbcType=BIT},
+        is_del = #{isDel,jdbcType=BIT},
+        create_date = #{createDate,jdbcType=TIMESTAMP},
+        create_by = #{createBy,jdbcType=VARCHAR},
+        update_date = #{updateDate,jdbcType=TIMESTAMP},
+        update_by = #{updateBy,jdbcType=VARCHAR}
+        where id = #{id,jdbcType=INTEGER}
+    </update>
+</mapper>

@@ -1,0 +1,161 @@
+/*--S list page style */
+.list-container {
+  float: left;
+  height: 100%;
+  width: 100%;
+  background: #ffffff;
+  overflow-y: auto;
+  overflow-x: hidden;
+  padding: 0px;
+  box-shadow: 0px 0px 5px #666666;
+  border-radius: 5px;
+
+  .list-container {
+    box-shadow: none;
+    border: none;
+  }
+
+  > .list-frame {
+    width: 100%;
+    float: left;
+    //border-top: 4px solid @brand-secondary;
+    /*height: 100%;*/
+    padding-bottom: 20px;
+
+    > .list-title {
+      width: 100%;
+    }
+
+    > .list-title > h3 {
+      margin: 0px 0px 10px;
+      line-height: 50px;
+      padding: 0px 15px;
+      border-bottom: 1px solid #d3d3d3;
+    }
+
+    > .input-area {
+      float: left;
+      margin-bottom: 10px;
+      margin-top: 10px;
+    }
+
+    > .input-area .control-label {
+      float: left;
+      text-align: right;
+     /* padding-top: 4px;*/
+      width: 30%;
+    }
+
+    /* > .input-area > .form-group:first-child {
+       padding: 0px;
+     }*/
+
+    > .input-area > .form-group:first-child > .control-label {
+      width: auto;
+    }
+    /* > .input-area > .form-group:last-child {
+       padding: 0;
+     }*/
+
+    > .input-area .control-input {
+      float: left;
+      text-align: left;
+      width: 70%;
+    }
+
+    > .input-area .form-group > button {
+      margin-left: 20px;
+    }
+
+    > .input-area .form-group.form-material {
+      margin-bottom: 0px;
+      padding: 0px;
+    }
+
+    > .opt-panel {
+      float: left;
+      width: 100%;
+      padding: 10px 15px;
+    }
+
+    > .list-table {
+      float: left;
+      width: 100%;
+      padding: 10px 15px 0px;
+      background: #FFFFFF;
+    }
+
+    > .list-table > .tab {
+      width: 100%;
+      float: left;
+      border: 1px solid #bdc3c7;
+      border-radius: 5px;
+      /*max-height: 480px;
+      overflow: auto;*/
+    }
+
+    > .list-table > .tab > table {
+      width: 100%;
+      float: left;
+      text-align: center;
+    }
+
+    > .list-table > .tab thead th {
+      text-align: center;
+      background: #FFFFFF;
+      border-right: 1px solid #bdc3c7;
+      font-size: 1.4rem;
+    }
+
+    > .list-table > .tab th:first-child {
+      border-top-left-radius: 5px;
+    }
+
+    > .list-table > .tab th:last-child {
+      border-top-right-radius: 5px;
+      border-right: none;
+    }
+
+    > .list-table > .tab tr {
+      border-top: 1px solid #bdc3c7;
+      height: 42px;
+    }
+
+    > .list-table > .tab tr:hover {
+      background: #f2f8ff;
+    }
+
+    > .list-table > .tab thead tr {
+      border-top: none;
+    }
+
+    > .list-table > .tab td, .list-container > .list-frame > .list-table > .tab th {
+      border-right: 1px solid #bdc3c7;
+      word-break: break-all;
+    }
+
+    > .list-table > .tab td:last-child {
+      border-right: none;
+    }
+  }
+
+  /*--S media adjust --*/
+  @media (max-width: @screen-sm-max) {
+
+    .input-area {
+
+      width: 100%;
+
+      > .form-group.form-material {
+        width: 100%;
+        float: left;
+        padding: 5px 0px;
+        > .control-input, .control-label {
+          width: 100%;
+          text-align: left;
+        }
+      }
+    }
+  }
+}
+

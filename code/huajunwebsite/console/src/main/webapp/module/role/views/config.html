@@ -1,0 +1,47 @@
+<div class="list-container col-sm-12" ui-scrollbar>
+    <form class="list-frame add-container" ng-validator validator-config="validator">
+        <div class="list-title">
+            <h3><i class="glyphicon glyphicon-th"></i>&nbsp;功能权限</h3>
+        </div>
+        <div class="col-sm-12">
+            <div class="col-sm-3 none-padding">
+                <div>
+                    <label><span class="glyphicon glyphicon-bookmark"></span>&nbsp;资源列表</label>
+                </div>
+                <div class="default-tree" ui-scrollbar>
+                    <div ui-tree-view ui-config="allResConfig"></div>
+                </div>
+            </div>
+            <div class="col-sm-9 pr0">
+                <div>
+                    <label><span class="glyphicon glyphicon-bookmark"></span>&nbsp;<span ng-bind="roleName"></span> &nbsp;—— &nbsp;已有资源及权限</label>
+                </div>
+                <div class="default-tree" ui-scrollbar>
+                    <div class="permission-item" ng-repeat="item in permissionList">
+                        <div class="permission-item-left">
+                            <div ui-checkbox ui-label="'全选/反选'" ui-model="item.permissionObject.checkAll" ui-change="doCheckAll(item, value)"></div>
+                            &nbsp;&nbsp;
+                            <label class="w100p" ng-bind="item.resource.name"></label>
+                        </div>
+                        <div class="permission-item-right">
+                            <div ui-switch ui-model="item.permissionObject.access" ui-label="'可访问：'"></div>
+                            <div ui-switch ui-model="item.permissionObject.query" ui-label="'可查询：'"></div>
+                            <div ui-switch ui-model="item.permissionObject.add" ui-label="'可添加：'"></div>
+                            <div ui-switch ui-model="item.permissionObject.modify" ui-label="'可修改：'"></div>
+                            <div ui-switch ui-model="item.permissionObject.delete" ui-label="'可删除：'"></div>
+                        </div>
+                    </div>
+                    <div ng-if="permissionList == 0" class="text-center">
+                        <div class="require-flag">没有任何资源及权限！</div>
+                    </div>
+                </div>
+            </div>
+            <div class="text-align-center col-sm-12 pt20">
+                <button ng-click="doSave();" class="btn btn-primary"><i class="glyphicon glyphicon-save"></i>&nbsp;保存
+                </button>
+                <a href="#/role" class="btn btn-warning "><i class="glyphicon glyphicon-share-alt mirror-x"></i>&nbsp;返回
+                </a>
+            </div>
+        </div>
+    </form>
+</div>

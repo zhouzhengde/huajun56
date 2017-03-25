@@ -1,0 +1,8 @@
+<div>
+    <button class="btn btn-success" ng-click="doChoose(this);">
+        <span class="glyphicon glyphicon-plus"></span>
+        选择文件
+    </button>
+    <input ng-if="multiple == true" class="file-upload-choose-btn hide" type="file" nv-file-select="" uploader="uploader" multiple/>
+    <input ng-if="multiple == false" class="file-upload-choose-btn hide" type="file" nv-file-select="" uploader="uploader"/>
+</div>

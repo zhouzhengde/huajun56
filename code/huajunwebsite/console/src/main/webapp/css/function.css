@@ -1,0 +1,486 @@
+/*
+ * Copyright (c) 2015. Bond(China), MOI
+ */
+html {
+    font-size: 10px;
+}
+
+body {
+    overflow: hidden;
+    background-image: linear-gradient(540deg, #4a6685, #4e3647);
+}
+
+h1, .h1 {
+    font-size: 26px;
+}
+
+h2, .h2 {
+    font-size: 18px;
+}
+
+h3, .h3 {
+    font-size: 16px;
+}
+
+h4, .h4 {
+    font-size: 15px;
+}
+
+h5, .h5 {
+    font-size: 14px;
+}
+
+h6, .h6 {
+    font-size: 14px;
+}
+
+.font-waring {
+    color: #f1c40f;
+}
+
+.font-alert {
+    color: #FF0000;
+}
+
+.none-border {
+    border: none !important;
+    box-shadow: none !important;
+}
+
+.none-padding {
+    padding: 0px !important;
+}
+
+.none-margin {
+    margin: 0px !important;
+}
+
+.none-result {
+    color: #FF0000;
+}
+
+.require-flag {
+    color: #FF0000;
+    padding: 0px 5px;
+}
+
+.float-none {
+    float: none !important;
+}
+
+.mirror-x {
+    transform: matrix(-1, 0, 0, 1, 0, 0);
+}
+
+.mirror-y {
+    transform: matrix(0, -1, 0, 0, 1, 0);
+}
+
+.modal-header > h3 {
+    margin: 5px;
+}
+
+.btn.btn-default {
+    border: 1px solid #bdc3c7;
+    background: #ffffff;
+    color: #333333;
+}
+
+.align-center {
+    margin: 0px auto;
+}
+
+.text-align-center {
+    text-align: center;
+}
+
+.flex-center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.flex-v-center {
+    display: flex;
+    align-items: center;
+}
+
+.flex-end {
+    display: flex;
+    align-items: flex-end;
+}
+
+.flex-h-center {
+    display: flex;
+    justify-content: center;
+}
+
+.header {
+    padding-top: 0px;
+    padding-right: 0px;
+    /* background: #ffffff;*/
+    border-bottom: 1px solid rgba(151, 163, 179, 0.37);
+    background: rgba(0, 0, 0, 0.4) none repeat scroll !important;
+    background: rgb(0, 0, 0);
+    filter: alpha(opacity=4);
+}
+
+.header .user-info:hover {
+    /*background: #f2f2f2;*/
+    color: #e3e3e3;
+}
+
+.header a.user-info > span {
+    color: #e3e3e3;
+}
+
+.header .logo {
+    background: url("../images/logo.png") no-repeat 0px;
+    height: 60px;
+
+}
+
+.header .navbar-nav > li > ul.dropdown-menu {
+    margin-top: 0px;
+    background: #2D3D4F;
+    border-top-left-radius: 0px;
+    border-top-right-radius: 0px;
+}
+
+.header .navbar-nav > li > ul.dropdown-menu a {
+    color: #d3d3d3;
+}
+
+.header .navbar-nav > li > ul.dropdown-menu a:first-child:hover {
+    border-top-left-radius: 0px;
+    border-top-right-radius: 0px;
+}
+
+.footer {
+    border-top: 1px solid rgba(151, 163, 179, 0.37);
+    padding: 12px 0px 12px 0px;
+    line-height: 25px;
+    color: #666;
+}
+
+.layout-mobile .footer {
+    padding: 0.7rem 0px;
+}
+
+.ui-layout-content {
+    /*background: rgba(226, 239, 255, 0.45);*/
+    float: left;
+    width: 100%;
+    overflow-y: auto;
+    padding: 20px;
+}
+
+.ui-layout-content > div {
+    height: 100%;
+    width: 100%;
+    float: left;
+}
+
+.logo-title > h1 {
+    margin: 0px;
+    padding: 0px;
+    height: 121px; /*126px;*/
+    background: url("../images/logo2.png") no-repeat 0px scroll;
+    background-position-x: 50%;
+    border-bottom: 1px solid rgba(151, 163, 179, 0.37);
+    background-size: 120px 30px;
+
+}
+
+/*--S Tree */
+.default-tree {
+    overflow: auto;
+    height: 630px;
+    /* width: 100%;*/
+    /* max-height: 640px;*/
+    border: 1px solid #c3c3c3;
+    padding: 11px;
+}
+
+.permission-item {
+    margin-bottom: 10px;
+    width: 100%;
+    float: left;
+    border: 1px solid #e3e3e3;
+}
+
+.permission-item .permission-item-left {
+    width: 18%;
+    float: left;
+    padding-left: 10px;
+    border-right: 1px solid #e3e3e3;
+}
+
+.permission-item .permission-item-left > label {
+    padding-left: 5px;
+    font-weight: 700;
+}
+
+.permission-item .permission-item-right {
+    width: 82%;
+    float: left;
+    padding-left: 50px;
+}
+
+.permission-item .permission-item-right > div {
+    float: left;
+    margin-right: 20px;
+}
+
+/*--E Tree */
+
+/*-- S 功能待开发 */
+.develop {
+    margin: 0px auto;
+    padding-top: 15%;
+    text-align: center;
+}
+
+.develop-tips {
+    font-size: 22px;
+    color: #FFFFFF;
+    font-family: "等线 Light", "Microsoft YaHei", sans-serif;
+    font-style: italic;
+}
+
+.develop-icon {
+    line-height: 60px;
+    font-size: 72px;
+    color: #FFFFFF; /* #1f395f;*/
+    margin-bottom: 0px;
+    font-family: "等线 Light", "Microsoft YaHei", sans-serif;
+}
+
+/*-- E 功能待开发 */
+
+/*--S add page style */
+.add-container {
+    /*padding-bottom: 20px;*/
+}
+
+.add-container .form-group {
+    margin-top: 25px;
+    margin-bottom: 25px;
+}
+
+.add-container .control-label {
+    min-width: 180px;
+    float: left;
+    text-align: right;
+    line-height: 40px;
+    height: 40px;
+}
+
+.partition-container .control-label {
+    min-width: 0px;
+    text-align: left;
+}
+
+.add-container .form-group .form-control {
+    /* width: 280px;*/
+    max-width: 280px;
+    float: left;
+}
+
+.add-container .form-group textarea.form-control {
+    max-width: 442px;
+}
+
+.add-container .form-group .control-input label {
+    float: left;
+    margin: 0px 10px;
+}
+
+.add-container .form-group .form-control.group {
+    float: left;
+    margin-right: 15px;
+    /*margin-right: 45px;*/
+    /*margin-bottom: 55px;*/
+    /*float: right;*/
+}
+
+.add-container .form-group textarea.form-control {
+    height: 120px;
+    resize: none
+}
+
+/*--S add page style */
+
+/*--S login.html --*/
+
+body.login-page {
+    background: #F7F7F7;
+}
+
+body.login-page div.login-header {
+    height: 80px;
+    background: url("../images/logo.png") no-repeat 60px 10px;
+    background-size: 190px 60px;
+    box-shadow: 0px 1px 5px #a3a3a3;
+}
+
+#loginBg {
+    /* overflow: hidden;*/
+}
+
+/*#loginBg .navbar-default {
+    background-color: #FFF;
+    margin-bottom: 0;
+}*/
+
+/*#loginBg nav {
+    height: 80px;
+    background: url("../images/maoye_logo.png") no-repeat 60px 25px, #FFFFFF;
+    !* background-position: 60px 25px;*!
+    border: 1px solid #e3e3e3;
+    box-shadow: 0px 1px 2px #666666;
+}*/
+
+/*#loginBg .navbar-brand {
+    padding: 25px 65px;
+}*/
+
+#loginBg .login-content {
+    overflow: hidden;
+    position: fixed;
+    top: 85px;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: #F7F7F7;
+}
+
+#loginBg .login-b {
+    width: 27%;
+    position: absolute;
+    top: 11%;
+    right: 20%;
+    z-index: 99;
+
+}
+
+@media screen and (max-width: 1200px) {
+    #loginBg .login-b {
+        width: 340px !important;
+    }
+
+}
+
+#loginBg .panel-body {
+    padding: 20px 45px 40px;
+}
+
+#loginBg .panel-heading {
+    background-color: #fff;
+    padding: 30px 0;
+    text-align: center;
+    font-size: 24px;
+    color: #000;
+    font-weight: 300;
+    font-family: "等线 Light", "Microsoft YaHei", sans-serif;
+}
+
+#loginBg .glyphicon {
+    color: #ddd;
+}
+
+#loginBg label {
+    color: #666;
+    font-weight: normal;
+    font-size: 18px;
+}
+
+#loginBg .form-control {
+    height: 40px;
+}
+
+#bgimg {
+    margin: 10% 31% 38% 7%;
+    max-width: 1434px;
+    width: 100%;
+}
+
+/*--E login.html --*/
+
+/*--S modal-dialog --*/
+.modal-dialog {
+    padding-top: 42px;
+}
+
+/*--E modal-dialog --*/
+
+/*--S media adjust --*/
+@media (max-width: 767px) {
+
+    .header .navbar-collapse {
+        background-color: rgba(44, 44, 44, 0.9);
+        padding-bottom: 5px;
+    }
+
+    .header .navbar-collapse .navbar-nav > li {
+        margin: 0px;
+    }
+
+    .header .navbar-collapse .navbar-nav > li > a {
+        color: #d3d3d3;
+    }
+
+    .header .navbar-collapse .navbar-nav > li > a:hover, .header .navbar-collapse .navbar-nav > li > a:focus {
+        color: #FFFFFF;
+        background-color: rgba(0, 0, 0, 0.5);
+        border-top: 3px solid rgba(0, 0, 0, 0.2);
+    }
+
+    .login-page .system-name {
+        padding-top: 0px;
+        margin-top: -20px;
+        padding-bottom: 10px;
+        font-size: 24px;
+    }
+
+    .login-page .content .container {
+        margin-top: 0px;
+    }
+
+    .modal-dialog {
+        padding-top: 60px;
+    }
+}
+
+@media (max-height: 768px) {
+
+    .default-tree {
+        height: 430px;
+    }
+
+    body {
+        font-size: 14px !important;
+    }
+
+    h1 {
+        font-size: 22px;
+    }
+
+    h2 {
+        font-size: 18px;
+    }
+
+    h3 {
+        font-size: 15px;
+    }
+
+    h4 {
+        font-size: 14px;
+    }
+
+    h5 {
+        font-size: 13px;
+    }
+}
+
+/*--E media adjust --*

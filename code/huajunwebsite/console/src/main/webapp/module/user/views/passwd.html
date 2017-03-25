@@ -1,0 +1,59 @@
+<div class="list-container col-sm-12" ui-scrollbar="">
+    <form class="list-frame" ng-validator validator-config="validator">
+        <div class="list-title">
+            <h3><i class="glyphicon glyphicon-th"></i>&nbsp;修改密码</h3>
+        </div>
+        <div class="container add-container">
+            <div class="col-sm-6 align-center">
+                <div class="form-group form-material col-sm-12">
+                    <div class="control-label">
+                        <label>帐号：</label>
+                    </div>
+                    <div class="control-input">
+                        <input type="text" class="form-control" ng-model="user.loginName" disabled>
+                    </div>
+                </div>
+                <div class="form-group form-material col-sm-12">
+                    <div class="control-label">
+                        <label>用户名：</label>
+                        <span ng-bind=""></span>
+                    </div>
+                    <div class="control-input">
+                        <input type="text" class="form-control" ng-model="user.userName" disabled>
+                    </div>
+                </div>
+                <div class="form-group form-material col-sm-12">
+                    <div class="control-label ">
+                        <label><span class="require-flag">*</span>原密码：</label>
+
+                    </div>
+                    <div class="control-input">
+                        <input ng-valid="validate[required]" type="password" class="form-control" ng-model="user.oldPassword" placeholder="请输入原密码">
+                    </div>
+                </div>
+                <div class="form-group form-material col-sm-12 ">
+                    <div class="control-label">
+                        <label><span class="require-flag">*</span>新密码：</label>
+                    </div>
+                    <div class="control-input">
+                        <input ng-valid="validate[required[minSize[6[maxSize[16]]]]]" type="password" class="form-control" ng-model="user.password" placeholder="请输入新密码">
+                    </div>
+                </div>
+                <div class="form-group form-material col-sm-12 ">
+                    <div class="control-label">
+                        <label><span class="require-flag">*</span>确认密码：</label>
+                    </div>
+                    <div class="control-input">
+                        <input ng-valid="validate[required[minSize[6[maxSize[16]]]]]" type="password" class="form-control" ng-model="user.confirmPassword" placeholder="请再次输入新密码">
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="text-align-center col-sm-12">
+            <button ng-click="doEdit();" class="btn btn-primary"><i class="glyphicon glyphicon-save"></i>&nbsp;保存
+            </button>
+            <a href="javascript:history.go(-1);" class="btn btn-warning "><i class="glyphicon glyphicon-share-alt mirror-x"></i>&nbsp;返回
+            </a>
+        </div>
+</div>
+</form>

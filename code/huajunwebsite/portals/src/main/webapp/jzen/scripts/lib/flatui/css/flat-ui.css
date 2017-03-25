@@ -619,7 +619,7 @@ samp {
   font-family: frutigernext_medium, frutigernext, "Microsoft YaHei", Arial, Helvetica, sans-serif;
 }
 code {
-  padding: 2px 6px;
+  padding: 0px;
   font-size: 85%;
   color: #c7254e;
   background-color: #f9f2f4;
@@ -634,7 +634,7 @@ kbd {
   box-shadow: none;
 }
 pre {
-  padding: 8.66666667px;
+  padding: 0px;
   margin: 0 0 16px;
   font-size: 13px;
   line-height: 1.8;
@@ -6345,4 +6345,3 @@ footer p {
     background: #bdc3c7 !important;
   }
 }
-/*# sourceMappingURL=flat-ui.css.map */

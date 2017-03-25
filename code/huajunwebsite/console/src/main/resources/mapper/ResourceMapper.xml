@@ -1,0 +1,234 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.huajun56.web.dao.ResourceMapper">
+  <resultMap id="BaseResultMap" type="com.huajun56.web.entity.Resource">
+    <id column="id" jdbcType="INTEGER" property="id" />
+    <result column="name" jdbcType="VARCHAR" property="name" />
+    <result column="path" jdbcType="VARCHAR" property="path" />
+    <result column="parent_id" jdbcType="INTEGER" property="parentId" />
+    <result column="iconfont" jdbcType="VARCHAR" property="iconfont" />
+    <result column="type" jdbcType="INTEGER" property="type" />
+    <result column="order_id" jdbcType="INTEGER" property="orderId" />
+    <result column="disabled" jdbcType="BIT" property="disabled" />
+    <result column="is_del" jdbcType="BIT" property="isDel" />
+    <result column="create_date" jdbcType="TIMESTAMP" property="createDate" />
+    <result column="create_by" jdbcType="VARCHAR" property="createBy" />
+    <result column="update_date" jdbcType="TIMESTAMP" property="updateDate" />
+    <result column="update_by" jdbcType="VARCHAR" property="updateBy" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    id, name, path, parent_id, iconfont, type, order_id, disabled, is_del, create_date, 
+    create_by, update_date, update_by
+  </sql>
+  <select id="findByPK" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from web_resource
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <select id="find" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from web_resource
+    <where>
+      <if test="id != null">
+        and id=#{id,jdbcType=INTEGER}
+      </if>
+      <if test="name != null">
+        and name=#{name,jdbcType=VARCHAR}
+      </if>
+      <if test="path != null">
+        and path=#{path,jdbcType=VARCHAR}
+      </if>
+      <if test="parentId != null">
+        and parent_id=#{parentId,jdbcType=INTEGER}
+      </if>
+      <if test="iconfont != null">
+        and iconfont=#{iconfont,jdbcType=VARCHAR}
+      </if>
+      <if test="type != null">
+        and type=#{type,jdbcType=INTEGER}
+      </if>
+      <if test="orderId != null">
+        and order_id=#{orderId,jdbcType=INTEGER}
+      </if>
+      <if test="disabled != null">
+        and disabled=#{disabled,jdbcType=BIT}
+      </if>
+      <if test="isDel != null">
+        and is_del=#{isDel,jdbcType=BIT}
+      </if>
+      <if test="createDate != null">
+        and create_date=#{createDate,jdbcType=TIMESTAMP}
+      </if>
+      <if test="createBy != null">
+        and create_by=#{createBy,jdbcType=VARCHAR}
+      </if>
+      <if test="updateDate != null">
+        and update_date=#{updateDate,jdbcType=TIMESTAMP}
+      </if>
+      <if test="updateBy != null">
+        and update_by=#{updateBy,jdbcType=VARCHAR}
+      </if>
+    </where>
+  </select>
+  <update id="deleteByPK" parameterType="java.lang.Integer">
+    update web_resource  set is_del=1
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <insert id="insert" parameterType="com.huajun56.web.entity.Resource">
+    insert into web_resource (id, name, path, 
+      parent_id, iconfont, type, 
+      order_id, disabled, is_del, create_date, 
+      create_by, update_date, update_by
+      )
+    values (#{id,jdbcType=INTEGER}, #{name,jdbcType=VARCHAR}, #{path,jdbcType=VARCHAR}, 
+      #{parentId,jdbcType=INTEGER}, #{iconfont,jdbcType=VARCHAR}, #{type,jdbcType=INTEGER}, 
+      #{orderId,jdbcType=INTEGER}, #{disabled,jdbcType=BIT}, #{isDel,jdbcType=BIT}, #{createDate,jdbcType=TIMESTAMP}, 
+      #{createBy,jdbcType=VARCHAR}, #{updateDate,jdbcType=TIMESTAMP}, #{updateBy,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.huajun56.web.entity.Resource">
+    insert into web_resource
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        id,
+      </if>
+      <if test="name != null">
+        name,
+      </if>
+      <if test="path != null">
+        path,
+      </if>
+      <if test="parentId != null">
+        parent_id,
+      </if>
+      <if test="iconfont != null">
+        iconfont,
+      </if>
+      <if test="type != null">
+        type,
+      </if>
+      <if test="orderId != null">
+        order_id,
+      </if>
+      <if test="disabled != null">
+        disabled,
+      </if>
+      <if test="isDel != null">
+        is_del,
+      </if>
+      <if test="createDate != null">
+        create_date,
+      </if>
+      <if test="createBy != null">
+        create_by,
+      </if>
+      <if test="updateDate != null">
+        update_date,
+      </if>
+      <if test="updateBy != null">
+        update_by,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="name != null">
+        #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="path != null">
+        #{path,jdbcType=VARCHAR},
+      </if>
+      <if test="parentId != null">
+        #{parentId,jdbcType=INTEGER},
+      </if>
+      <if test="iconfont != null">
+        #{iconfont,jdbcType=VARCHAR},
+      </if>
+      <if test="type != null">
+        #{type,jdbcType=INTEGER},
+      </if>
+      <if test="orderId != null">
+        #{orderId,jdbcType=INTEGER},
+      </if>
+      <if test="disabled != null">
+        #{disabled,jdbcType=BIT},
+      </if>
+      <if test="isDel != null">
+        #{isDel,jdbcType=BIT},
+      </if>
+      <if test="createDate != null">
+        #{createDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="createBy != null">
+        #{createBy,jdbcType=VARCHAR},
+      </if>
+      <if test="updateDate != null">
+        #{updateDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateBy != null">
+        #{updateBy,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPkSelective" parameterType="com.huajun56.web.entity.Resource">
+    update web_resource
+    <set>
+      <if test="name != null">
+        name = #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="path != null">
+        path = #{path,jdbcType=VARCHAR},
+      </if>
+      <if test="parentId != null">
+        parent_id = #{parentId,jdbcType=INTEGER},
+      </if>
+      <if test="iconfont != null">
+        iconfont = #{iconfont,jdbcType=VARCHAR},
+      </if>
+      <if test="type != null">
+        type = #{type,jdbcType=INTEGER},
+      </if>
+      <if test="orderId != null">
+        order_id = #{orderId,jdbcType=INTEGER},
+      </if>
+      <if test="disabled != null">
+        disabled = #{disabled,jdbcType=BIT},
+      </if>
+      <if test="isDel != null">
+        is_del = #{isDel,jdbcType=BIT},
+      </if>
+      <if test="createDate != null">
+        create_date = #{createDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="createBy != null">
+        create_by = #{createBy,jdbcType=VARCHAR},
+      </if>
+      <if test="updateDate != null">
+        update_date = #{updateDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateBy != null">
+        update_by = #{updateBy,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPK" parameterType="com.huajun56.web.entity.Resource">
+    update web_resource
+    set name = #{name,jdbcType=VARCHAR},
+      path = #{path,jdbcType=VARCHAR},
+      parent_id = #{parentId,jdbcType=INTEGER},
+      iconfont = #{iconfont,jdbcType=VARCHAR},
+      type = #{type,jdbcType=INTEGER},
+      order_id = #{orderId,jdbcType=INTEGER},
+      disabled = #{disabled,jdbcType=BIT},
+      is_del = #{isDel,jdbcType=BIT},
+      create_date = #{createDate,jdbcType=TIMESTAMP},
+      create_by = #{createBy,jdbcType=VARCHAR},
+      update_date = #{updateDate,jdbcType=TIMESTAMP},
+      update_by = #{updateBy,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+</mapper>

@@ -1,0 +1,60 @@
+<div class="list-container col-md-12" ui-scrollbar>
+    <div class="list-frame">
+        <div class="list-title">
+            <h3><i class="glyphicon glyphicon-th"></i>&nbsp;角色列表</h3>
+        </div>
+        <div class="opt-panel col-md-12">
+            <a class="btn btn-success" href="#/role/add"><i class="glyphicon glyphicon-plus"></i>&nbsp;新建
+            </a>
+            <button class="btn btn-warning" ng-click="reload();"><i class="glyphicon glyphicon-refresh"></i>&nbsp;刷新
+            </button>
+        </div>
+        <div class="list-table">
+            <div class="tab">
+                <table>
+                    <thead>
+                    <tr>
+                        <th>序号</th>
+                        <th>角色编号</th>
+                        <th>角色名称</th>
+                        <th>别名</th>
+                        <th>角色描述</th>
+                        <th>创建时间</th>
+                        <th>操作</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr ng-if="pager.result.length == 0">
+                        <td colspan="15" class="none-result">
+                            没有相关数据！
+                        </td>
+                    </tr>
+                    <tr ng-if="pager.result.length > 0" ng-repeat="item in pager.result">
+                        <td width="3%" ng-bind="$index + 1">
+                        </td>
+                        <td width="10%" ng-bind="item.code">
+                        </td>
+                        <td ng-bind="item.name">
+                        </td>
+                        <td width="10%" ng-bind="item.alias">
+                        </td>
+                        <td ng-bind="item.description">
+                        </td>
+                        <td width="10%" ng-bind="item.createDate | date:'yyyy-MM-dd HH:mm:ss'">
+                        </td>
+                        <td width="15%">
+                            <a ng-if="item.id != 3 && item.id != 4" href="#/role/config/{{item.id}}/{{item.name}}">功能权限</a>
+                            &nbsp;
+                            <a href="#/role/update/{{item.id}}">修改</a>
+                            &nbsp;
+                            <a ng-if="item.id > 4" href="" ng-click="doDel(item);">删除</a>
+                        </td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div pagination ng-pager="pager" ng-callback="reload(pager);" ng-block-num="10"></div>
+        </div>
+
+    </div>
+</div>
