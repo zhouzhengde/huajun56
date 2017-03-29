@@ -8,11 +8,13 @@ define(['./.md',
 ], function (md) {
     'use strict';
 
-    md.config(['$routeProvider', function ($routeProvider) {
+    md.config(['$routeProvider','$locationProvider', function ($routeProvider,$locationProvider) {
 
         $routeProvider.when('/login', {
             templateUrl: 'module/auth/views/login.html',
             controller: 'LoginCtrl'
         });
+
+        // $locationProvider.html5Mode(true);
     }]);
 });

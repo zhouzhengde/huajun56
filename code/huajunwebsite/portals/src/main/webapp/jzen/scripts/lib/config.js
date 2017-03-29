@@ -7,6 +7,8 @@ require.config({
     baseUrl: 'jzen/scripts/lib',
     paths: {
         'angular-resource': 'angular/angular-resource',
+        'angular-aria': 'angular/angular-aria',
+        'angular-messages': 'angular/angular-messages',
         'angular-sanitize': 'angular/angular-sanitize',
         'angular-scenario': 'angular/angular-scenario',
         'angular-animate': 'angular/angular-animate',
@@ -31,7 +33,8 @@ require.config({
         'root': '../../../js',
         'app': '../../../js/.md',
         'module': '../../../module',
-        'lib': '../../../jzen/scripts/lib'
+        'lib': '../../../jzen/scripts/lib',
+        "material": "angular/material/angular-material"
     },
     map: {
         '*': {
@@ -43,6 +46,14 @@ require.config({
         'jzen': {
             'deps': [
                 'flatui'
+            ]
+        },
+        'material': {
+            'deps': [
+                'angular',
+                'angular-animate',
+                'angular-messages',
+                'angular-aria'
             ]
         },
         'flatui': {
@@ -62,8 +73,8 @@ require.config({
                 'raphael'
             ]
         },
-        'echarts':{
-            'deps':[
+        'echarts': {
+            'deps': [
                 'jquery',
                 //'echarts-map-china'
             ]

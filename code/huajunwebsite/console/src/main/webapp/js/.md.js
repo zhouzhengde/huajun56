@@ -27,7 +27,7 @@ define([
 
     var listMenu = {};
 
-    var md = ng.module('app', ['ngRoute', 'angular-ui', "ui.bootstrap", 'auth', 'knowledge', 'ngCookies'])
+    var md = ng.module('app', ['ngRoute', 'angular-ui', "ui.bootstrap", 'auth', 'ngCookies'])
         .controller('MenuCtrl', ['$scope', "AuthResource", "$user", function ($scope, $authResource, $user) {
 
 
@@ -199,8 +199,8 @@ define([
                 }
             };
             return obj;
-        }).config(['$routeProvider', function ($routeProvider) {
-
+        }).config(['$routeProvider', '$locationProvider', function ($routeProvider, $locationProvider) {
+            //$locationProvider.html5Mode(true);
         }]).filter("gender", function () {
             return function (inputValue, otherParams) {
                 return inputValue == 1 ? '女' : '男';

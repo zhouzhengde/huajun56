@@ -2,16 +2,16 @@
  * Copyright (c) 2015. Bond(China)
  */
 var context = "";
-
-var script = document.getElementsByTagName("script")[0];
-var version = script.attributes['data-main'].value;
-var debug = script.attributes['data-debug'].value;
-
-if (debug && debug == 'true') {
-    version = Math.random();
-} else {
-    version = version.substring(version.indexOf("v=") + 2);
-}
+var version = "1.0.0";
+// var script = document.getElementsByTagName("script")[0];
+// var version = script.attributes['data-main'].value;
+// var debug = script.attributes['data-debug'].value;
+//
+// if (debug && debug == 'true') {
+//     version = Math.random();
+// } else {
+//     version = version.substring(version.indexOf("v=") + 2);
+// }
 
 require.config({
     //the configuration is not usefully, because require.js had default configuration, and the default value is current position of config.js
