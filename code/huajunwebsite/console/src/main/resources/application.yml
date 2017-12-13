@@ -33,7 +33,7 @@ server:
 spring:
   profiles: prod
   datasource:
-    password: yaD0812zX0819
+    password: xxx
 server:
   port: 10090
   address: 0.0.0.0
